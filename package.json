@@ -1,11 +1,11 @@
 {
-  "name": "with-typescript",
-  "version": "1.0.0",
+  "name": "tom-front",
+  "version": "0.0.1",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc"
+    "typecheck": "tsc"
   },
   "dependencies": {
     "next": "latest",
