@@ -1,7 +1,0 @@
-## Description
-
-## Current
-
-## Expected
-
-## References
