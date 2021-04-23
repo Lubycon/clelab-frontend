@@ -4,7 +4,7 @@ const instance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
 })
 
-const onRequestFulfilled = (config: AxiosRequestConfig) => {
+const interceptorsRequestFulfilled = (config: AxiosRequestConfig) => {
   return {
     ...config,
     headers: {
@@ -13,7 +13,7 @@ const onRequestFulfilled = (config: AxiosRequestConfig) => {
   }
 }
 
-const onResponseFulfilled = (res: AxiosResponse) => {
+const interceptorsResponseFulfilled = (res: AxiosResponse) => {
   if (res.data.result === 'SUCCESS') {
     return res.data.data
   }
@@ -21,16 +21,19 @@ const onResponseFulfilled = (res: AxiosResponse) => {
   return Promise.reject(res.data)
 }
 
-const onResponseRejected = (error: AxiosError) => {
+const interceptorsResponseRejected = (error: AxiosError) => {
   if (error.response?.data?.message != null) {
     return Promise.reject(new Error(error.response.data.message))
   }
 
-  return Promise.reject(error)
+  return Promise.reject(new Error(error.response?.data?.message ?? error))
 }
 
-instance.interceptors.request.use(onRequestFulfilled)
-instance.interceptors.response.use(onResponseFulfilled, onResponseRejected)
+instance.interceptors.request.use(interceptorsRequestFulfilled)
+instance.interceptors.response.use(
+  interceptorsResponseFulfilled,
+  interceptorsResponseRejected,
+)
 
 export function get<T>(...args: Parameters<typeof instance.get>) {
   return instance.get<T, T>(...args)
