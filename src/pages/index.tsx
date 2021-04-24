@@ -1,6 +1,14 @@
 import { css } from '@emotion/react'
 
-const IndexPage = () => <h1 css={style}>Hello Next.js 👋</h1>
+import useSampleFetch from '../hooks/useSample'
+
+const IndexPage = () => {
+  const { data, error } = useSampleFetch()
+  if (error) return null
+  if (!data) return 'Loading'
+
+  return <div css={style}>{data[0].id}</div>
+}
 
 const style = css`
   color: red;

@@ -32,3 +32,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# IDE & Text Editor
+.idea
+.vscode
+!.vscode/launch.json
+!.vscode/settings.json
