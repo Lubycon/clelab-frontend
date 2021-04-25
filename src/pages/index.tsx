@@ -1,16 +1,14 @@
-import { css } from '@emotion/react'
-
-import useSampleFetch from '../hooks/useSample'
+import LayoutResponsive from '../components/LayoutResponsive'
+import Layout from '../components/Layout'
 
 const IndexPage = () => {
-  const { data, error } = useSampleFetch()
-  if (error) return null
-  if (!data) return 'Loading'
-
-  return <div css={style}>{data[0].id}</div>
+  return (
+    <LayoutResponsive>
+      <Layout>
+        <Layout.Main>This is Main</Layout.Main>
+      </Layout>
+    </LayoutResponsive>
+  )
 }
 
-const style = css`
-  color: red;
-`
 export default IndexPage
