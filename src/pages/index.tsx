@@ -1,5 +1,5 @@
-import LayoutResponsive from '../components/LayoutResponsive'
 import Layout from '../components/Layout'
+import LayoutResponsive from '../components/LayoutResponsive'
 
 const IndexPage = () => {
   return (

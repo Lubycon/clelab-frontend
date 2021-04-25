@@ -46,10 +46,7 @@ function Main({ children }: PropsWithChildren<MainProps>) {
   return <main css={mainStyle}>{children}</main>
 }
 
-function Layout({
-  children,
-  hasHeader,
-}: PropsWithChildren<LayoutProps>) {
+function Layout({ children, hasHeader }: PropsWithChildren<LayoutProps>) {
   return (
     <div css={containerStyle}>
       {hasHeader && <Header title="Front End" />}
