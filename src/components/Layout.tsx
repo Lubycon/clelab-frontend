@@ -13,21 +13,17 @@ export type SideProps = {}
 export type MainProps = {}
 
 const containerStyle = css`
-  main {
-    height: 100vh;
-    display: flex;
-  }
+  display: flex;
 `
 const mainStyle = css`
   flex: 1;
-  background: red;
   ${media.medium} {
     width: 768px;
   }
   ${media.small} {
     width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 `
 const sidebarStyle = css`
@@ -48,10 +44,10 @@ function Main({ children }: PropsWithChildren<MainProps>) {
 
 function Layout({ children, hasHeader }: PropsWithChildren<LayoutProps>) {
   return (
-    <div css={containerStyle}>
+    <>
       {hasHeader && <Header title="Front End" />}
-      <main>{children}</main>
-    </div>
+      <div css={containerStyle}>{children}</div>
+    </>
   )
 }
 Layout.Side = Side

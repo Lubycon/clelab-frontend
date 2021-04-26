@@ -1,20 +1,25 @@
 import { css } from '@emotion/react'
 
+import { mediaQuery } from '../../lib/styles/media'
+
 export type HeaderProps = {
   title: string
 }
 
 function Header({ title }: HeaderProps) {
-  return <div css={headerStyle}>{title}</div>
+  return <nav css={headerStyle}>{title}</nav>
 }
 
 const headerStyle = css`
-  margin-top: 2.375rem;
-  margin-bottom: 2rem;
-  font-size: 1.5rem;
-  height: 1.75rem;
+  margin-top: 38px;
+  margin-bottom: 32px;
+  font-size: 24px;
+  height: 28px;
   font-weight: 700;
   cursor: default;
+  ${mediaQuery(767)} {
+    margin-left: 24px;
+  }
 `
 
 export default Header
