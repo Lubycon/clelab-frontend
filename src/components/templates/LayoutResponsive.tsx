@@ -1,9 +1,9 @@
 import { css } from '@emotion/react'
 import { PropsWithChildren } from 'react'
 
-import { mediaQuery } from '../lib/styles/media'
+import { mediaQuery } from '../../lib/styles/media'
 
-export type LayoutResponsiveProps = {
+export interface LayoutResponsiveProps {
   className?: string
 }
 
@@ -21,9 +21,7 @@ function LayoutResponsive({
 const layoutStyle = css`
   margin-left: auto;
   margin-right: auto;
-  ${mediaQuery(1920)} {
-    width: 1352px;
-  }
+  width: 1352px;
   ${mediaQuery(1440)} {
     width: 1280px;
   }
@@ -31,10 +29,10 @@ const layoutStyle = css`
     width: 912px;
   }
   ${mediaQuery(944)} {
-    width: calc(100% - 2rem);
+    width: calc(100% - 32px);
   }
   ${mediaQuery(767)} {
-    width: calc(100% - 2rem);
+    width: calc(100% - 40px);
   }
 `
 
