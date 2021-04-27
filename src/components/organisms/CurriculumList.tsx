@@ -4,7 +4,7 @@ import { mediaQuery } from '../../lib/styles/media'
 import { CurriculumItem } from '../../model/curriculum'
 import CurriculumCard from '../molecules/CurriculumCard'
 
-export type CurriculumListProps = {
+export interface CurriculumListProps {
   curriculums: CurriculumItem[]
 }
 

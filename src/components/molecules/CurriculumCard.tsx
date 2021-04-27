@@ -2,21 +2,21 @@ import { css } from '@emotion/react'
 
 import { mediaQuery } from '../../lib/styles/media'
 import { CurriculumItem } from '../../model/curriculum'
-import CustomImage from '../atom/CustomImage'
+import ImageSection from '../atoms/ImageSection'
 
-export type CurriculumCardProps = {
+export interface CurriculumCardProps {
   curriculum: CurriculumItem
 }
 
 function CurriculumCard({ curriculum }: CurriculumCardProps) {
-  const { thumbnail, title, descrtion } = curriculum
+  const { thumbnail, title, description } = curriculum
 
   return (
     <div css={containerStyle}>
-      <CustomImage src={thumbnail} widthRatio={2.5} heightRatio={1.1} />
+      <ImageSection src={thumbnail} widthRatio={2.5} heightRatio={1.1} />
       <div css={contentStyle}>
         <h4>{title}</h4>
-        <span>{descrtion}</span>
+        <span>{description}</span>
       </div>
     </div>
   )
