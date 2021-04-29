@@ -21,7 +21,7 @@ jobs:
       - name: Build Package
         run: yarn build
       - name: Fire Notification
-        uses: Lubycon/github-reviewer-slack-noti-action@v1.0.8
+        uses: Lubycon/github-reviewer-slack-noti-action@v1.1.0
         id: pr-reviewer-notify
         with:
           slack-bot-token: ${{ secrets.LUBYCON_SLACK_BOT_TOKEN }}
