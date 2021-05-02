@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { PropsWithChildren } from 'react'
 
-import media from '../../lib/styles/media'
+import media, { mediaQuery } from '../../lib/styles/media'
 import Header from '../atoms/Header'
 
 export interface LayoutProps {
@@ -14,6 +14,7 @@ export interface MainProps {}
 
 const containerStyle = css`
   display: flex;
+  height: 100vh;
 `
 const mainStyle = css`
   flex: 1;
@@ -27,8 +28,20 @@ const mainStyle = css`
   }
 `
 const sidebarStyle = css`
-  width: 550px;
   background: #f8f8f9;
+  padding-left: 284px;
+  width: 266px;
+  height: 100%;
+  display: flex;
+  padding-top: 38px;
+  padding-bottom: 48px;
+  ${mediaQuery(1440)} {
+    padding-left: 160px;
+  }
+  ${mediaQuery(1056)} {
+    padding-left: 80px;
+  }
+
   ${media.medium} {
     display: none;
   }

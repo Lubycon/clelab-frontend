@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import Link from 'next/link'
 
 import { mediaQuery } from '../../lib/styles/media'
 import { CurriculumItem } from '../../model/curriculum'
@@ -12,13 +13,16 @@ function CurriculumCard({ curriculum }: CurriculumCardProps) {
   const { thumbnail, title, description } = curriculum
 
   return (
-    <div css={containerStyle}>
-      <ImageSection src={thumbnail} widthRatio={2.5} heightRatio={1.1} />
-      <div css={contentStyle}>
-        <h4>{title}</h4>
-        <span>{description}</span>
+    /* FIXME */
+    <Link href={'/curriculum/1'}>
+      <div css={containerStyle}>
+        <ImageSection src={thumbnail} widthRatio={2.5} heightRatio={1.1} />
+        <div css={contentStyle}>
+          <h4>{title}</h4>
+          <span>{description}</span>
+        </div>
       </div>
-    </div>
+    </Link>
   )
 }
 
@@ -28,6 +32,7 @@ const containerStyle = css`
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
   ${mediaQuery(1056)} {
     width: calc(50% - 32px);
   }
@@ -37,6 +42,9 @@ const containerStyle = css`
     & + & {
       margin-top: 16px;
     }
+  }
+  &:hover {
+    transform: translateY(-2px);
   }
 `
 
