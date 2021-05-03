@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 
-import Button from '../../components/molecules/Button'
+import Icon from '../../components/atoms/Icon'
+import IconButton from '../../components/molecules/IconButton'
 import SectionRow from '../../components/molecules/SectionRow'
 import Sidebar from '../../components/molecules/Sidebar'
 import Layout from '../../components/templates/Layout'
@@ -17,18 +18,17 @@ const Curriculum = () => {
         <Layout.Main>
           <div css={containerStyle}>
             <SectionRow
-              title={'01 기술소개'}
-              description={
-                '섹션에 대한 설명섹션에 대한 설명섹션에 대한 설명섹션에 대한설명섹션에 대한 설명섹션에 대한 설명섹션에 대한 설명섹션에 대한설명섹션에 대한 설명섹션에 대'
-              }
+              title="01 기술소개"
+              description="섹션에 대한 설명섹션에 대한 설명섹션에 대한 설명섹션에 대한설명섹션에 대한 설명섹션에 대한 설명섹션에 대한 설명섹션에 대한설명섹션에 대한 설명섹션에 대"
             />
             <div css={blogListStyle}>
-              <Button
+              <IconButton
                 css={blogButtonStyle}
-                hasIcon
-                title="블로그 글 제목"
+                icon={<Icon name="arrow" />}
                 variant="primary"
-              />
+              >
+                블로그 글 제목
+              </IconButton>
             </div>
           </div>
         </Layout.Main>

@@ -9,9 +9,9 @@ function Sidebar() {
     <div css={sidebarStyle}>
       <p>CURRICULUM</p>
       {/* TODO TYPO COMPONENTS REPLACE */}
-      <div className="curriculumName">HTML</div>
+      <div css={curriculumNameStyle}>HTML</div>
       {/* FIXME */}
-      <div className="introTitle">왜 배워야 할까?🤔</div>
+      <div css={introTitleStyle}>왜 배워야 할까?🤔</div>
       <ul css={sectionMenuStyle}>
         <SidebarItem to="1" text="01 기술소개" />
         <SidebarItem to="2" text="02 기본문법" />
@@ -46,23 +46,25 @@ const sidebarStyle = css`
     letter-spacing: 1.2px;
     color: #9696a4;
   }
-  .curriculumName {
-    font-family: Archivo;
-    font-size: 20px;
-    font-weight: bold;
-    color: #282828;
-  }
-  .introTitle {
-    margin-top: 21px;
-    font-family: Noto Sans KR;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 27px;
-  }
   ${media.medium} {
     display: none;
   }
+`
+
+const curriculumNameStyle = css`
+  font-family: Archivo;
+  font-size: 20px;
+  font-weight: bold;
+  color: #282828;
+`
+
+const introTitleStyle = css`
+  margin-top: 21px;
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 27px;
 `
 
 const sectionMenuStyle = css`
