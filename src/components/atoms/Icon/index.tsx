@@ -2,15 +2,15 @@ import React from 'react'
 
 import * as svg from './svg'
 
-export const iconTypes: IconType[] = Object.keys(svg) as any[]
+export const iconTypes = Object.keys(svg) as IconType[]
 
 export type IconType = keyof typeof svg
 
-export type IconProps = {
+export interface IconProps {
   name: IconType
   className?: string
   style?: React.CSSProperties
-  onClick?(): void
+  onClick?: () => void
 }
 
 function Icon({ name, className, style, onClick }: IconProps) {
