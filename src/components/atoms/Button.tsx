@@ -1,31 +1,27 @@
 import { css } from '@emotion/react'
-import React from 'react'
-
-import Icon from '../atoms/Icon'
+import React, { ReactNode } from 'react'
 
 export type ButtonVariant = 'primary'
 
 /** BASIC BUTTON */
-export type ButtonProps = {
-  title?: string
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant
   size?: string
-  hasIcon?: boolean
-} & React.ButtonHTMLAttributes<HTMLButtonElement>
+  children: ReactNode
+}
 
 function Button({
-  title,
   variant = 'primary',
   size = 'medium',
-  hasIcon = false,
   onClick,
   disabled,
+  children,
   ...rest
 }: ButtonProps) {
   return (
     <button onClick={onClick} css={[buttonCss(size), variantStyle]} {...rest}>
-      {title}
-      {hasIcon && <Icon name="arrow" />}
+      {children}
     </button>
   )
 }
@@ -65,7 +61,7 @@ export const variantStyle = css`
   color: #00b1d8;
   border: none;
   font-weight: bold;
-  line-height: 20.72px;
+  line-height: 20px;
   box-sizing: border-box;
   letter-spacing: normal;
 `
