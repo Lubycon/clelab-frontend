@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 
 import media from '../../lib/styles/media'
+import Text from '../atoms/Text'
 
 export type SectionRowProps = {
   title: string
@@ -11,7 +12,7 @@ function SectionRow({ title, description }: SectionRowProps) {
   return (
     <div css={rowStyle}>
       <div css={titleWrapperStyle}>
-        <h3>{title}</h3>
+        <Text as="h6">{title}</Text>
       </div>
       {description && <div css={descriptionStyle}>{description}</div>}
     </div>
@@ -26,14 +27,9 @@ const rowStyle = css`
 const titleWrapperStyle = css`
   width: 152px;
   flex-shrink: 0;
-  h3 {
-    line-height: 1.5;
-    margin: 0;
-    font-size: 17px;
-    font-weight: bold;
-    ${media.small} {
-      margin-bottom: 8px;
-    }
+
+  ${media.small} {
+    margin-bottom: 8px;
   }
 `
 const descriptionStyle = css`

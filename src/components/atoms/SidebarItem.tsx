@@ -2,6 +2,8 @@ import { css } from '@emotion/react'
 import { useRouter } from 'next/dist/client/router'
 import NextLink from 'next/link'
 
+import Text from './Text'
+
 export type SidebarItemProps = {
   text: string
   to: string
@@ -13,7 +15,7 @@ function SidebarItem({ text, to }: SidebarItemProps) {
   return (
     <li css={linkStyle(router.query.id === to)}>
       <NextLink href="/curriculum/[id]" as={`/curriculum/${to}`}>
-        <span>{text}</span>
+        <Text style={{ cursor: 'pointer' }}>{text}</Text>
       </NextLink>
     </li>
   )
@@ -27,11 +29,6 @@ const linkStyle = (active: boolean) => css`
   text-decoration: none;
   padding-right: 48px;
   color: #9696a4;
-  span {
-    cursor: pointer;
-    font-size: 15px;
-    margin-left: 16px;
-  }
   ${active &&
   css`
     color: #3ac8e8;

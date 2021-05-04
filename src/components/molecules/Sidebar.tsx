@@ -2,12 +2,15 @@ import { css } from '@emotion/react'
 
 import media from '../../lib/styles/media'
 import SidebarItem from '../atoms/SidebarItem'
+import Text from '../atoms/Text'
 
 function Sidebar() {
   /* FIXME  */
   return (
     <div css={sidebarStyle}>
-      <p>CURRICULUM</p>
+      <Text as="p" style={{ fontFamily: 'Archivo', color: '#9696a4' }}>
+        CURRICULUM
+      </Text>
       {/* TODO TYPO COMPONENTS REPLACE */}
       <div css={curriculumNameStyle}>HTML</div>
       {/* FIXME */}
@@ -39,13 +42,6 @@ const sidebarStyle = css`
   flex: 1;
   display: flex;
   flex-direction: column;
-  p {
-    font-family: Archivo;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 1.2px;
-    color: #9696a4;
-  }
   ${media.medium} {
     display: none;
   }
@@ -70,7 +66,6 @@ const introTitleStyle = css`
 const sectionMenuStyle = css`
   list-style: none;
   padding: 0;
-  margin-left: -16px;
   margin-top: 20px;
   flex: 1;
 `
