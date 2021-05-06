@@ -71,7 +71,7 @@ const Curriculum = () => {
                   as="p"
                   style={{
                     color: palette.solid.secondary,
-                    alignItems: 'flex-start',
+                    alignSelf: 'flex-start',
                   }}
                 >
                   Next
