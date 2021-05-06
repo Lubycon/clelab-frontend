@@ -74,6 +74,7 @@ const typoStyles: { [key: string]: SerializedStyles } = {
     margin: 0;
   `,
   p: css`
+    margin: 0;
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 1.2px;

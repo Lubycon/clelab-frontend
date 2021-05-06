@@ -5,26 +5,21 @@ import { mediaQuery } from '../../lib/styles/media'
 
 export interface LayoutResponsiveProps {
   className?: string
-  hasSide?: boolean
 }
 
 function LayoutResponsive({
   className,
-  hasSide = false,
   children,
 }: PropsWithChildren<LayoutResponsiveProps>) {
   return (
-    <div css={layoutStyle(hasSide)} className={className}>
+    <div css={layoutStyle} className={className}>
       {children}
     </div>
   )
 }
 
-const layoutStyle = (hasSide: boolean) => css`
-  ${!hasSide &&
-  css`
-    margin-left: auto;
-  `}
+const layoutStyle = css`
+  margin-left: auto;
   margin-right: auto;
   width: 1352px;
   ${mediaQuery(1440)} {
