@@ -46,7 +46,7 @@ function Sidebar({ isMobile = false }: SidebarProps) {
 
 const sidebarStyle = (isMobile: boolean) => css`
   cursor: default;
-  z-index: 30;
+  z-index: 15;
   flex: 1;
   height: calc(100vh - 84px);
   display: flex;
