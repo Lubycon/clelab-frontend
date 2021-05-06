@@ -1,7 +1,13 @@
 import { css } from '@emotion/react'
 import React, { ReactNode } from 'react'
 
-export type ButtonVariant = 'primary'
+import { buttonColorMap } from '../../lib/styles/palette'
+
+export type ButtonVariant =
+  | 'primary'
+  | 'deepSkyBlue'
+  | 'lightBlue'
+  | 'secondary'
 
 /** BASIC BUTTON */
 export interface ButtonProps
@@ -20,7 +26,11 @@ function Button({
   ...rest
 }: ButtonProps) {
   return (
-    <button onClick={onClick} css={[buttonCss(size), variantStyle]} {...rest}>
+    <button
+      onClick={onClick}
+      css={[buttonCss(size), variantStyle(variant)]}
+      {...rest}
+    >
       {children}
     </button>
   )
@@ -42,23 +52,27 @@ const buttonCss = (size: string) => css`
   outline: none;
   ${size === 'small' &&
   css`
-    min-height: 32px;
+    width: 58px;
+    min-height: 58px;
     font-size: 14px;
   `}
 
   ${size === 'large' &&
   css`
-    min-height: 52px;
-    font-size: 16px;
+    max-width: 260px;
+    min-height: 58px;
+    font-size: 13px;
+    width: 100%;
+    flex: 1;
   `}
   
   svg {
     justify-content: flex-end;
   }
 `
-export const variantStyle = css`
-  background: #ebfafd;
-  color: #00b1d8;
+export const variantStyle = (variant: ButtonVariant) => css`
+  background: ${buttonColorMap[variant].background};
+  color: ${buttonColorMap[variant].color};
   border: none;
   font-weight: bold;
   line-height: 20px;
