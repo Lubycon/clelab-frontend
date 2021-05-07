@@ -4,18 +4,25 @@ import media from '../../lib/styles/media'
 import SidebarItem from '../atoms/SidebarItem'
 import Text from '../atoms/Text'
 
-function Sidebar() {
+interface SidebarProps {
+  isMobile?: boolean
+}
+
+function Sidebar({ isMobile = false }: SidebarProps) {
   /* FIXME  */
   return (
-    <div css={sidebarStyle}>
-      <Text as="p" style={{ fontFamily: 'Archivo', color: '#9696a4' }}>
-        CURRICULUM
-      </Text>
-      {/* TODO TYPO COMPONENTS REPLACE */}
-      <div css={curriculumNameStyle}>HTML</div>
+    <div css={sidebarStyle(isMobile)}>
+      {!isMobile && (
+        <>
+          <Text as="p" style={{ fontFamily: 'Archivo', color: '#9696a4' }}>
+            CURRICULUM
+          </Text>
+          <div css={curriculumNameStyle}>HTML</div>
+        </>
+      )}
       {/* FIXME */}
-      <div css={introTitleStyle}>왜 배워야 할까?🤔</div>
-      <ul css={sectionMenuStyle}>
+      <div css={introTitleStyle(isMobile)}>왜 배워야 할까?🤔</div>
+      <ul css={sectionMenuStyle(isMobile)}>
         <SidebarItem to="1" text="01 기술소개" />
         <SidebarItem to="2" text="02 기본문법" />
         <SidebarItem to="3" text="03 하이퍼텍스트와 속성" />
@@ -37,14 +44,32 @@ function Sidebar() {
   )
 }
 
-const sidebarStyle = css`
+const sidebarStyle = (isMobile: boolean) => css`
   cursor: default;
+  z-index: 15;
   flex: 1;
+  height: calc(100vh - 84px);
   display: flex;
   flex-direction: column;
   ${media.medium} {
     display: none;
   }
+
+  ${isMobile &&
+  css`
+    cursor: default;
+    position: absolute;
+    background: #f8f8f9;
+    width: 100%;
+    top: 84px;
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+
+    ${media.medium} {
+      display: flex;
+    }
+  `}
 `
 
 const curriculumNameStyle = css`
@@ -54,20 +79,30 @@ const curriculumNameStyle = css`
   color: #282828;
 `
 
-const introTitleStyle = css`
+const introTitleStyle = (isMobile: boolean) => css`
   margin-top: 21px;
   font-family: Noto Sans KR;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
   line-height: 27px;
+
+  ${isMobile &&
+  css`
+    padding-left: 44px;
+  `}
 `
 
-const sectionMenuStyle = css`
+const sectionMenuStyle = (isMobile: boolean) => css`
   list-style: none;
   padding: 0;
   margin-top: 20px;
   flex: 1;
+
+  ${isMobile &&
+  css`
+    padding-left: 44px;
+  `}
 `
 
 export default Sidebar

@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "lint": "eslint -c ./.eslintrc '{pages,src}/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "yarn lint --fix",

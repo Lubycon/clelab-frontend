@@ -1,3 +1,5 @@
 import { ReactComponent as arrow } from './arrow.svg'
+import { ReactComponent as back } from './back.svg'
+import { ReactComponent as down } from './down.svg'
 
-export { arrow }
+export { arrow, back, down }
