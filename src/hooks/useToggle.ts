@@ -6,5 +6,7 @@ export function useToggle(defaultValue: boolean) {
     setValue(!value)
   }, [value])
 
-  return [value, onToggle] as [boolean, typeof onToggle]
+  const result: [boolean, VoidFunction] = [value, onToggle]
+
+  return result
 }

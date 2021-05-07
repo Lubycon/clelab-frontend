@@ -21,7 +21,7 @@ export interface StickyProps {
 
 function Sticky({ className, bottom, children }: StickyProps) {
   const [y, setY] = useState(0)
-  const element = useRef<HTMLDivElement | null>(null)
+  const element = useRef<HTMLDivElement>(null)
   const [fixed, setFixed] = useState(true)
 
   const setup = useCallback(() => {
@@ -69,7 +69,7 @@ function Sticky({ className, bottom, children }: StickyProps) {
       className={className}
       style={{
         display: 'flex',
-        position: fixed ? 'fixed' : undefined,
+        position: fixed ? 'fixed' : 'static',
         bottom: fixed ? `${bottom}px` : undefined,
         boxSizing: 'border-box',
       }}
