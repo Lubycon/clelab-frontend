@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 
+import { SectionList } from '../../hooks/api/useGetSections'
 import { useToggle } from '../../hooks/useToggle'
 import media from '../../lib/styles/media'
 import Icon from '../atoms/Icon'
@@ -7,10 +8,11 @@ import Text from '../atoms/Text'
 import Sidebar from './Sidebar'
 
 export interface MobileHeaderProps {
-  sectionName: string
+  courseName: string
+  sectionList: SectionList
 }
 
-function MobileSectionHeader({ sectionName }: MobileHeaderProps) {
+function MobileSectionHeader({ courseName, sectionList }: MobileHeaderProps) {
   const [showOption, toggleOptions] = useToggle(false)
 
   return (
@@ -18,9 +20,9 @@ function MobileSectionHeader({ sectionName }: MobileHeaderProps) {
       <header css={[common, headerStyle]}>
         <div css={headerTitleStyle}>
           <Text as="p" style={{ fontFamily: 'Archivo', color: '#9696a4' }}>
-            CURRICULUM
+            COURSE
           </Text>
-          <div css={curriculumNameStyle}>{sectionName}</div>
+          <div css={curriculumNameStyle}>{courseName}</div>
         </div>
         <div css={headerRightWrapper}>
           <div css={headerRight} onClick={toggleOptions}>
@@ -31,7 +33,7 @@ function MobileSectionHeader({ sectionName }: MobileHeaderProps) {
           </div>
         </div>
       </header>
-      {showOption && <Sidebar isMobile />}
+      {showOption && <Sidebar sectionList={sectionList} isMobile />}
     </>
   )
 }
