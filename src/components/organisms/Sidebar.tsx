@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 
-import { SectionItem, SectionList } from '../../hooks/useSections'
+import { SectionItem, SectionList } from '../../hooks/api/useGetSections'
 import media from '../../lib/styles/media'
 import SidebarItem from '../atoms/SidebarItem'
 import Text from '../atoms/Text'
