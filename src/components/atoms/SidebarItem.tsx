@@ -6,7 +6,7 @@ import Text from './Text'
 
 export type SidebarItemProps = {
   text: string
-  to: number
+  sectionId: number
 }
 
 function SidebarItem({ text, to }: SidebarItemProps) {
