@@ -9,14 +9,14 @@ export type SidebarItemProps = {
   sectionId: number
 }
 
-function SidebarItem({ text, to }: SidebarItemProps) {
+function SidebarItem({ text, sectionId }: SidebarItemProps) {
   const router = useRouter()
 
   return (
-    <li css={linkStyle(router.query.sectionId === String(to))}>
+    <li css={linkStyle(router.query.sectionId === String(sectionId))}>
       <NextLink
         href="/course/[id]/[id]"
-        as={`/course/${router.query.courseId}/${to}`}
+        as={`/course/${router.query.courseId}/${sectionId}`}
       >
         <Text style={{ cursor: 'pointer' }}>{text}</Text>
       </NextLink>

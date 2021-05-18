@@ -26,7 +26,7 @@ function Sidebar({ isMobile = false, sectionList }: SidebarProps) {
       <div css={introTitleStyle(isMobile)}>왜 배워야 할까?🤔</div>
       <ul css={sectionMenuStyle(isMobile)}>
         {sectionList?.sections.map((item: SectionItem) => (
-          <SidebarItem key={item.id} to={item.id} text={item.title} />
+          <SidebarItem key={item.id} sectionId={item.id} text={item.title} />
         ))}
       </ul>
     </div>
