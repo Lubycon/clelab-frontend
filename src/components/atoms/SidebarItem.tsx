@@ -6,15 +6,18 @@ import Text from './Text'
 
 export type SidebarItemProps = {
   text: string
-  to: string
+  sectionId: number
 }
 
-function SidebarItem({ text, to }: SidebarItemProps) {
+function SidebarItem({ text, sectionId }: SidebarItemProps) {
   const router = useRouter()
 
   return (
-    <li css={linkStyle(router.query.id === to)}>
-      <NextLink href="/curriculum/[id]" as={`/curriculum/${to}`}>
+    <li css={linkStyle(router.query.sectionId === String(sectionId))}>
+      <NextLink
+        href="/course/[id]/[id]"
+        as={`/course/${router.query.courseId}/${sectionId}`}
+      >
         <Text style={{ cursor: 'pointer' }}>{text}</Text>
       </NextLink>
     </li>

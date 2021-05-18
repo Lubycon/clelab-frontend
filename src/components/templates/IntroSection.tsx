@@ -19,6 +19,7 @@ function IntroSection({ title, description }: IntroSectionProps) {
       </div>
       <StickyButton>
         <IconButton
+          to="/"
           size="large"
           variant="primary"
           style={{

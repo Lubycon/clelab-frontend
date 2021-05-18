@@ -1,13 +1,16 @@
 import { css } from '@emotion/react'
+import { useRouter } from 'next/dist/client/router'
 import { ReactNode, useCallback } from 'react'
 
 import Button, { ButtonProps } from '../atoms/Button'
 export type ButtonVariant = 'primary'
 
+type buttonLinkType = 'external' | 'internal'
 export interface IconButtonProps extends ButtonProps {
   left?: ReactNode
   right?: ReactNode
-  to?: string
+  to: string
+  buttonLinkType?: buttonLinkType
 }
 
 function IconButton({
@@ -15,12 +18,15 @@ function IconButton({
   right,
   title,
   to,
+  buttonLinkType,
   children,
   ...rest
 }: IconButtonProps) {
+  const router = useRouter()
+
   const handleGoBlog = useCallback(() => {
-    window.open(to)
-  }, [to])
+    buttonLinkType === 'external' ? window.open(to) : router.push(to)
+  }, [to, router, buttonLinkType])
 
   return (
     <Button onClick={handleGoBlog} {...rest}>

@@ -1,21 +1,20 @@
 import { css } from '@emotion/react'
 import Link from 'next/link'
 
+import { Course } from '../../hooks/api/useGetCoruse'
 import { mediaQuery } from '../../lib/styles/media'
-import { CurriculumItem } from '../../model/curriculum'
 import ImageSection from '../atoms/ImageSection'
 import Text from '../atoms/Text'
 
-export interface CurriculumCardProps {
-  curriculum: CurriculumItem
+export interface CourseCardProps {
+  course: Course
 }
 
-function CurriculumCard({ curriculum }: CurriculumCardProps) {
-  const { thumbnail, title, description } = curriculum
+function CourseCard({ course }: CourseCardProps) {
+  const { id, thumbnail, title, description } = course
 
   return (
-    /* FIXME */
-    <Link href={'/curriculum/1'}>
+    <Link href={'/course/[id]'} as={`/course/${id}`}>
       <div css={containerStyle}>
         <ImageSection src={thumbnail} widthRatio={2.5} heightRatio={1.1} />
         <div css={contentStyle}>
@@ -56,4 +55,4 @@ const contentStyle = css`
   font-size: 15px;
   margin-top: 12px;
 `
-export default CurriculumCard
+export default CourseCard

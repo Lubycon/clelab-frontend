@@ -14,8 +14,8 @@ const interceptorsRequestFulfilled = (config: AxiosRequestConfig) => {
 }
 
 const interceptorsResponseFulfilled = (res: AxiosResponse) => {
-  if (res.data.result === 'SUCCESS') {
-    return res.data.data
+  if (res.status === 200) {
+    return res.data
   }
 
   return Promise.reject(res.data)
