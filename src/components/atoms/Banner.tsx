@@ -13,7 +13,7 @@ function Banner() {
           <div css={containerStyle}>
             <div css={logoStyle}>Clelab</div>
             <div css={contentStyle}>
-              <Timer />
+              <Timer intervalTime={10000} />
               <Text style={{ fontSize: '18px' }}>나를 발전시키는 시간</Text>
             </div>
           </div>

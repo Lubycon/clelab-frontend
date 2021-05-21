@@ -4,14 +4,17 @@ import { useEffect, useState } from 'react'
 import media from '../../lib/styles/media'
 import { getCurrentTime } from '../../utils/dateTime'
 import Text from './Text'
+interface TimerProps {
+  intervalTime: number
+}
 
-function Timer() {
+function Timer({ intervalTime }: TimerProps) {
   const [time, setTime] = useState(getCurrentTime)
 
   useEffect(() => {
     const timer = window.setInterval(() => {
       setTime(getCurrentTime())
-    }, 10000)
+    }, intervalTime)
 
     return () => {
       window.clearInterval(timer)
