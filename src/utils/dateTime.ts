@@ -9,5 +9,5 @@ export function getCurrentTime() {
   hour = hour % 12
   hour = hour ? hour : 12
 
-  return [hour.toString(), min, hour12]
+  return [hour.toString(), min, hour12] as [string, string, string]
 }
