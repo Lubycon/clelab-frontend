@@ -6,7 +6,7 @@
     "build": "next build",
     "export": "next export",
     "start": "next start",
-    "lint": "eslint -c ./.eslintrc '{pages,src}/**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint -c ./.eslintrc '{pages,src}/**/*.{js,jsx,ts,tsx}' --max-warnings=0",
     "lint:fix": "yarn lint --fix",
     "typecheck": "tsc"
   },

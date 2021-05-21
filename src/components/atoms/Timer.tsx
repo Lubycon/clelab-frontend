@@ -19,7 +19,7 @@ function Timer({ intervalTime }: TimerProps) {
     return () => {
       window.clearInterval(timer)
     }
-  }, [])
+  }, [intervalTime])
 
   return (
     <div css={style}>
