@@ -2,7 +2,6 @@ import { css } from '@emotion/react'
 
 import media from '../../lib/styles/media'
 import LayoutResponsive from '../templates/LayoutResponsive'
-import Header from './Header'
 import Text from './Text'
 import Timer from './Timer'
 
@@ -20,7 +19,6 @@ function Banner() {
           </div>
         </LayoutResponsive>
       </div>
-      <Header title="Front-end" />
     </>
   )
 }

@@ -1,4 +1,5 @@
 import Banner from '../components/atoms/Banner'
+import Header from '../components/atoms/Header'
 import CourseList from '../components/organisms/CourseList'
 import Layout from '../components/templates/Layout'
 import LayoutResponsive from '../components/templates/LayoutResponsive'
@@ -12,6 +13,7 @@ const IndexPage = () => {
   return (
     <>
       <Banner />
+      <Header title="Front-end" />
       <LayoutResponsive>
         <Layout>
           <Layout.Main>
