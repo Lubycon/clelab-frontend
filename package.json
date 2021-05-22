@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
+    "amplitude-js": "^8.2.3",
     "axios": "^0.21.1",
+    "firebase": "^8.6.2",
     "next": "latest",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
@@ -22,6 +24,7 @@
     "@emotion/babel-plugin": "11.0.0",
     "@emotion/babel-preset-css-prop": "^11.0.0",
     "@emotion/react": "11.1.1",
+    "@types/amplitude-js": "^8.0.0",
     "@types/node": "^12.12.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
