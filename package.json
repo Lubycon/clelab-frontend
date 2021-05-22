@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint -c ./.eslintrc '{pages,src}/**/*.{js,jsx,ts,tsx}' --max-warnings=0",
     "lint:fix": "yarn lint --fix",
-    "typecheck": "tsc"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@svgr/webpack": "^5.5.0",

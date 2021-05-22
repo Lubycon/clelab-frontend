@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import { useRouter } from 'next/dist/client/router'
-import { ReactNode, useCallback } from 'react'
+import { MouseEvent, ReactNode, useCallback } from 'react'
 
 import Button, { ButtonProps } from '../atoms/Button'
 export type ButtonVariant = 'primary'
@@ -20,16 +20,21 @@ function IconButton({
   to,
   buttonLinkType,
   children,
+  onClick,
   ...rest
 }: IconButtonProps) {
   const router = useRouter()
 
-  const handleGoBlog = useCallback(() => {
-    buttonLinkType === 'external' ? window.open(to) : router.push(to)
-  }, [to, router, buttonLinkType])
+  const handleClick = useCallback(
+    (e: MouseEvent<HTMLButtonElement>) => {
+      onClick?.(e)
+      buttonLinkType === 'external' ? window.open(to) : router.push(to)
+    },
+    [to, router, buttonLinkType, onClick],
+  )
 
   return (
-    <Button onClick={handleGoBlog} {...rest}>
+    <Button onClick={handleClick} {...rest}>
       {left && left}
       <div css={contentWrapperStyle}>{children}</div>
       {right && right}

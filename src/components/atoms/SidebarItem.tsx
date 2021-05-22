@@ -1,25 +1,28 @@
 import { css } from '@emotion/react'
 import { useRouter } from 'next/dist/client/router'
-import NextLink from 'next/link'
+import Link from 'next/link'
 
+import { SectionItem } from '../../hooks/api/useGetSections'
 import Text from './Text'
 
 export type SidebarItemProps = {
-  text: string
-  sectionId: number
+  sectionItem: SectionItem
+  onClick?: (sectionItem: SectionItem) => void
 }
 
-function SidebarItem({ text, sectionId }: SidebarItemProps) {
+function SidebarItem({ sectionItem, onClick }: SidebarItemProps) {
+  const { id, title } = sectionItem
   const router = useRouter()
+  const courseId = router.query.courseId
 
   return (
-    <li css={linkStyle(router.query.sectionId === String(sectionId))}>
-      <NextLink
-        href="/course/[id]/[id]"
-        as={`/course/${router.query.courseId}/${sectionId}`}
-      >
-        <Text style={{ cursor: 'pointer' }}>{text}</Text>
-      </NextLink>
+    <li
+      css={linkStyle(router.query.sectionId === String(id))}
+      onClick={() => onClick?.(sectionItem)}
+    >
+      <Link href={`/course/${courseId}/${id}`}>
+        <Text style={{ cursor: 'pointer' }}>{title}</Text>
+      </Link>
     </li>
   )
 }

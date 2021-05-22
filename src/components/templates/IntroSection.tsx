@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 
+import { useRouterQuery } from '../../hooks/useRouterQuery'
 import { mediaQuery } from '../../lib/styles/media'
 import Text from '../atoms/Text'
 import IconButton from '../molecules/IconButton'
@@ -9,9 +10,18 @@ import StickyButton from '../molecules/StickyButton'
 export type IntroSectionProps = {
   title: string
   description: string
+  nextSectionId: number
+  onClickStartButton?: () => void
 }
 
-function IntroSection({ title, description }: IntroSectionProps) {
+function IntroSection({
+  title,
+  description,
+  nextSectionId,
+  onClickStartButton,
+}: IntroSectionProps) {
+  const courseId = useRouterQuery('courseId')
+
   return (
     <>
       <div css={containerStyle}>
@@ -19,7 +29,7 @@ function IntroSection({ title, description }: IntroSectionProps) {
       </div>
       <StickyButton>
         <IconButton
-          to="/"
+          to={`/course/${courseId}/${nextSectionId}`}
           size="large"
           variant="primary"
           style={{
@@ -27,6 +37,7 @@ function IntroSection({ title, description }: IntroSectionProps) {
             color: 'white',
             justifyContent: 'center',
           }}
+          onClick={onClickStartButton}
         >
           <Text as="h6">글 읽으러 가기 🔥</Text>
         </IconButton>

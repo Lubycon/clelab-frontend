@@ -1,4 +1,6 @@
 import { css } from '@emotion/react'
+import { useRouter } from 'next/dist/client/router'
+import Link from 'next/link'
 
 import { SectionItem, SectionList } from '../../hooks/api/useGetSections'
 import media from '../../lib/styles/media'
@@ -8,9 +10,17 @@ import Text from '../atoms/Text'
 interface SidebarProps {
   isMobile?: boolean
   sectionList: SectionList
+  onClickSectionItem?: (sectionItem: SectionItem) => void
 }
 
-function Sidebar({ isMobile = false, sectionList }: SidebarProps) {
+function Sidebar({
+  isMobile = false,
+  sectionList,
+  onClickSectionItem,
+}: SidebarProps) {
+  const router = useRouter()
+  const courseId = router.query.courseId
+
   /* FIXME  */
   return (
     <div css={sidebarStyle(isMobile)}>
@@ -23,10 +33,25 @@ function Sidebar({ isMobile = false, sectionList }: SidebarProps) {
         </>
       )}
       {/* FIXME */}
-      <div css={introTitleStyle(isMobile)}>왜 배워야 할까?🤔</div>
+      <div
+        css={introTitleStyle(isMobile)}
+        onClick={() =>
+          onClickSectionItem?.({
+            id: -1,
+            title: '왜 배워야할까',
+            order: -1,
+          })
+        }
+      >
+        <Link href={`/course/${courseId}`}>왜 배워야 할까?🤔</Link>
+      </div>
       <ul css={sectionMenuStyle(isMobile)}>
         {sectionList?.sections.map((item: SectionItem) => (
-          <SidebarItem key={item.id} sectionId={item.id} text={item.title} />
+          <SidebarItem
+            key={item.id}
+            sectionItem={item}
+            onClick={onClickSectionItem}
+          />
         ))}
       </ul>
     </div>
