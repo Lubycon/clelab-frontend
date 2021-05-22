@@ -6,13 +6,14 @@ import CourseCard from '../molecules/CourseCard'
 
 export interface CourseListProps {
   course: Course[]
+  onClickItem?: (course: Course) => void
 }
 
-function CourseList({ course }: CourseListProps) {
+function CourseList({ course, onClickItem }: CourseListProps) {
   return (
     <div css={blockStyle}>
       {course.map((item) => (
-        <CourseCard course={item} key={item.id} />
+        <CourseCard course={item} key={item.id} onClick={onClickItem} />
       ))}
     </div>
   )

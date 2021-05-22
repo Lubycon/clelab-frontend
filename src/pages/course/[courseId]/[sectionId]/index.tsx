@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { useRouter } from 'next/dist/client/router'
+import { useCallback, useEffect } from 'react'
 
 import Icon from '../../../../components/atoms/Icon'
 import Text from '../../../../components/atoms/Text'
@@ -10,18 +10,88 @@ import MobileSectionHeader from '../../../../components/organisms/MobileSectionH
 import Sidebar from '../../../../components/organisms/Sidebar'
 import Layout from '../../../../components/templates/Layout'
 import LayoutResponsive from '../../../../components/templates/LayoutResponsive'
-import useSectionDetail from '../../../../hooks/api/useGetSectionDetail'
-import useGetSections from '../../../../hooks/api/useGetSections'
+import useSectionDetail, {
+  Blog,
+  Section,
+} from '../../../../hooks/api/useGetSectionDetail'
+import useGetSections, {
+  SectionItem,
+} from '../../../../hooks/api/useGetSections'
+import { useRouterQuery } from '../../../../hooks/useRouterQuery'
 import { mediaQuery } from '../../../../lib/styles/media'
 import palette from '../../../../lib/styles/palette'
+import { generateLogger } from '../../../../utils/logger'
 
-const Curriculum = () => {
-  const router = useRouter()
-  const course = router.query.courseId as string
-  const section = router.query.sectionId as string
+const logger = generateLogger('section_page')
 
-  const { data } = useGetSections(course)
-  const { data: sectionDetail } = useSectionDetail(course, section)
+const generateSectionLink = (courseId: string, sectionId: string) =>
+  `/course/${courseId}/${sectionId}`
+
+const getSectionLink = (courseId: string, section?: Section) => {
+  return section != null
+    ? generateSectionLink(courseId, String(section.id))
+    : undefined
+}
+
+const SectionPage = () => {
+  const courseId = useRouterQuery('courseId')
+  const sectionId = useRouterQuery('sectionId')
+
+  const { data } = useGetSections(courseId)
+  const { data: sectionDetail } = useSectionDetail(courseId, sectionId)
+
+  const prevSectionLink =
+    getSectionLink(courseId, sectionDetail?.prevSection) ??
+    generateSectionLink(courseId, '')
+
+  const nextSectionLink = getSectionLink(courseId, sectionDetail?.nextSection)
+
+  const handleSectionItemClick = useCallback(
+    ({ id, title }: SectionItem) => {
+      logger.click('click_section_item_in_sidebar', {
+        courseId,
+        sectionId: id,
+        sectionTitle: title,
+      })
+    },
+    [courseId],
+  )
+
+  const handleBlogClick = useCallback(
+    ({ title, link }: Blog) => {
+      logger.click('click_blog_link', {
+        title,
+        link,
+        courseId,
+        sectionId,
+      })
+    },
+    [courseId, sectionId],
+  )
+
+  const handleNavigationClick = useCallback(
+    (clickedSection: Section, direction: 'next' | 'prev') => () => {
+      logger.click('click_navigation_button', {
+        clickedSectionId: clickedSection.id,
+        clickedSectionTitle: clickedSection.title,
+        direction,
+        courseId,
+        sectionId,
+      })
+    },
+    [courseId, sectionId],
+  )
+
+  useEffect(() => {
+    if (courseId == null || sectionId == null) {
+      return
+    }
+
+    logger.view({
+      courseId,
+      sectionId,
+    })
+  }, [courseId, sectionId])
 
   if (!sectionDetail || !data) return null
 
@@ -34,7 +104,10 @@ const Curriculum = () => {
       <LayoutResponsive>
         <Layout>
           <Layout.Side>
-            <Sidebar sectionList={data} />
+            <Sidebar
+              sectionList={data}
+              onClickSectionItem={handleSectionItemClick}
+            />
           </Layout.Side>
           <Layout.Main>
             <>
@@ -51,6 +124,7 @@ const Curriculum = () => {
                       to={item.link}
                       variant="lightBlue"
                       right={<Icon name="arrow" />}
+                      onClick={() => handleBlogClick(item)}
                     >
                       {item.title}
                     </IconButton>
@@ -61,35 +135,45 @@ const Curriculum = () => {
                 <IconButton
                   buttonLinkType="internal"
                   size="small"
-                  to={`/course/${course}/${sectionDetail.prevSection?.id}`}
+                  to={prevSectionLink}
                   variant="secondary"
+                  onClick={handleNavigationClick(
+                    sectionDetail.prevSection,
+                    'prev',
+                  )}
                 >
                   <Icon name="back" />
                 </IconButton>
-                <IconButton
-                  buttonLinkType="internal"
-                  size="large"
-                  variant="primary"
-                  to={`/course/${course}/${
-                    sectionDetail.nextSection?.id || ''
-                  }`}
-                  right={<Icon name="arrow" />}
-                  style={{
-                    background: '#00BCE5',
-                    color: 'white',
-                  }}
-                >
-                  <Text
-                    as="p"
+                {nextSectionLink ? (
+                  <IconButton
+                    buttonLinkType="internal"
+                    size="large"
+                    variant="primary"
+                    to={nextSectionLink}
+                    right={<Icon name="arrow" />}
                     style={{
-                      color: palette.solid.secondary,
-                      alignSelf: 'flex-start',
+                      background: '#00BCE5',
+                      color: 'white',
                     }}
+                    onClick={handleNavigationClick(
+                      sectionDetail.nextSection,
+                      'next',
+                    )}
                   >
-                    Next
-                  </Text>
-                  <Text as="h6">{sectionDetail.nextSection?.title || ''}</Text>
-                </IconButton>
+                    <Text
+                      as="p"
+                      style={{
+                        color: palette.solid.secondary,
+                        alignSelf: 'flex-start',
+                      }}
+                    >
+                      Next
+                    </Text>
+                    <Text as="h6">
+                      {sectionDetail.nextSection?.title ?? ''}
+                    </Text>
+                  </IconButton>
+                ) : null}
               </StickyButton>
             </>
           </Layout.Main>
@@ -141,4 +225,4 @@ const blogButtonStyle = css`
   }
 `
 
-export default Curriculum
+export default SectionPage

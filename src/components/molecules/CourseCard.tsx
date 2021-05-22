@@ -8,14 +8,20 @@ import Text from '../atoms/Text'
 
 export interface CourseCardProps {
   course: Course
+  onClick?: (course: Course) => void
 }
 
-function CourseCard({ course }: CourseCardProps) {
+function CourseCard({ course, onClick }: CourseCardProps) {
   const { id, thumbnail, title, description } = course
 
   return (
-    <Link href={'/course/[id]'} as={`/course/${id}`}>
-      <div css={containerStyle}>
+    <Link href={`/course/${id}`}>
+      <div
+        css={containerStyle}
+        onClick={() => onClick?.(course)}
+        role="button"
+        tabIndex={0}
+      >
         <ImageSection src={thumbnail} widthRatio={2.5} heightRatio={1.1} />
         <div css={contentStyle}>
           <Text as="h6" style={{ color: '#282828' }}>
