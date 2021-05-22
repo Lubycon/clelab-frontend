@@ -35,7 +35,6 @@ function Text<T extends ElementType = typeof DEFAULT_ELEMENT>(
 
 const wrapper = css`
   font-weight: normal;
-  line-height: 1.7;
   cursor: default;
 `
 
@@ -59,11 +58,13 @@ const typoStyles: { [key: string]: SerializedStyles } = {
   `,
   h4: css`
     font-size: 2.25rem;
+    margin: 0;
     font-weight: bold;
     line-height: 1.5;
   `,
   h5: css`
     font-size: 1.5rem;
+    margin: 0;
     font-weight: bold;
     line-height: 1.5;
   `,

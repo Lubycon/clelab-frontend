@@ -1,3 +1,5 @@
+import Banner from '../components/atoms/Banner'
+import Header from '../components/atoms/Header'
 import CourseList from '../components/organisms/CourseList'
 import Layout from '../components/templates/Layout'
 import LayoutResponsive from '../components/templates/LayoutResponsive'
@@ -9,13 +11,17 @@ const IndexPage = () => {
   if (!data) return null
 
   return (
-    <LayoutResponsive>
-      <Layout hasHeader>
-        <Layout.Main>
-          <CourseList course={data} />
-        </Layout.Main>
-      </Layout>
-    </LayoutResponsive>
+    <>
+      <Banner />
+      <Header title="Front-end" />
+      <LayoutResponsive>
+        <Layout>
+          <Layout.Main>
+            <CourseList course={data} />
+          </Layout.Main>
+        </Layout>
+      </LayoutResponsive>
+    </>
   )
 }
 
