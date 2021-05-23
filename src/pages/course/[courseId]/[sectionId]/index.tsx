@@ -72,8 +72,8 @@ const SectionPage = () => {
   const handleNavigationClick = useCallback(
     (clickedSection: Section, direction: 'next' | 'prev') => () => {
       logger.click('click_navigation_button', {
-        clickedSectionId: clickedSection.id,
-        clickedSectionTitle: clickedSection.title,
+        clickedSectionId: clickedSection?.id ?? '',
+        clickedSectionTitle: clickedSection?.title,
         direction,
         courseId,
         sectionId,
@@ -120,6 +120,7 @@ const SectionPage = () => {
                   {sectionDetail.blogs.map((item) => (
                     <IconButton
                       css={blogButtonStyle}
+                      buttonLinkType="external"
                       key={item.link}
                       to={item.link}
                       variant="lightBlue"

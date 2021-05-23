@@ -25,7 +25,6 @@ const rowStyle = css`
 `
 
 const titleWrapperStyle = css`
-  width: 152px;
   flex-shrink: 0;
 
   ${media.small} {
