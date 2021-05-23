@@ -1,6 +1,6 @@
 import { AmplitudeClient } from 'amplitude-js'
 
-const API_KEY = process.env.AMPLITUDE_API_KEY
+const API_KEY = process.env.NEXT_PUBLIC_AMPLITUDE_KEY
 let amplitudeClient: AmplitudeClient | null = null
 let initialized = false
 
