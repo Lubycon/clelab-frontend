@@ -12,7 +12,7 @@ export interface CourseCardProps {
 }
 
 function CourseCard({ course, onClick }: CourseCardProps) {
-  const { id, thumbnail, title, description } = course
+  const { id, thumbnail, title } = course
 
   return (
     <Link href={`/course/${id}`}>
@@ -27,7 +27,9 @@ function CourseCard({ course, onClick }: CourseCardProps) {
           <Text as="h6" style={{ color: '#282828' }}>
             {title}
           </Text>
-          <Text>{description}</Text>
+          <Text>
+            React는 전 세계에서 가장 많이 사용하는 UI 라이브러리입니다.
+          </Text>
         </div>
       </div>
     </Link>

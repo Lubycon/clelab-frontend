@@ -23,16 +23,15 @@ function Sidebar({
 
   /* FIXME  */
   return (
-    <div css={sidebarStyle(isMobile)}>
+    <div css={sidebarStyle(isMobile, !router.query.sectionId)}>
       {!isMobile && (
         <>
           <Text as="p" style={{ fontFamily: 'Archivo', color: '#9696a4' }}>
-            CURRICULUM
+            COURSE
           </Text>
           <div css={curriculumNameStyle}>{sectionList.curriculum.title}</div>
         </>
       )}
-      {/* FIXME */}
       <div
         css={introTitleStyle(isMobile)}
         onClick={() =>
@@ -58,13 +57,20 @@ function Sidebar({
   )
 }
 
-const sidebarStyle = (isMobile: boolean) => css`
+const sidebarStyle = (isMobile: boolean, active: boolean) => css`
   cursor: default;
   z-index: 15;
   flex: 1;
   height: calc(100vh - 84px);
   display: flex;
   flex-direction: column;
+  ${active &&
+  css`
+    a {
+      color: #3ac8e8;
+    }
+    font-weight: bold;
+  `}
   ${media.medium} {
     display: none;
   }

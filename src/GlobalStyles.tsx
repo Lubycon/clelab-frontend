@@ -23,6 +23,7 @@ export const GlobalStyle = () => (
         }
         a {
           text-decoration: none;
+          color: inherit;
         }
       `,
     ]}
