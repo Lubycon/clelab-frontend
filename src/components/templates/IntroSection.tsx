@@ -14,7 +14,6 @@ export type IntroSectionProps = {
   onClickStartButton?: () => void
 }
 
-
 function IntroSection({
   title,
   description,
