@@ -27,12 +27,11 @@ function Sidebar({
       {!isMobile && (
         <>
           <Text as="p" style={{ fontFamily: 'Archivo', color: '#9696a4' }}>
-            CURRICULUM
+            COURSE
           </Text>
           <div css={curriculumNameStyle}>{sectionList.curriculum.title}</div>
         </>
       )}
-      {/* FIXME */}
       <div
         css={introTitleStyle(isMobile)}
         onClick={() =>

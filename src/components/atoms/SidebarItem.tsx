@@ -29,11 +29,10 @@ function SidebarItem({ sectionItem, onClick }: SidebarItemProps) {
 
 const linkStyle = (active: boolean) => css`
   border-radius: 8px;
-  height: 48px;
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding-right: 48px;
+  margin-bottom: 1.5rem;
   color: #9696a4;
   ${active &&
   css`

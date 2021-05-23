@@ -14,7 +14,11 @@ function SectionRow({ title, description }: SectionRowProps) {
       <div css={titleWrapperStyle}>
         <Text as="h6">{title}</Text>
       </div>
-      {description && <div css={descriptionStyle}>{description}</div>}
+      {description && (
+        <Text as="p" css={descriptionStyle}>
+          {description}
+        </Text>
+      )}
     </div>
   )
 }
@@ -37,6 +41,7 @@ const descriptionStyle = css`
   line-height: 1.69;
   text-align: left;
   color: #545454;
+  white-space: pre-line;
 `
 
 export default SectionRow
