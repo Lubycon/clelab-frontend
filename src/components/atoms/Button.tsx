@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import React, { ReactNode } from 'react'
-import media from '../../lib/styles/media'
 
+import media from '../../lib/styles/media'
 import { buttonColorMap } from '../../lib/styles/palette'
 
 export type ButtonVariant =

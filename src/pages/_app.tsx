@@ -1,8 +1,8 @@
 import 'firebase/analytics'
 
-import Head from 'next/head'
 import firebase from 'firebase/app'
 import { AppProps } from 'next/app'
+import Head from 'next/head'
 import { useEffect } from 'react'
 import { SWRConfig } from 'swr'
 

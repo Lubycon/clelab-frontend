@@ -4,26 +4,26 @@ import { useRouter } from 'next/router'
 import { useRouterQuery } from '../../hooks/useRouterQuery'
 import media, { mediaQuery } from '../../lib/styles/media'
 import palette from '../../lib/styles/palette'
+import { generateLogger } from '../../utils/logger'
 import Button from '../atoms/Button'
 import Text from '../atoms/Text'
-import IconButton from '../molecules/IconButton'
 import StickyButton from '../molecules/StickyButton'
 
 export type IntroSectionProps = {
   title: string
   description: string
   nextSectionId: number
-  onClickStartButton?: () => void
 }
 
 function IntroSection({
   title,
   description,
   nextSectionId,
-  onClickStartButton,
 }: IntroSectionProps) {
   const router = useRouter()
   const courseId = useRouterQuery('courseId')
+  const logger = generateLogger('course_page')
+
   return (
     <>
       <div css={containerStyle}>
@@ -55,11 +55,12 @@ function IntroSection({
             background: '#00BCE5',
             color: 'white',
             justifyContent: 'center',
-            textAlign:'center',
+            textAlign: 'center',
           }}
           onClick={() => {
+            logger.click('click_start_button')
             router.push(`/course/${courseId}/${nextSectionId}`)
-            onClickStartButton}}
+          }}
         >
           <Text
             as="h6"

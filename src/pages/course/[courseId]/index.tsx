@@ -26,9 +26,6 @@ const CoursePage = () => {
     },
     [courseId],
   )
-  const handleStartButtonClick = useCallback(() => {
-    logger.click('click_start_button')
-  }, [])
 
   useEffect(() => {
     if (courseId == null) {
@@ -59,7 +56,6 @@ const CoursePage = () => {
             <IntroSection
               title={data.intro.summary}
               description={data.intro.description}
-              onClickStartButton={handleStartButtonClick}
               nextSectionId={data.sections[0].id}
             />
           </Layout.Main>
