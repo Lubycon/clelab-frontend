@@ -1,26 +1,28 @@
 import { css } from '@emotion/react'
+import { useRouter } from 'next/router'
 
 import { useRouterQuery } from '../../hooks/useRouterQuery'
 import media, { mediaQuery } from '../../lib/styles/media'
 import palette from '../../lib/styles/palette'
+import { generateLogger } from '../../utils/logger'
+import Button from '../atoms/Button'
 import Text from '../atoms/Text'
-import IconButton from '../molecules/IconButton'
 import StickyButton from '../molecules/StickyButton'
 
 export type IntroSectionProps = {
   title: string
   description: string
   nextSectionId: number
-  onClickStartButton?: () => void
 }
 
 function IntroSection({
   title,
   description,
   nextSectionId,
-  onClickStartButton,
 }: IntroSectionProps) {
+  const router = useRouter()
   const courseId = useRouterQuery('courseId')
+  const logger = generateLogger('course_page')
 
   return (
     <>
@@ -32,6 +34,7 @@ function IntroSection({
           <Text
             as="h6"
             style={{
+              fontSize: '16px',
               color: palette.solid.primary,
             }}
           >
@@ -45,33 +48,45 @@ function IntroSection({
         />
       </div>
       <StickyButton>
-        <IconButton
-          to={`/course/${courseId}/${nextSectionId}`}
+        <Button
           size="large"
           variant="primary"
           style={{
             background: '#00BCE5',
             color: 'white',
             justifyContent: 'center',
+            textAlign: 'center',
           }}
-          onClick={onClickStartButton}
+          onClick={() => {
+            logger.click('click_start_button')
+            router.push(`/course/${courseId}/${nextSectionId}`)
+          }}
         >
-          <Text as="h6">글 읽으러 가기 🔥</Text>
-        </IconButton>
+          <Text
+            as="h6"
+            style={{
+              fontSize: '14px',
+            }}
+          >
+            글 읽으러 가기 🔥
+          </Text>
+        </Button>
       </StickyButton>
     </>
   )
 }
 
 const containerStyle = css`
-  margin-left: 78px;
-  margin-top: 105px;
+  padding-left: 78px;
+  padding-top: 105px;
   box-sizing: border-box;
-  padding-bottom: 80px;
+  padding-bottom: 100px;
   ${mediaQuery(767)} {
-    margin-left: 0;
-    margin-top: 96px;
-    height: auto;
+    height: 100vh;
+    padding-left: 0;
+    padding-top: 94px;
+    padding-bottom: 150px;
+    overflow: scroll;
     justify-content: center;
   }
 `
@@ -95,12 +110,13 @@ const titleWrapperStyle = css`
   }
 `
 const descriptionStyle = css`
-  font-size: 15px;
+  font-size: 16px;
   font-family: ' Noto Sans KR';
   margin-top: 10px;
-  line-height: 1.69;
+  line-height: 24px;
   text-align: left;
-  color: #000000;
+  color: #545454;
+  font-weight: 400;
   margin-bottom: 1.5rem;
 `
 

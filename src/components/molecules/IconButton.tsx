@@ -37,7 +37,7 @@ function IconButton({
     <Button onClick={handleClick} {...rest}>
       {left && left}
       <div css={contentWrapperStyle}>{children}</div>
-      {right && right}
+      {right && <div css={svgIconStyle}>{right}</div>}
     </Button>
   )
 }
@@ -45,6 +45,21 @@ function IconButton({
 const contentWrapperStyle = css`
   display: flex;
   flex-direction: column;
+  padding-right: 30px;
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: left;
+`
+const svgIconStyle = css`
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  svg {
+    vertical-align: middle;
+  }
 `
 
 export default IconButton

@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import React, { ReactNode } from 'react'
 
+import media from '../../lib/styles/media'
 import { buttonColorMap } from '../../lib/styles/palette'
 
 export type ButtonVariant =
@@ -37,8 +38,7 @@ function Button({
 }
 
 const buttonCss = (size: string) => css`
-  display: flex;
-  width: 320px;
+  position: relative;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -60,12 +60,23 @@ const buttonCss = (size: string) => css`
   ${size === 'large' &&
   css`
     max-width: 260px;
+    ${media.medium} {
+      max-width: 100%;
+    }
     min-height: 58px;
-    font-size: 13px;
+    font-size: 14px;
     width: 100%;
     flex: 1;
   `}
-  
+
+  ${size === 'full' &&
+  css`
+    padding-left: 20px;
+    text-align: left;
+    min-height: 58px;
+    font-size: 14px;
+    width: 100%;
+  `}  
   svg {
     justify-content: flex-end;
   }

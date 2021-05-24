@@ -69,7 +69,7 @@ const typoStyles: { [key: string]: SerializedStyles } = {
     line-height: 1.5;
   `,
   h6: css`
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
     line-height: 1.5;
     margin: 0;

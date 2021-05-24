@@ -36,9 +36,10 @@ const titleWrapperStyle = css`
   }
 `
 const descriptionStyle = css`
-  font-size: 13px;
+  font-size: 16px;
+  font-weight: 400;
   margin-top: 10px;
-  line-height: 1.69;
+  line-height: 24px;
   text-align: left;
   color: #545454;
   white-space: pre-line;

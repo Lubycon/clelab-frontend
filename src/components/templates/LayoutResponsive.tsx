@@ -32,7 +32,7 @@ const layoutStyle = css`
     width: calc(100% - 32px);
   }
   ${mediaQuery(767)} {
-    width: calc(100% - 40px);
+    width: calc(100% - 48px);
   }
 `
 

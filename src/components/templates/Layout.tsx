@@ -18,6 +18,7 @@ const containerStyle = css`
 `
 const mainStyle = css`
   flex: 1;
+  position: relative;
   ${media.medium} {
     width: 768px;
   }

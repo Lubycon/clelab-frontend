@@ -123,6 +123,7 @@ const SectionPage = () => {
                       buttonLinkType="external"
                       key={item.link}
                       to={item.link}
+                      size="full"
                       variant="lightBlue"
                       right={<Icon name="arrow" />}
                       onClick={() => handleBlogClick(item)}
@@ -170,7 +171,13 @@ const SectionPage = () => {
                     >
                       Next
                     </Text>
-                    <Text as="h6">
+                    <Text
+                      as="h6"
+                      css={nextButtonTextStyle}
+                      style={{
+                        fontSize: '14px',
+                      }}
+                    >
                       {sectionDetail.nextSection?.title ?? ''}
                     </Text>
                   </IconButton>
@@ -185,16 +192,26 @@ const SectionPage = () => {
 }
 
 const containerStyle = css`
-  margin-left: 78px;
-  margin-top: 105px;
+  padding-left: 78px;
+  padding-top: 105px;
   box-sizing: border-box;
-  padding-bottom: 80px;
+  padding-bottom: 30px;
   ${mediaQuery(767)} {
-    margin-left: 0;
-    margin-top: 96px;
-    height: auto;
+    height: 100vh;
+    padding-left: 0;
+    padding-top: 94px;
+    padding-bottom: 150px;
+    overflow: scroll;
     justify-content: center;
   }
+`
+
+const nextButtonTextStyle = css`
+  text-align: left;
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `
 
 const blogListStyle = css`
@@ -210,7 +227,7 @@ const blogListStyle = css`
 const blogButtonStyle = css`
   margin: 12px;
   ${mediaQuery(767)} {
-    margin: 12px 0;
+    margin: 6px 0;
   }
   transition: 0.3s box-shadow ease-in, 0.3s transform ease-in;
   &:hover {

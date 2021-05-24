@@ -58,6 +58,7 @@ function Sidebar({
 }
 
 const sidebarStyle = (isMobile: boolean, active: boolean) => css`
+  font-weight: bold;
   cursor: default;
   z-index: 15;
   flex: 1;
@@ -100,8 +101,8 @@ const curriculumNameStyle = css`
 `
 
 const introTitleStyle = (isMobile: boolean) => css`
-  margin-top: 21px;
-  font-family: Noto Sans KR;
+  margin-top: 24px;
+  font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
