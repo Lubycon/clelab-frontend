@@ -63,7 +63,7 @@ const headerStyle = css`
   }
 `
 const headerTitleStyle = css`
-  margin-left: 32px;
+  margin-left: 24px;
 `
 
 const curriculumNameStyle = css`

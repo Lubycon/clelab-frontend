@@ -11,7 +11,7 @@ export type SidebarItemProps = {
 }
 
 function SidebarItem({ sectionItem, onClick }: SidebarItemProps) {
-  const { id, title } = sectionItem
+  const { id, order, title } = sectionItem
   const router = useRouter()
   const courseId = router.query.courseId
 
@@ -21,7 +21,9 @@ function SidebarItem({ sectionItem, onClick }: SidebarItemProps) {
       onClick={() => onClick?.(sectionItem)}
     >
       <Link href={`/course/${courseId}/${id}`}>
-        <Text style={{ cursor: 'pointer' }}>{title}</Text>
+        <Text style={{ cursor: 'pointer', fontWeight: 'bold' }}>
+          {order}. {title}
+        </Text>
       </Link>
     </li>
   )
@@ -32,12 +34,12 @@ const linkStyle = (active: boolean) => css`
   display: flex;
   align-items: center;
   text-decoration: none;
-  margin-bottom: 1.5rem;
+  margin-bottom: 20px;
   color: #9696a4;
+  font-weight: bold;
   ${active &&
   css`
     color: #3ac8e8;
-    font-weight: bold;
   `}
 `
 

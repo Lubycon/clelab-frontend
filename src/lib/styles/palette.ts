@@ -23,7 +23,7 @@ export const buttonColorMap: {
   },
   lightBlue: {
     background: solid.lightBlue,
-    color: solid.deepSkyBlue,
+    color: solid.primary,
     hoverBackground: solid.primary,
   },
   deepSkyBlue: {
