@@ -1,5 +1,7 @@
 import 'firebase/analytics'
 
+import * as Sentry from '@sentry/react'
+import { Integrations } from '@sentry/tracing'
 import firebase from 'firebase/app'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
@@ -11,6 +13,11 @@ import { GlobalStyle } from '../GlobalStyles'
 import swrConfig from '../utils/swrConfig'
 
 const App = ({ Component, pageProps }: AppProps) => {
+  Sentry.init({
+    dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+    integrations: [new Integrations.BrowserTracing()],
+  })
+
   useEffect(() => {
     firebase.initializeApp(firebaseConfig)
     firebase.analytics()
