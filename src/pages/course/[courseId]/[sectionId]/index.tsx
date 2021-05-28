@@ -102,10 +102,7 @@ const SectionPage = () => {
         <title>{sectionDetail.title}</title>
         <meta
           name="keywords"
-          content={sectionDetail.blogs
-            .map((e) => e.title)
-            .concat()
-            .join(', ')}
+          content={sectionDetail.blogs.map((e) => e.title).join(', ')}
         />
         <meta name="description" content={sectionDetail.description} />
       </Head>
