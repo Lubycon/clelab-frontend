@@ -17,7 +17,6 @@ export const CompanyId = {
 } as const
 
 export type CompanyId = typeof CompanyId[keyof typeof CompanyId]
-
 export const CompanyIdTitleName = {
   [CompanyId.naver]: '네',
   [CompanyId.kakao]: '카',
@@ -38,7 +37,7 @@ const companyStyle = (isActive: boolean) => css`
   font-size: 36px;
   line-height: 25px;
   color: ${isActive ? '#3AC8E8' : '#D5D5DE'};
-  & +  * {
+  & + * {
     margin-left: 8px;
   }
 `

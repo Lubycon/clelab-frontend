@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { useRouter } from 'next/router'
-import { Intro } from '../../hooks/api/useGetSections'
 
+import { Intro } from '../../hooks/api/useGetSections'
 import { useRouterQuery } from '../../hooks/useRouterQuery'
 import media, { mediaQuery } from '../../lib/styles/media'
 import palette from '../../lib/styles/palette'
@@ -66,7 +66,11 @@ function IntroSection({ intro, nextSectionId }: IntroSectionProps) {
             <Text as="p" css={stackOverflowDescription}>
               {intro.stackOverflowTrend.description}
             </Text>
-            <img src={`${intro.stackOverflowTrend.imagePath}`} />
+
+            <img
+              alt="stackOverflowTrend-img"
+              src={intro.stackOverflowTrend.imagePath}
+            />
           </div>
           <Statistics statistics={intro.statistics} />
         </div>

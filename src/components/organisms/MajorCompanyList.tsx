@@ -1,9 +1,10 @@
 import { css } from '@emotion/react'
-import CompanyItem from '../atoms/CompanyItem'
+
 import { MajorCompany } from '../../hooks/api/useGetSections'
-import Text from '../atoms/Text'
-import Icon from '../atoms/Icon'
 import media from '../../lib/styles/media'
+import CompanyItem from '../atoms/CompanyItem'
+import Icon from '../atoms/Icon'
+import Text from '../atoms/Text'
 
 interface MajorCompanyProps {
   majorCompany: MajorCompany
@@ -11,6 +12,7 @@ interface MajorCompanyProps {
 
 function MajorCompanyList({ majorCompany }: MajorCompanyProps) {
   const { title, companies } = majorCompany
+
   return (
     <div css={wrapper}>
       <Text css={titleStyle}>{title}</Text>
