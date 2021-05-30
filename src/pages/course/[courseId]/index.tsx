@@ -60,8 +60,7 @@ const CoursePage = () => {
           </Layout.Side>
           <Layout.Main>
             <IntroSection
-              title={data.intro.summary}
-              description={data.intro.description}
+              intro={data.intro}
               nextSectionId={data.sections[0].id}
             />
           </Layout.Main>

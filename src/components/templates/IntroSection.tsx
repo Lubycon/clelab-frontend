@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import { useRouter } from 'next/router'
+import { Intro } from '../../hooks/api/useGetSections'
 
 import { useRouterQuery } from '../../hooks/useRouterQuery'
 import media, { mediaQuery } from '../../lib/styles/media'
@@ -8,18 +9,15 @@ import { generateLogger } from '../../utils/logger'
 import Button from '../atoms/Button'
 import Text from '../atoms/Text'
 import StickyButton from '../molecules/StickyButton'
+import MajorCompanyList from '../organisms/MajorCompanyList'
+import Statistics from '../organisms/Statistics'
 
 export type IntroSectionProps = {
-  title: string
-  description: string
+  intro: Intro
   nextSectionId: number
 }
 
-function IntroSection({
-  title,
-  description,
-  nextSectionId,
-}: IntroSectionProps) {
+function IntroSection({ intro, nextSectionId }: IntroSectionProps) {
   const router = useRouter()
   const courseId = useRouterQuery('courseId')
   const logger = generateLogger('course_page')
@@ -30,7 +28,7 @@ function IntroSection({
         <div css={titleWrapperStyle}>
           <Text as="h5">왜 배워야 할까?🤔</Text>
         </div>
-        <div css={courseCardStyle}>
+        <div css={courseCardStyle()}>
           <Text
             as="h6"
             style={{
@@ -38,13 +36,44 @@ function IntroSection({
               color: palette.solid.primary,
             }}
           >
-            {title}
+            {intro.description.summary}
           </Text>
+        </div>
+        <div css={majorCompanyWrapper}>
+          <MajorCompanyList majorCompany={intro.majorCompany} />
+          <Text
+            as="p"
+            css={descriptionStyle}
+            dangerouslySetInnerHTML={{ __html: intro.description.header }}
+          />
+        </div>
+        <div css={courseCardStyle(true)}>
+          <Text
+            as="h6"
+            style={{
+              fontSize: '16px',
+              color: palette.solid.deepSkyBlue,
+            }}
+          >
+            {intro.description.subSummary}
+          </Text>
+        </div>
+        <div css={majorCompanyWrapper}>
+          <div css={stackOverflowTrendStyle}>
+            <Text css={stackOverflowTitleStyle}>
+              {intro.stackOverflowTrend.title}
+            </Text>
+            <Text as="p" css={stackOverflowDescription}>
+              {intro.stackOverflowTrend.description}
+            </Text>
+            <img src={`${intro.stackOverflowTrend.imagePath}`} />
+          </div>
+          <Statistics statistics={intro.statistics} />
         </div>
         <Text
           as="p"
           css={descriptionStyle}
-          dangerouslySetInnerHTML={{ __html: description }}
+          dangerouslySetInnerHTML={{ __html: intro.description.footer }}
         />
       </div>
       <StickyButton>
@@ -90,18 +119,18 @@ const containerStyle = css`
     justify-content: center;
   }
 `
-const courseCardStyle = css`
+const courseCardStyle = (isWhite?: boolean) => css`
   padding: 1rem;
   display: flex;
   align-items: center;
   min-height: 65px;
-  background: #ebfafd;
-  border: 1px solid rgba(58, 200, 232, 0.08);
+  background: ${isWhite ? '#fff' : '#ebfafd'};
+  border: 1px solid
+    ${isWhite ? 'rgba(58, 200, 232, 0.5)' : 'rgba(58, 200, 232, 0.08)'};
   box-sizing: border-box;
   border-radius: 8px;
   margin: 24px 0;
 `
-
 const titleWrapperStyle = css`
   flex-shrink: 0;
 
@@ -110,14 +139,51 @@ const titleWrapperStyle = css`
   }
 `
 const descriptionStyle = css`
-  font-size: 16px;
-  font-family: ' Noto Sans KR';
-  margin-top: 10px;
+  display: flex;
+  flex: 1;
+  font-size: 15px;
+  font-family: 'Noto Sans KR';
   line-height: 24px;
   text-align: left;
   color: #545454;
   font-weight: 400;
-  margin-bottom: 1.5rem;
+  margin-bottom: 24px;
+  white-space: pre-line;
+`
+
+const majorCompanyWrapper = css`
+  display: flex;
+  ${media.small} {
+    flex-direction: column;
+  }
+`
+
+const stackOverflowTrendStyle = css`
+  display: flex;
+  flex-direction: column;
+  margin-right: 16px;
+  img {
+    width: 468px;
+    height: 298px;
+  }
+  ${media.small} {
+    img {
+      width: 324px;
+    }
+    margin-right: 0;
+  }
+`
+
+const stackOverflowTitleStyle = css`
+  color: #282828;
+  font-weight: bold;
+`
+
+const stackOverflowDescription = css`
+  color: #9696a4;
+  font-weight: bold;
+  margin-top: 4px;
+  margin-bottom: 16px;
 `
 
 export default IntroSection
