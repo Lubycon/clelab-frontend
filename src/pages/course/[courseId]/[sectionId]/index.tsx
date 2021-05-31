@@ -226,6 +226,7 @@ const nextButtonTextStyle = css`
 const blogListStyle = css`
   display: flex;
   margin: -12px;
+  margin-top: 36px;
   flex-wrap: wrap;
   ${mediaQuery(767)} {
     margin: 0;

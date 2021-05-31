@@ -46,9 +46,12 @@ const wrapper = css`
   width: 360px;
   margin-right: 16px;
   margin-bottom: 32px;
-  ${media.small} {
+  ${media.xsmall} {
     width: 324px;
     margin-right: 0;
+  }
+  ${media.custom(320)} {
+    width: 100%;
   }
 `
 
@@ -62,6 +65,11 @@ const companyListStyle = css`
   display: flex;
   padding-bottom: 20px;
   border-bottom: 2px solid #d5d5de;
+  ${media.msmall} {
+    flex: 1;
+    width: 100%;
+    justify-content: center;
+  }
 `
 
 const activeSkillWrapper = css`
