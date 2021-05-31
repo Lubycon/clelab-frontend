@@ -37,9 +37,9 @@ const wrapper = css`
 `
 
 const contentWrapper = css`
-& + & {
-  margin-top: 1rem;;
-}
+  & + & {
+    margin-top: 16px;
+  }
 `
 
 const statisticTitle = css`
