@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { useCallback, useEffect } from 'react'
 
 import MobileSectionHeader from '../../../components/organisms/MobileSectionHeader'
@@ -40,6 +41,11 @@ const CoursePage = () => {
 
   return (
     <>
+      <Head>
+        <title>{data.curriculum.title}</title>
+        <meta name="keywords" content={data.curriculum.title} />
+        <meta name="description" content={data.intro.description} />
+      </Head>
       <MobileSectionHeader
         sectionList={data}
         courseName={data.curriculum.title}

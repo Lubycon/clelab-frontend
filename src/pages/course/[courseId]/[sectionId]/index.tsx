@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import Head from 'next/head'
 import { useCallback, useEffect } from 'react'
 
 import Icon from '../../../../components/atoms/Icon'
@@ -97,6 +98,14 @@ const SectionPage = () => {
 
   return (
     <>
+      <Head>
+        <title>{sectionDetail.title}</title>
+        <meta
+          name="keywords"
+          content={sectionDetail.blogs.map((e) => e.title).join(', ')}
+        />
+        <meta name="description" content={sectionDetail.description} />
+      </Head>
       <MobileSectionHeader
         sectionList={data}
         courseName={data.curriculum.title}
