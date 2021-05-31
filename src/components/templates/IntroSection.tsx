@@ -22,6 +22,8 @@ function IntroSection({ intro, nextSectionId }: IntroSectionProps) {
   const courseId = useRouterQuery('courseId')
   const logger = generateLogger('course_page')
 
+  const { majorCompany, description, statistics, stackOverflowTrend } = intro
+
   return (
     <>
       <div css={containerStyle}>
@@ -36,15 +38,15 @@ function IntroSection({ intro, nextSectionId }: IntroSectionProps) {
               color: palette.solid.primary,
             }}
           >
-            {intro.description.summary}
+            {description.summary}
           </Text>
         </div>
         <div css={majorCompanyWrapper}>
-          <MajorCompanyList majorCompany={intro.majorCompany} />
+          <MajorCompanyList majorCompany={majorCompany} />
           <Text
             as="p"
             css={descriptionStyle}
-            dangerouslySetInnerHTML={{ __html: intro.description.header }}
+            dangerouslySetInnerHTML={{ __html: description.header }}
           />
         </div>
         <div css={courseCardStyle(true)}>
@@ -55,29 +57,29 @@ function IntroSection({ intro, nextSectionId }: IntroSectionProps) {
               color: palette.solid.deepSkyBlue,
             }}
           >
-            {intro.description.subSummary}
+            {description.subSummary}
           </Text>
         </div>
         <div css={majorCompanyWrapper}>
           <div css={stackOverflowTrendStyle}>
             <Text css={stackOverflowTitleStyle}>
-              {intro.stackOverflowTrend.title}
+              {stackOverflowTrend.title}
             </Text>
             <Text as="p" css={stackOverflowDescription}>
-              {intro.stackOverflowTrend.description}
+              {stackOverflowTrend.description}
             </Text>
 
             <img
               alt="stackOverflowTrend-img"
-              src={intro.stackOverflowTrend.imagePath}
+              src={stackOverflowTrend.imagePath}
             />
           </div>
-          <Statistics statistics={intro.statistics} />
+          <Statistics statistics={statistics} />
         </div>
         <Text
           as="p"
           css={descriptionStyle}
-          dangerouslySetInnerHTML={{ __html: intro.description.footer }}
+          dangerouslySetInnerHTML={{ __html: description.footer }}
         />
       </div>
       <StickyButton>

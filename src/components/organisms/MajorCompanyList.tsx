@@ -17,17 +17,14 @@ function MajorCompanyList({ majorCompany }: MajorCompanyProps) {
     <div css={wrapper}>
       <Text css={titleStyle}>{title}</Text>
       <div css={companyListStyle}>
-        <CompanyItem
-          company={'naver'}
-          isActive={majorCompany.companies.naver}
-        />
-        <CompanyItem company={'kakao'} isActive={companies.kakao} />
-        <CompanyItem company={'line'} isActive={companies.line} />
-        <CompanyItem company={'coupang'} isActive={companies.coupang} />
-        <CompanyItem company={'woowabros'} isActive={companies.woowabros} />
-        <CompanyItem company={'toss'} isActive={companies.toss} />
-        <CompanyItem company={'daangn'} isActive={companies.daangn} />
-        <CompanyItem company={'yanolja'} isActive={companies.yanolja} />
+        <CompanyItem company="naver" isActive={companies.naver} />
+        <CompanyItem company="kakao" isActive={companies.kakao} />
+        <CompanyItem company="line" isActive={companies.line} />
+        <CompanyItem company="coupang" isActive={companies.coupang} />
+        <CompanyItem company="woowabros" isActive={companies.woowabros} />
+        <CompanyItem company="toss" isActive={companies.toss} />
+        <CompanyItem company="daangn" isActive={companies.daangn} />
+        <CompanyItem company="yanolja" isActive={companies.yanolja} />
       </div>
       <div css={activeSkillWrapper}>
         <div css={activeSkillStyle(true)}>
