@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import media from '../../lib/styles/media'
 
 export interface CompanyItemProps {
   company: CompanyId
@@ -37,6 +38,10 @@ const companyStyle = (isActive: boolean) => css`
   font-size: 36px;
   line-height: 25px;
   color: ${isActive ? '#3AC8E8' : '#D5D5DE'};
+  width: 100%;
+  ${media.small} {
+    font-size: 28px;
+  }
   & + * {
     margin-left: 8px;
   }

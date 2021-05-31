@@ -159,6 +159,7 @@ const descriptionStyle = css`
 
 const majorCompanyWrapper = css`
   display: flex;
+  margin-bottom: 36px;
   ${media.small} {
     flex-direction: column;
   }
@@ -173,10 +174,17 @@ const stackOverflowTrendStyle = css`
     height: 298px;
   }
   ${media.small} {
+    justify-content: center;
     img {
       width: 324px;
     }
     margin-right: 0;
+  }
+  ${media.custom(320)} {
+    justify-content: center;
+    img {
+      width: 100%;
+    }
   }
 `
 

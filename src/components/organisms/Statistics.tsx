@@ -11,7 +11,7 @@ function Statistics({ statistics }: StatisticsProps) {
   return (
     <div css={wrapper}>
       {statistics.map((item) => (
-        <>
+        <div css={contentWrapper}>
           <Text css={statisticTitle}>{item.title}</Text>
           <Text as="p" css={statisticDescription}>
             {item.description}
@@ -24,7 +24,7 @@ function Statistics({ statistics }: StatisticsProps) {
               {valueItem.keyword} : {valueItem.value}
             </Text>
           ))}
-        </>
+        </div>
       ))}
     </div>
   )
@@ -34,6 +34,12 @@ const wrapper = css`
   flex: 1;
   display: flex;
   flex-direction: column;
+`
+
+const contentWrapper = css`
+& + & {
+  margin-top: 1rem;;
+}
 `
 
 const statisticTitle = css`
