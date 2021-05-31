@@ -44,7 +44,7 @@ const CoursePage = () => {
       <Head>
         <title>{data.curriculum.title}</title>
         <meta name="keywords" content={data.curriculum.title} />
-        <meta name="description" content={data.intro.description} />
+        <meta name="description" content={data.intro.description.summary} />
       </Head>
       <MobileSectionHeader
         sectionList={data}
@@ -60,8 +60,7 @@ const CoursePage = () => {
           </Layout.Side>
           <Layout.Main>
             <IntroSection
-              title={data.intro.summary}
-              description={data.intro.description}
+              intro={data.intro}
               nextSectionId={data.sections[0].id}
             />
           </Layout.Main>

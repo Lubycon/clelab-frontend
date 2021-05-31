@@ -21,6 +21,7 @@
     "padding-line-between-statements": [
       "error",
       { "blankLine": "always", "prev": "*", "next": "return" }
-    ]
+    ],
+    "@typescript-eslint/no-redeclare": 0
   }
 }
