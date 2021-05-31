@@ -44,7 +44,7 @@ const CoursePage = () => {
       <Head>
         <title>{data.curriculum.title}</title>
         <meta name="keywords" content={data.curriculum.title} />
-        <meta name="description" content={data.intro.description} />
+        <meta name="description" content={data.intro.description.summary} />
       </Head>
       <MobileSectionHeader
         sectionList={data}
