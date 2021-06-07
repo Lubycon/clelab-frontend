@@ -14,6 +14,7 @@ const coursePageLogger = logger.getPageLogger('course_page')
 
 const CoursePage = () => {
   const courseId = useRouterQuery('courseId')
+  const utmSource = useRouterQuery('utm_source')
 
   const { data } = useSections(courseId)
 
@@ -34,8 +35,9 @@ const CoursePage = () => {
     }
     coursePageLogger.view({
       courseId,
+      utmSource,
     })
-  }, [courseId])
+  }, [courseId, utmSource])
 
   if (!data) return null
 
