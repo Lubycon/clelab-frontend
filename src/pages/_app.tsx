@@ -1,13 +1,12 @@
-import 'firebase/analytics'
-
+import { logger } from '@lubycon/utils'
 import * as Sentry from '@sentry/react'
 import { Integrations } from '@sentry/tracing'
-import firebase from 'firebase/app'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { SWRConfig } from 'swr'
 
+import { isProduction } from '../constants/env'
 import { firebaseConfig } from '../constants/firebase'
 import { GlobalStyle } from '../GlobalStyles'
 import swrConfig from '../utils/swrConfig'
@@ -19,8 +18,13 @@ const App = ({ Component, pageProps }: AppProps) => {
   })
 
   useEffect(() => {
-    firebase.initializeApp(firebaseConfig)
-    firebase.analytics()
+    logger.init({
+      services: {
+        firebase: firebaseConfig,
+        amplitude: process.env.NEXT_PUBLIC_AMPLITUDE_KEY ?? '',
+      },
+      mode: isProduction ? 'production' : 'development',
+    })
   }, [])
 
   return (
