@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import { logger } from '@lubycon/utils'
 import Head from 'next/head'
 import { useCallback, useEffect } from 'react'
 
@@ -21,9 +22,8 @@ import useGetSections, {
 import { useRouterQuery } from '../../../../hooks/useRouterQuery'
 import { mediaQuery } from '../../../../lib/styles/media'
 import palette from '../../../../lib/styles/palette'
-import { generateLogger } from '../../../../utils/logger'
 
-const logger = generateLogger('section_page')
+const sectionPageLogger = logger.getPageLogger('section_page')
 
 const generateSectionLink = (courseId: string, sectionId: string) =>
   `/course/${courseId}/${sectionId}`
@@ -49,7 +49,7 @@ const SectionPage = () => {
 
   const handleSectionItemClick = useCallback(
     ({ id, title }: SectionItem) => {
-      logger.click('click_section_item_in_sidebar', {
+      sectionPageLogger.click('click_section_item_in_sidebar', {
         courseId,
         sectionId: id,
         sectionTitle: title,
@@ -60,7 +60,7 @@ const SectionPage = () => {
 
   const handleBlogClick = useCallback(
     ({ title, link }: Blog) => {
-      logger.click('click_blog_link', {
+      sectionPageLogger.click('click_blog_link', {
         title,
         link,
         courseId,
@@ -72,7 +72,7 @@ const SectionPage = () => {
 
   const handleNavigationClick = useCallback(
     (clickedSection: Section, direction: 'next' | 'prev') => () => {
-      logger.click('click_navigation_button', {
+      sectionPageLogger.click('click_navigation_button', {
         clickedSectionId: clickedSection?.id ?? '',
         clickedSectionTitle: clickedSection?.title,
         direction,
@@ -88,7 +88,7 @@ const SectionPage = () => {
       return
     }
 
-    logger.view({
+    sectionPageLogger.view({
       courseId,
       sectionId,
     })

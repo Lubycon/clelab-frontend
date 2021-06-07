@@ -1,3 +1,4 @@
+import { logger } from '@lubycon/utils'
 import Head from 'next/head'
 import { useCallback, useEffect } from 'react'
 
@@ -8,9 +9,8 @@ import Layout from '../../../components/templates/Layout'
 import LayoutResponsive from '../../../components/templates/LayoutResponsive'
 import useSections, { SectionItem } from '../../../hooks/api/useGetSections'
 import { useRouterQuery } from '../../../hooks/useRouterQuery'
-import { generateLogger } from '../../../utils/logger'
 
-const logger = generateLogger('course_page')
+const coursePageLogger = logger.getPageLogger('course_page')
 
 const CoursePage = () => {
   const courseId = useRouterQuery('courseId')
@@ -19,7 +19,7 @@ const CoursePage = () => {
 
   const handleSectionItemClick = useCallback(
     ({ id, title }: SectionItem) => {
-      logger.click('click_section_item_in_sidebar', {
+      coursePageLogger.click('click_section_item_in_sidebar', {
         courseId,
         sectionId: id,
         sectionTitle: title,
@@ -32,7 +32,7 @@ const CoursePage = () => {
     if (courseId == null) {
       return
     }
-    logger.view({
+    coursePageLogger.view({
       courseId,
     })
   }, [courseId])

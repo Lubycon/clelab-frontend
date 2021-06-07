@@ -1,11 +1,11 @@
 import { css } from '@emotion/react'
+import { logger } from '@lubycon/utils'
 import { useRouter } from 'next/router'
 
 import { Intro } from '../../hooks/api/useGetSections'
 import { useRouterQuery } from '../../hooks/useRouterQuery'
 import media, { mediaQuery } from '../../lib/styles/media'
 import palette from '../../lib/styles/palette'
-import { generateLogger } from '../../utils/logger'
 import Button from '../atoms/Button'
 import Text from '../atoms/Text'
 import StickyButton from '../molecules/StickyButton'
@@ -17,10 +17,10 @@ export type IntroSectionProps = {
   nextSectionId: number
 }
 
+const coursePageLogger = logger.getPageLogger('course_page')
 function IntroSection({ intro, nextSectionId }: IntroSectionProps) {
   const router = useRouter()
   const courseId = useRouterQuery('courseId')
-  const logger = generateLogger('course_page')
 
   const { majorCompany, description, statistics, stackOverflowTrend } = intro
 
@@ -93,7 +93,7 @@ function IntroSection({ intro, nextSectionId }: IntroSectionProps) {
             textAlign: 'center',
           }}
           onClick={() => {
-            logger.click('click_start_button')
+            coursePageLogger.click('click_start_button')
             router.push(`/course/${courseId}/${nextSectionId}`)
           }}
         >
