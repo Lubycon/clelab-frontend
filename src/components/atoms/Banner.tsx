@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
+import LayoutResponsive from 'components/templates/LayoutResponsive'
+import media from 'lib/styles/media'
 
-import media from '../../lib/styles/media'
-import LayoutResponsive from '../templates/LayoutResponsive'
 import Text from './Text'
 import Timer from './Timer'
 

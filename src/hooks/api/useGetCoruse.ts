@@ -1,6 +1,5 @@
+import { fetcher } from 'lib/api/fetch'
 import useSWR from 'swr'
-
-import { fetcher } from '../../lib/api/fetch'
 
 const key = 'curriculums'
 

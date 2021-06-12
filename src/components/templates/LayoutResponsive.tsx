@@ -1,7 +1,6 @@
 import { css } from '@emotion/react'
+import { mediaQuery } from 'lib/styles/media'
 import { PropsWithChildren } from 'react'
-
-import { mediaQuery } from '../../lib/styles/media'
 
 export interface LayoutResponsiveProps {
   className?: string

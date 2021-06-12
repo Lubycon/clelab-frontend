@@ -1,10 +1,9 @@
 import { css } from '@emotion/react'
-
-import { MajorCompany } from '../../hooks/api/useGetSections'
-import media from '../../lib/styles/media'
-import CompanyItem from '../atoms/CompanyItem'
-import Icon from '../atoms/Icon'
-import Text from '../atoms/Text'
+import CompanyItem from 'components/atoms/CompanyItem'
+import Icon from 'components/atoms/Icon'
+import Text from 'components/atoms/Text'
+import { MajorCompany } from 'hooks/api/useGetSections'
+import media from 'lib/styles/media'
 
 interface MajorCompanyProps {
   majorCompany: MajorCompany

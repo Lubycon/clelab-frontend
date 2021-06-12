@@ -1,8 +1,8 @@
 import { css } from '@emotion/react'
+import { SectionItem } from 'hooks/api/useGetSections'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 
-import { SectionItem } from '../../hooks/api/useGetSections'
 import Text from './Text'
 
 export type SidebarItemProps = {

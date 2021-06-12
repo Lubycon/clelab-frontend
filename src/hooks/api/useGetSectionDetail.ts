@@ -1,6 +1,5 @@
+import { fetcher } from 'lib/api/fetch'
 import useSWR from 'swr'
-
-import { fetcher } from '../../lib/api/fetch'
 
 const key = (id: string, sectionId: string) =>
   `curriculums/${id}/sections/${sectionId}`

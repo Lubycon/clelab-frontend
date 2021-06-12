@@ -1,27 +1,21 @@
 import { css } from '@emotion/react'
 import { logger } from '@lubycon/utils'
+import Icon from 'components/atoms/Icon'
+import Text from 'components/atoms/Text'
+import IconButton from 'components/molecules/IconButton'
+import SectionRow from 'components/molecules/SectionRow'
+import StickyButton from 'components/molecules/StickyButton'
+import MobileSectionHeader from 'components/organisms/MobileSectionHeader'
+import Sidebar from 'components/organisms/Sidebar'
+import Layout from 'components/templates/Layout'
+import LayoutResponsive from 'components/templates/LayoutResponsive'
+import useSectionDetail, { Blog, Section } from 'hooks/api/useGetSectionDetail'
+import useGetSections, { SectionItem } from 'hooks/api/useGetSections'
+import { useRouterQuery } from 'hooks/useRouterQuery'
+import { mediaQuery } from 'lib/styles/media'
+import palette from 'lib/styles/palette'
 import Head from 'next/head'
 import { useCallback, useEffect } from 'react'
-
-import Icon from '../../../../components/atoms/Icon'
-import Text from '../../../../components/atoms/Text'
-import IconButton from '../../../../components/molecules/IconButton'
-import SectionRow from '../../../../components/molecules/SectionRow'
-import StickyButton from '../../../../components/molecules/StickyButton'
-import MobileSectionHeader from '../../../../components/organisms/MobileSectionHeader'
-import Sidebar from '../../../../components/organisms/Sidebar'
-import Layout from '../../../../components/templates/Layout'
-import LayoutResponsive from '../../../../components/templates/LayoutResponsive'
-import useSectionDetail, {
-  Blog,
-  Section,
-} from '../../../../hooks/api/useGetSectionDetail'
-import useGetSections, {
-  SectionItem,
-} from '../../../../hooks/api/useGetSections'
-import { useRouterQuery } from '../../../../hooks/useRouterQuery'
-import { mediaQuery } from '../../../../lib/styles/media'
-import palette from '../../../../lib/styles/palette'
 
 const sectionPageLogger = logger.getPageLogger('section_page')
 

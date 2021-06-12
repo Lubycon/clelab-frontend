@@ -1,7 +1,6 @@
 import { css } from '@emotion/react'
-
-import { Statistic } from '../../hooks/api/useGetSections'
-import Text from '../atoms/Text'
+import Text from 'components/atoms/Text'
+import { Statistic } from 'hooks/api/useGetSections'
 
 export interface StatisticsProps {
   statistics: Statistic[]
