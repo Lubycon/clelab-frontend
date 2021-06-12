@@ -1,6 +1,5 @@
 import { css } from '@emotion/react'
-
-import media from '../../lib/styles/media'
+import media from 'lib/styles/media'
 
 export interface CompanyItemProps {
   company: CompanyId

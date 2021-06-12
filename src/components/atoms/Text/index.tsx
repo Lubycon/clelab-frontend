@@ -1,7 +1,6 @@
 import { css, SerializedStyles } from '@emotion/react'
 import React, { ElementType, forwardRef, Ref } from 'react'
-
-import { OverridableProps } from '../../../utils/elementType'
+import { OverridableProps } from 'utils/elementType'
 
 export const DEFAULT_ELEMENT = 'span' as const
 

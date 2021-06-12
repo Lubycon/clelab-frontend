@@ -1,7 +1,6 @@
 import { css } from '@emotion/react'
-
-import media from '../../lib/styles/media'
-import Text from '../atoms/Text'
+import Text from 'components/atoms/Text'
+import media from 'lib/styles/media'
 
 export type SectionRowProps = {
   title: string

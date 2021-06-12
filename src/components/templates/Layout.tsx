@@ -1,8 +1,7 @@
 import { css } from '@emotion/react'
+import Header from 'components/atoms/Header'
+import media from 'lib/styles/media'
 import { PropsWithChildren } from 'react'
-
-import media from '../../lib/styles/media'
-import Header from '../atoms/Header'
 
 export interface LayoutProps {
   style?: React.CSSProperties

@@ -1,10 +1,10 @@
 import { css } from '@emotion/react'
+import Icon from 'components/atoms/Icon'
+import Text from 'components/atoms/Text'
+import { SectionList } from 'hooks/api/useGetSections'
+import { useToggle } from 'hooks/useToggle'
+import media from 'lib/styles/media'
 
-import { SectionList } from '../../hooks/api/useGetSections'
-import { useToggle } from '../../hooks/useToggle'
-import media from '../../lib/styles/media'
-import Icon from '../atoms/Icon'
-import Text from '../atoms/Text'
 import Sidebar from './Sidebar'
 
 export interface MobileHeaderProps {

@@ -1,16 +1,15 @@
 import { css } from '@emotion/react'
 import { logger } from '@lubycon/utils'
+import Button from 'components/atoms/Button'
+import Text from 'components/atoms/Text'
+import StickyButton from 'components/molecules/StickyButton'
+import MajorCompanyList from 'components/organisms/MajorCompanyList'
+import Statistics from 'components/organisms/Statistics'
+import { Intro } from 'hooks/api/useGetSections'
+import { useRouterQuery } from 'hooks/useRouterQuery'
+import media, { mediaQuery } from 'lib/styles/media'
+import palette from 'lib/styles/palette'
 import { useRouter } from 'next/router'
-
-import { Intro } from '../../hooks/api/useGetSections'
-import { useRouterQuery } from '../../hooks/useRouterQuery'
-import media, { mediaQuery } from '../../lib/styles/media'
-import palette from '../../lib/styles/palette'
-import Button from '../atoms/Button'
-import Text from '../atoms/Text'
-import StickyButton from '../molecules/StickyButton'
-import MajorCompanyList from '../organisms/MajorCompanyList'
-import Statistics from '../organisms/Statistics'
 
 export type IntroSectionProps = {
   intro: Intro

@@ -1,8 +1,8 @@
 import { css } from '@emotion/react'
+import media from 'lib/styles/media'
 import { useEffect, useState } from 'react'
+import { getCurrentTime } from 'utils/dateTime'
 
-import media from '../../lib/styles/media'
-import { getCurrentTime } from '../../utils/dateTime'
 import Text from './Text'
 interface TimerProps {
   intervalTime: number

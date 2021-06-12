@@ -1,10 +1,9 @@
 import { css } from '@emotion/react'
+import ImageSection from 'components/atoms/ImageSection'
+import Text from 'components/atoms/Text'
+import { Course } from 'hooks/api/useGetCoruse'
+import { mediaQuery } from 'lib/styles/media'
 import Link from 'next/link'
-
-import { Course } from '../../hooks/api/useGetCoruse'
-import { mediaQuery } from '../../lib/styles/media'
-import ImageSection from '../atoms/ImageSection'
-import Text from '../atoms/Text'
 
 export interface CourseCardProps {
   course: Course

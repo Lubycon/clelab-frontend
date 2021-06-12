@@ -1,11 +1,10 @@
 import { css } from '@emotion/react'
+import SidebarItem from 'components/atoms/SidebarItem'
+import Text from 'components/atoms/Text'
+import { SectionItem, SectionList } from 'hooks/api/useGetSections'
+import media from 'lib/styles/media'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
-
-import { SectionItem, SectionList } from '../../hooks/api/useGetSections'
-import media from '../../lib/styles/media'
-import SidebarItem from '../atoms/SidebarItem'
-import Text from '../atoms/Text'
 
 interface SidebarProps {
   isMobile?: boolean

@@ -1,14 +1,13 @@
 import { logger } from '@lubycon/utils'
+import MobileSectionHeader from 'components/organisms/MobileSectionHeader'
+import Sidebar from 'components/organisms/Sidebar'
+import IntroSection from 'components/templates/IntroSection'
+import Layout from 'components/templates/Layout'
+import LayoutResponsive from 'components/templates/LayoutResponsive'
+import useSections, { SectionItem } from 'hooks/api/useGetSections'
+import { useRouterQuery } from 'hooks/useRouterQuery'
 import Head from 'next/head'
 import { useCallback, useEffect } from 'react'
-
-import MobileSectionHeader from '../../../components/organisms/MobileSectionHeader'
-import Sidebar from '../../../components/organisms/Sidebar'
-import IntroSection from '../../../components/templates/IntroSection'
-import Layout from '../../../components/templates/Layout'
-import LayoutResponsive from '../../../components/templates/LayoutResponsive'
-import useSections, { SectionItem } from '../../../hooks/api/useGetSections'
-import { useRouterQuery } from '../../../hooks/useRouterQuery'
 
 const coursePageLogger = logger.getPageLogger('course_page')
 
