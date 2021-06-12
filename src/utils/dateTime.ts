@@ -1,5 +1,4 @@
-export function getCurrentTime() {
-  const date = new Date()
+export function formatDatetime(date: Date) {
   date.setHours(date.getHours() + date.getTimezoneOffset() / 60 + 9)
   let hour = date.getHours()
 
