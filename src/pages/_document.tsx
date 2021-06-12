@@ -22,13 +22,8 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap"
             rel="stylesheet"
           />
-          <title>나를 발전시키는 시간 - Clelab</title>
           <link rel="icon" href="/favicon/favicon.ico" />
           <meta httpEquiv="Content-type" content="text/html; charset=utf-8" />
-          <meta
-            name="viewport"
-            content="width=device-width,initial-scale=1.0"
-          />
         </Head>
         <body>
           <Main />
