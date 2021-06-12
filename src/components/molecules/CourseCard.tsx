@@ -40,6 +40,10 @@ const containerStyle = css`
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  &,
+  img {
+    transition: transform 0.2s ease-in-out;
+  }
   ${mediaQuery(1056)} {
     width: calc(50% - 32px);
   }
@@ -51,7 +55,10 @@ const containerStyle = css`
     }
   }
   &:hover {
-    transform: translateY(-2px);
+    transform: scale(1.01);
+    img {
+      transform: scale(1.1);
+    }
   }
 `
 

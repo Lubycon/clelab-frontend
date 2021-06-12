@@ -5,7 +5,6 @@ import { isProduction } from 'constants/env'
 import { firebaseConfig } from 'constants/firebase'
 import { GlobalStyle } from 'GlobalStyles'
 import { AppProps } from 'next/app'
-import Head from 'next/head'
 import { useEffect } from 'react'
 import { SWRConfig } from 'swr'
 import swrConfig from 'utils/swrConfig'
@@ -28,12 +27,6 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <SWRConfig value={swrConfig}>
-      <Head>
-        <title>나를 발전시키는 시간 - Clelab</title>
-        <link rel="icon" href="/favicon/favicon.ico" />
-        <meta httpEquiv="Content-type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-      </Head>
       <GlobalStyle />
       <Component {...pageProps} />
     </SWRConfig>
