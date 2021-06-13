@@ -1,5 +1,5 @@
 name: PR Slack Notification
-on: [pull_request, pull_request_review]
+on: [pull_request, pull_request_review, pull_request_review_comment]
 
 jobs:
   create-pull-request:
