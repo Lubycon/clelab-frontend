@@ -59,7 +59,7 @@ const buttonCss = (size: string) => css`
   ${size === 'large' &&
   css`
     max-width: 260px;
-    ${media.medium} {
+    ${media.small} {
       max-width: 100%;
     }
     min-height: 58px;
