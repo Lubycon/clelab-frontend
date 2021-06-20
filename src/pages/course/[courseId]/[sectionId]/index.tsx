@@ -159,6 +159,7 @@ const SectionPage = () => {
                     style={{
                       background: '#00BCE5',
                       color: 'white',
+                      minWidth: '260px',
                     }}
                     onClick={handleNavigationClick(
                       sectionDetail.nextSection,

@@ -29,7 +29,7 @@ const stickyStyle = css`
   flex: 1;
   padding: 24px 0;
   button + button {
-    margin-left: 16px;
+    margin-left: 6px;
   }
 `
 
