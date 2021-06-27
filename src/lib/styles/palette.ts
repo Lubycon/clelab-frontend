@@ -7,6 +7,7 @@ export const solid = {
   deepSkyBlue: '#3AC8E8',
   secondary: '#D9DAE2',
   dark: '#282828',
+  error: '#FF4038',
 }
 
 export const buttonColorMap: {

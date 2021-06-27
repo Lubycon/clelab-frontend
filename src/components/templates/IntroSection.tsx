@@ -41,7 +41,7 @@ function IntroSection({ intro, nextSectionId }: IntroSectionProps) {
           </Text>
         </div>
         <div css={majorCompanyWrapper}>
-          <MajorCompanyList majorCompany={majorCompany} />
+          {majorCompany && <MajorCompanyList majorCompany={majorCompany} />}
           <Text
             as="p"
             css={descriptionStyle}
@@ -60,20 +60,22 @@ function IntroSection({ intro, nextSectionId }: IntroSectionProps) {
           </Text>
         </div>
         <div css={majorCompanyWrapper}>
-          <div css={stackOverflowTrendStyle}>
-            <Text css={stackOverflowTitleStyle}>
-              {stackOverflowTrend.title}
-            </Text>
-            <Text as="p" css={stackOverflowDescription}>
-              {stackOverflowTrend.description}
-            </Text>
+          {stackOverflowTrend && (
+            <div css={stackOverflowTrendStyle}>
+              <Text css={stackOverflowTitleStyle}>
+                {stackOverflowTrend.title}
+              </Text>
+              <Text as="p" css={stackOverflowDescription}>
+                {stackOverflowTrend.description}
+              </Text>
 
-            <img
-              alt="stackOverflowTrend-img"
-              src={stackOverflowTrend.imagePath}
-            />
-          </div>
-          <Statistics statistics={statistics} />
+              <img
+                alt="stackOverflowTrend-img"
+                src={stackOverflowTrend.imagePath}
+              />
+            </div>
+          )}
+          {statistics && <Statistics statistics={statistics} />}
         </div>
         <Text
           as="p"
