@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import React, { forwardRef } from 'react'
+
 import Text from './Text'
 
 export type InputBaseProps = {
@@ -62,14 +63,6 @@ const wrapper = (disabled: boolean) => css`
     opacity: 0.4;
     cursor: not-allowed;
   `};
-`
-
-const labelStyle = css`
-  display: flex;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  margin-bottom: 8px;
 `
 
 export default forwardRef<HTMLDivElement, InputBaseProps>(InputBase)
