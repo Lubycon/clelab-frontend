@@ -48,17 +48,19 @@ function IntroSection({ intro, nextSectionId }: IntroSectionProps) {
             dangerouslySetInnerHTML={{ __html: description.header }}
           />
         </div>
-        <div css={courseCardStyle(true)}>
-          <Text
-            as="h6"
-            style={{
-              fontSize: '16px',
-              color: palette.solid.deepSkyBlue,
-            }}
-          >
-            {description.subSummary}
-          </Text>
-        </div>
+        {description.subSummary && (
+          <div css={courseCardStyle(true)}>
+            <Text
+              as="h6"
+              style={{
+                fontSize: '16px',
+                color: palette.solid.deepSkyBlue,
+              }}
+            >
+              {description.subSummary}
+            </Text>
+          </div>
+        )}
         <div css={majorCompanyWrapper}>
           {stackOverflowTrend && (
             <div css={stackOverflowTrendStyle}>
@@ -102,6 +104,7 @@ function IntroSection({ intro, nextSectionId }: IntroSectionProps) {
             as="h6"
             style={{
               fontSize: '14px',
+              cursor: 'pointer',
             }}
           >
             글 읽으러 가기 🔥

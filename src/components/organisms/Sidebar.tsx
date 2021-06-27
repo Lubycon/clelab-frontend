@@ -143,7 +143,6 @@ const introTitleStyle = (isMobile: boolean) => css`
   font-weight: bold;
   font-size: 18px;
   line-height: 27px;
-
   ${isMobile &&
   css`
     padding-left: 44px;
@@ -155,7 +154,6 @@ const sectionMenuStyle = (isMobile: boolean) => css`
   padding: 0;
   margin-top: 20px;
   flex: 1;
-
   ${isMobile &&
   css`
     padding-left: 44px;

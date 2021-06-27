@@ -20,7 +20,7 @@ export const buttonColorMap: {
   primary: {
     background: solid.primary,
     color: 'white',
-    hoverBackground: solid.primary,
+    hoverBackground: solid.lightBlue,
   },
   lightBlue: {
     background: solid.lightBlue,
