@@ -68,7 +68,7 @@ function Sticky({ className, bottom, children }: StickyProps) {
       ref={element}
       className={className}
       style={{
-        display: 'flex',
+        width: 'auto',
         position: fixed ? 'fixed' : 'static',
         bottom: fixed ? `${bottom}px` : undefined,
         boxSizing: 'border-box',

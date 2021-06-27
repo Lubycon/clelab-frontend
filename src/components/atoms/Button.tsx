@@ -92,5 +92,9 @@ export const variantStyle = (variant: ButtonVariant) => css`
   line-height: 20px;
   box-sizing: border-box;
   letter-spacing: normal;
+  &:hover {
+    ${buttonColorMap[variant].hoverBackground};
+    transform: scale(1.01);
+  }
 `
 export default Button

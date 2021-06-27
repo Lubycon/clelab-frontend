@@ -22,7 +22,6 @@ const stickyStyle = css`
     width: 100%;
     position: absolute;
   }
-
   right: 0;
   bottom: 0;
   display: flex;
