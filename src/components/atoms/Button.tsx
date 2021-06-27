@@ -29,6 +29,7 @@ function Button({
     <button
       onClick={onClick}
       css={[buttonCss(size), variantStyle(variant)]}
+      disabled={disabled}
       {...rest}
     >
       {children}
@@ -49,6 +50,9 @@ const buttonCss = (size: string) => css`
   font-size: 14px;
   cursor: pointer;
   outline: none;
+  &:disabled {
+    cursor: not-allowed;
+  }
   ${size === 'small' &&
   css`
     width: 58px;
