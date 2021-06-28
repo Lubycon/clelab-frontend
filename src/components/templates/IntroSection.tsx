@@ -41,39 +41,43 @@ function IntroSection({ intro, nextSectionId }: IntroSectionProps) {
           </Text>
         </div>
         <div css={majorCompanyWrapper}>
-          <MajorCompanyList majorCompany={majorCompany} />
+          {majorCompany && <MajorCompanyList majorCompany={majorCompany} />}
           <Text
             as="p"
             css={descriptionStyle}
             dangerouslySetInnerHTML={{ __html: description.header }}
           />
         </div>
-        <div css={courseCardStyle(true)}>
-          <Text
-            as="h6"
-            style={{
-              fontSize: '16px',
-              color: palette.solid.deepSkyBlue,
-            }}
-          >
-            {description.subSummary}
-          </Text>
-        </div>
-        <div css={majorCompanyWrapper}>
-          <div css={stackOverflowTrendStyle}>
-            <Text css={stackOverflowTitleStyle}>
-              {stackOverflowTrend.title}
+        {description.subSummary && (
+          <div css={courseCardStyle(true)}>
+            <Text
+              as="h6"
+              style={{
+                fontSize: '16px',
+                color: palette.solid.deepSkyBlue,
+              }}
+            >
+              {description.subSummary}
             </Text>
-            <Text as="p" css={stackOverflowDescription}>
-              {stackOverflowTrend.description}
-            </Text>
-
-            <img
-              alt="stackOverflowTrend-img"
-              src={stackOverflowTrend.imagePath}
-            />
           </div>
-          <Statistics statistics={statistics} />
+        )}
+        <div css={majorCompanyWrapper}>
+          {stackOverflowTrend && (
+            <div css={stackOverflowTrendStyle}>
+              <Text css={stackOverflowTitleStyle}>
+                {stackOverflowTrend.title}
+              </Text>
+              <Text as="p" css={stackOverflowDescription}>
+                {stackOverflowTrend.description}
+              </Text>
+
+              <img
+                alt="stackOverflowTrend-img"
+                src={stackOverflowTrend.imagePath}
+              />
+            </div>
+          )}
+          {statistics && <Statistics statistics={statistics} />}
         </div>
         <Text
           as="p"
@@ -100,6 +104,7 @@ function IntroSection({ intro, nextSectionId }: IntroSectionProps) {
             as="h6"
             style={{
               fontSize: '14px',
+              cursor: 'pointer',
             }}
           >
             글 읽으러 가기 🔥

@@ -16,10 +16,16 @@ const stickyBlock = css`
 export interface StickyProps {
   bottom: number
   className?: string
+  isMobile?: boolean
   children: ReactNode
 }
 
-function Sticky({ className, bottom, children }: StickyProps) {
+function Sticky({
+  isMobile = false,
+  className,
+  bottom,
+  children,
+}: StickyProps) {
   const [y, setY] = useState(0)
   const element = useRef<HTMLDivElement>(null)
   const [fixed, setFixed] = useState(true)
@@ -68,7 +74,7 @@ function Sticky({ className, bottom, children }: StickyProps) {
       ref={element}
       className={className}
       style={{
-        display: 'flex',
+        width: isMobile ? '100%' : 'auto',
         position: fixed ? 'fixed' : 'static',
         bottom: fixed ? `${bottom}px` : undefined,
         boxSizing: 'border-box',

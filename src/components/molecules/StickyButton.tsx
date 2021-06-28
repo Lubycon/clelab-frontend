@@ -22,14 +22,13 @@ const stickyStyle = css`
     width: 100%;
     position: absolute;
   }
-
   right: 0;
   bottom: 0;
   display: flex;
   flex: 1;
   padding: 24px 0;
   button + button {
-    margin-left: 16px;
+    margin-left: 6px;
   }
 `
 

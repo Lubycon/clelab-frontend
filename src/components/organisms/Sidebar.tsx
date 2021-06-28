@@ -6,6 +6,13 @@ import media from 'lib/styles/media'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 
+import { useToggle } from '../../hooks/useToggle'
+import palette from '../../lib/styles/palette'
+import Button from '../atoms/Button'
+import Modal from '../atoms/Modal'
+import Sticky from '../atoms/Sticky'
+import SubcribeForm from '../atoms/SubcribeForm'
+
 interface SidebarProps {
   isMobile?: boolean
   sectionList: SectionList
@@ -19,40 +26,70 @@ function Sidebar({
 }: SidebarProps) {
   const router = useRouter()
   const courseId = router.query.courseId
+  const [toggle, set] = useToggle(false)
 
-  /* FIXME  */
   return (
-    <div css={sidebarStyle(isMobile, !router.query.sectionId)}>
-      {!isMobile && (
-        <>
-          <Text as="p" style={{ fontFamily: 'Archivo', color: '#9696a4' }}>
-            COURSE
-          </Text>
-          <div css={curriculumNameStyle}>{sectionList.curriculum.title}</div>
-        </>
-      )}
-      <div
-        css={introTitleStyle(isMobile)}
-        onClick={() =>
-          onClickSectionItem?.({
-            id: -1,
-            title: '왜 배워야할까',
-            order: -1,
-          })
-        }
-      >
-        <Link href={`/course/${courseId}`}>왜 배워야 할까?🤔</Link>
+    <>
+      <div css={sidebarStyle(isMobile, !router.query.sectionId)}>
+        {!isMobile && (
+          <>
+            <Text as="p" style={{ fontFamily: 'Archivo', color: '#9696a4' }}>
+              COURSE
+            </Text>
+            <div css={curriculumNameStyle}>{sectionList.curriculum.title}</div>
+          </>
+        )}
+        <div
+          css={introTitleStyle(isMobile)}
+          onClick={() =>
+            onClickSectionItem?.({
+              id: -1,
+              title: '왜 배워야할까',
+              order: -1,
+            })
+          }
+        >
+          <Link href={`/course/${courseId}`}>왜 배워야 할까?🤔</Link>
+        </div>
+        <ul css={sectionMenuStyle(isMobile)}>
+          {sectionList?.sections.map((item: SectionItem) => (
+            <SidebarItem
+              key={item.id}
+              sectionItem={item}
+              onClick={onClickSectionItem}
+            />
+          ))}
+        </ul>
+        <Sticky isMobile={isMobile} bottom={isMobile ? 0 : 15}>
+          <Button
+            size={isMobile ? 'full' : 'medium'}
+            variant="primary"
+            onClick={set}
+            style={
+              isMobile
+                ? {
+                    textAlign: 'center',
+                    borderRadius: 0,
+                  }
+                : { background: '#6D3DF7', width: '214px' }
+            }
+          >
+            <Text
+              as="h6"
+              style={{
+                fontSize: '16px',
+                color: palette.white,
+              }}
+            >
+              Clelab 소식 받아보기 👏
+            </Text>
+          </Button>
+        </Sticky>
       </div>
-      <ul css={sectionMenuStyle(isMobile)}>
-        {sectionList?.sections.map((item: SectionItem) => (
-          <SidebarItem
-            key={item.id}
-            sectionItem={item}
-            onClick={onClickSectionItem}
-          />
-        ))}
-      </ul>
-    </div>
+      <Modal isOpen={toggle} style={{ backgroundColor: `${palette.solid}` }}>
+        <SubcribeForm onClose={set} />
+      </Modal>
+    </>
   )
 }
 
@@ -106,7 +143,6 @@ const introTitleStyle = (isMobile: boolean) => css`
   font-weight: bold;
   font-size: 18px;
   line-height: 27px;
-
   ${isMobile &&
   css`
     padding-left: 44px;
@@ -118,7 +154,6 @@ const sectionMenuStyle = (isMobile: boolean) => css`
   padding: 0;
   margin-top: 20px;
   flex: 1;
-
   ${isMobile &&
   css`
     padding-left: 44px;

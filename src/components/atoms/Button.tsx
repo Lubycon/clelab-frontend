@@ -29,6 +29,7 @@ function Button({
     <button
       onClick={onClick}
       css={[buttonCss(size), variantStyle(variant)]}
+      disabled={disabled}
       {...rest}
     >
       {children}
@@ -49,6 +50,9 @@ const buttonCss = (size: string) => css`
   font-size: 14px;
   cursor: pointer;
   outline: none;
+  &:disabled {
+    cursor: not-allowed;
+  }
   ${size === 'small' &&
   css`
     width: 58px;
@@ -59,7 +63,7 @@ const buttonCss = (size: string) => css`
   ${size === 'large' &&
   css`
     max-width: 260px;
-    ${media.medium} {
+    ${media.small} {
       max-width: 100%;
     }
     min-height: 58px;
@@ -88,5 +92,9 @@ export const variantStyle = (variant: ButtonVariant) => css`
   line-height: 20px;
   box-sizing: border-box;
   letter-spacing: normal;
+  &:hover {
+    ${buttonColorMap[variant].hoverBackground};
+    transform: scale(1.01);
+  }
 `
 export default Button
