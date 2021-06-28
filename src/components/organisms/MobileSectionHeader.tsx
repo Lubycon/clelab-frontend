@@ -70,7 +70,9 @@ const curriculumNameStyle = css`
   font-family: Archivo;
   font-size: 20px;
   font-weight: bold;
+  display: flex;
   color: #282828;
+  width: 200px;
 `
 
 const headerRightWrapper = css`
