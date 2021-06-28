@@ -60,7 +60,7 @@ function Sidebar({
             />
           ))}
         </ul>
-        <Sticky bottom={isMobile ? 0 : 15}>
+        <Sticky isMobile={isMobile} bottom={isMobile ? 0 : 15}>
           <Button
             size={isMobile ? 'full' : 'medium'}
             variant="primary"
