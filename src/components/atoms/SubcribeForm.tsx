@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import { logger } from '@lubycon/utils'
 import { useCallback, useState } from 'react'
 
 import { subscribeEmail } from '../../hooks/api/useSubscribe'
@@ -17,16 +18,27 @@ function SubcribeForm({ onClose }: SubcribeFormProps) {
   const [email, onChangeEmail] = useInput('')
   const [sendMail, setSendMail] = useState(false)
   const [errorMsg, setErrorMsg] = useState<string>('')
-  const handleSubscribe = useCallback(async (email: string) => {
-    const data = await subscribeEmail(email)
 
-    if (data.email) {
-      setSendMail(true)
-    }
-    if (data?.message) {
-      setErrorMsg(data.message)
-    }
-  }, [])
+  const subscribeLogger = logger.getPageLogger('subscribe_modal')
+
+  const handleSubscribeSuccess = useCallback(() => {
+    subscribeLogger.click('click_subscribe')
+  }, [subscribeLogger])
+
+  const handleSubscribe = useCallback(
+    async (email: string) => {
+      const data = await subscribeEmail(email)
+
+      if (data.email) {
+        setSendMail(true)
+        handleSubscribeSuccess()
+      }
+      if (data?.message) {
+        setErrorMsg(data.message)
+      }
+    },
+    [handleSubscribeSuccess],
+  )
 
   return (
     <div css={style}>
