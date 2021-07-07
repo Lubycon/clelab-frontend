@@ -40,10 +40,19 @@ const CoursePage = () => {
 
   if (!data) return null
 
+  const schemaData = {
+    '@context': 'https://schema.org/',
+    '@type': 'webPage',
+    name: data.curriculum.title,
+    description: data.intro.description.summary,
+    brand: 'clelab.io',
+  }
+
   return (
     <>
       <Head>
         <title>{data.curriculum.title}</title>
+        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <meta name="keywords" content={data.curriculum.title} />
         <meta name="description" content={data.intro.description.summary} />
       </Head>
