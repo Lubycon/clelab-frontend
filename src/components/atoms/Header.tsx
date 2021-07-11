@@ -17,20 +17,13 @@ const headerStyle = css`
   display: flex;
   flex: 1;
   align-items: center;
-  background: linear-gradient(
-    90deg,
-    #d3858a 0%,
-    #d66b88 29.69%,
-    #b89cc6 52.08%,
-    #9bafce 63.54%,
-    #64b0cb 100%
-  );
   font-family: Archivo;
   margin-bottom: 32px;
   height: 48px;
-  color: white;
+  color: #282828;
   font-weight: bold;
   font-size: 20px;
+  border-bottom: 1px solid #e0e0e6;
 `
 
 export default Header

@@ -45,6 +45,8 @@ const wrapper = (focus?: boolean, error?: boolean) => css`
   align-items: center;
   padding: 1rem;
   cursor: text;
+  background: rgba(248, 248, 249, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   ${focus &&
   css`
     border: 1px solid ${palette.black};
