@@ -8,7 +8,7 @@ type buttonLinkType = 'external' | 'internal'
 export interface IconButtonProps extends ButtonProps {
   left?: ReactNode
   right?: ReactNode
-  to?: string
+  to: string
   buttonLinkType?: buttonLinkType
 }
 
