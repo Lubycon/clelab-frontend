@@ -90,10 +90,19 @@ const SectionPage = () => {
 
   if (!sectionDetail || !data) return null
 
+  const schemaData = {
+    '@context': 'https://schema.org/',
+    '@type': 'webPage',
+    name: sectionDetail.title,
+    description: sectionDetail.description,
+    brand: 'clelab.io',
+  }
+
   return (
     <>
       <Head>
         <title>{sectionDetail.title}</title>
+        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <meta
           name="keywords"
           content={sectionDetail.blogs.map((e) => e.title).join(', ')}

@@ -41,7 +41,7 @@ function Timer({ intervalTime }: TimerProps) {
         css={{
           marginLeft: 9,
           marginBottom: 2,
-          color: '#FFFFFF',
+          color: '#282828',
           opacity: '0.5',
         }}
       >
@@ -54,7 +54,7 @@ function Timer({ intervalTime }: TimerProps) {
 const style = css`
   display: flex;
   align-items: flex-end;
-  color: #00bce5;
+  color: #6d3df6;
   font-family: Archivo;
   ${media.medium} {
     margin-right: 0;

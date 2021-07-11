@@ -70,6 +70,7 @@ function Sidebar({
                 ? {
                     textAlign: 'center',
                     borderRadius: 0,
+                    background: '#6D3DF7',
                   }
                 : { background: '#6D3DF7', width: '214px' }
             }

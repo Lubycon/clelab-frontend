@@ -22,7 +22,7 @@ function Banner() {
 }
 
 const style = css`
-  background: #313647;
+  background: #e6e7ec;
   padding: 20px 0 51px 0;
   ${media.medium} {
     padding-bottom: 38px;
@@ -30,7 +30,7 @@ const style = css`
 `
 const containerStyle = css`
   display: flex;
-  color: white;
+  color: #282828;
   ${media.medium} {
     flex-direction: column;
   }
