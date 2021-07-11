@@ -21,7 +21,7 @@ function CourseCard({ course, onClick }: CourseCardProps) {
         role="button"
         tabIndex={0}
       >
-        <ImageSection src={thumbnail} widthRatio={2.5} heightRatio={1.1} />
+        <ImageSection src={thumbnail} widthRatio={2.5} heightRatio={1.2} />
         <div css={contentStyle}>
           <Text as="h6" style={{ color: '#282828' }}>
             {title}

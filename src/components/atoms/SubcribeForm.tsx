@@ -56,7 +56,7 @@ function SubcribeForm({ onClose }: SubcribeFormProps) {
           }}
         >
           {sendMail
-            ? '구독해 주셔서 감사합니다!  🎉'
+            ? '이메일 인증을 완료되었습니다!  🎉'
             : '클랩에서는 2주마다 프론트엔드 개발자를 위한 코스를 공개하고 있어요!'}
         </Text>
       </div>
