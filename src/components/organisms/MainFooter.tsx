@@ -60,12 +60,13 @@ function MainFooter() {
 
             <Text
               style={{
-                color: '#9696A4',
+                color: '#ffffff',
                 marginTop: '16px',
+                opacity: 0.7,
               }}
             >
               {sendMail
-                ? '이메일 인증을 완료되었습니다!  🎉'
+                ? '이메일 인증을 완료해주세요!  🎉'
                 : '클랩에서는 2주마다 프론트엔드 개발자를 위한 코스를 공개하고 있어요!'}
             </Text>
           </div>
@@ -78,38 +79,42 @@ function MainFooter() {
                 comment={errorMsg}
               />
             )}
-            {!mobile ? (
-              <Button
-                size="small"
-                onClick={() => {
-                  handleSubscribe(email)
-                }}
-                disabled={!email}
-                style={{
-                  width: '44px',
-                  minHeight: '48px',
-                  background: '#381E99',
-                }}
-              >
-                <div css={svgIconStyle}>
-                  <Icon name="right" />
-                </div>
-              </Button>
-            ) : (
-              <Button
-                size="medium"
-                style={{
-                  minHeight: '48px',
-                  background: '#381E99',
-                  marginLeft: '16px',
-                }}
-                disabled={!email}
-                onClick={() => {
-                  handleSubscribe(email)
-                }}
-              >
-                지금 구독하기 👏
-              </Button>
+            {!sendMail && (
+              <>
+                {!mobile ? (
+                  <Button
+                    size="small"
+                    onClick={() => {
+                      handleSubscribe(email)
+                    }}
+                    disabled={!email}
+                    style={{
+                      width: '44px',
+                      minHeight: '48px',
+                      background: '#381E99',
+                    }}
+                  >
+                    <div css={svgIconStyle}>
+                      <Icon name="right" />
+                    </div>
+                  </Button>
+                ) : (
+                  <Button
+                    size="medium"
+                    style={{
+                      minHeight: '48px',
+                      background: '#381E99',
+                      marginLeft: '16px',
+                    }}
+                    disabled={!email}
+                    onClick={() => {
+                      handleSubscribe(email)
+                    }}
+                  >
+                    지금 구독하기 👏
+                  </Button>
+                )}
+              </>
             )}
           </div>
         </div>
