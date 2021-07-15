@@ -125,7 +125,7 @@ const containerStyle = css`
     padding-left: 0;
     padding-top: 94px;
     padding-bottom: 150px;
-    overflow: scroll;
+    overflow-y: auto;
     justify-content: center;
   }
 `
