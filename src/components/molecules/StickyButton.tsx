@@ -20,7 +20,9 @@ const stickyStyle = css`
   justify-content: flex-end;
   ${mediaQuery(767)} {
     width: 100%;
-    position: absolute;
+    position: fixed;
+    padding: 24px;
+    box-sizing: border-box;
   }
   right: 0;
   left: 0;
