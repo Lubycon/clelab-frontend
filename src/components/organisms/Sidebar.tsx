@@ -29,15 +29,15 @@ function Sidebar({
   const courseId = router.query.courseId
   const [toggle, set] = useToggle(false)
 
-
   useEffect(() => {
     // 사이드바가 열렸을 때 상위영역 스크롤 방지
-    if(isMobile) {
-      document.body.style.overflow = 'hidden';
+    if (isMobile) {
+      document.body.style.overflow = 'hidden'
     }
 
-    return () => document.body.removeAttribute('style');
+    return () => document.body.removeAttribute('style')
   }, [])
+
   return (
     <>
       <div css={sidebarStyle(isMobile, !router.query.sectionId)}>
