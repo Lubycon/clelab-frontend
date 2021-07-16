@@ -36,7 +36,7 @@ function Sidebar({
     }
 
     return () => document.body.removeAttribute('style')
-  }, [])
+  }, [isMobile])
 
   return (
     <>
