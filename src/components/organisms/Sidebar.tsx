@@ -126,7 +126,7 @@ const sidebarStyle = (isMobile: boolean, active: boolean) => css`
   ${isMobile &&
   css`
     cursor: default;
-    position: absolute;
+    position: fixed;
     background: #f8f8f9;
     width: 100%;
     top: 84px;
