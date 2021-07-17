@@ -206,14 +206,13 @@ const SectionPage = () => {
 
 const containerStyle = css`
   padding-left: 78px;
-  padding-top: 105px;
+  margin-top: 105px;
   box-sizing: border-box;
   padding-bottom: 30px;
   ${mediaQuery(767)} {
-    height: 100vh;
-    padding-left: 0;
-    padding-top: 94px;
-    padding-bottom: 150px;
+    padding: 0;
+    margin-top: 94px;
+    margin-bottom: 150px;
     overflow: scroll;
     justify-content: center;
   }
