@@ -18,9 +18,8 @@ function LayoutResponsive({
 }
 
 const layoutStyle = css`
-  margin-left: auto;
-  margin-right: auto;
   width: 1352px;
+  margin: 0 auto;
   ${mediaQuery(1440)} {
     width: 1280px;
   }

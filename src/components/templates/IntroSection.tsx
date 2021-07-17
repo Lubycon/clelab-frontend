@@ -121,11 +121,10 @@ const containerStyle = css`
   box-sizing: border-box;
   padding-bottom: 100px;
   ${mediaQuery(767)} {
-    height: 100vh;
-    padding-left: 0;
-    padding-top: 94px;
-    padding-bottom: 150px;
-    overflow: scroll;
+    padding: 0;
+    margin-top: 94px;
+    margin-bottom: 150px;
+    overflow-y: auto;
     justify-content: center;
   }
 `

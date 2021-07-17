@@ -5,6 +5,7 @@ import { SectionItem, SectionList } from 'hooks/api/useGetSections'
 import media from 'lib/styles/media'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
+import { useEffect } from 'react'
 
 import { useToggle } from '../../hooks/useToggle'
 import palette from '../../lib/styles/palette'
@@ -27,6 +28,15 @@ function Sidebar({
   const router = useRouter()
   const courseId = router.query.courseId
   const [toggle, set] = useToggle(false)
+
+  useEffect(() => {
+    // 사이드바가 열렸을 때 상위영역 스크롤 방지
+    if (isMobile) {
+      document.body.style.overflow = 'hidden'
+    }
+
+    return () => document.body.removeAttribute('style')
+  }, [isMobile])
 
   return (
     <>
@@ -116,7 +126,7 @@ const sidebarStyle = (isMobile: boolean, active: boolean) => css`
   ${isMobile &&
   css`
     cursor: default;
-    position: absolute;
+    position: fixed;
     background: #f8f8f9;
     width: 100%;
     top: 84px;
