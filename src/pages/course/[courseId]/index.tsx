@@ -55,15 +55,6 @@ const CoursePage = () => {
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <meta name="keywords" content={data.curriculum.title} />
         <meta name="description" content={data.intro.description.summary} />
-        <meta
-          property="og:title"
-          content={`clelab - ${data.curriculum.title}`}
-        />
-        <meta
-          property="og:description"
-          content={data.intro.description.summary}
-        />
-        <meta property="og:image" content={data.thumbnail} />
       </Head>
       <MobileSectionHeader
         sectionList={data}
