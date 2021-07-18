@@ -18,6 +18,7 @@ export interface SectionDetail {
   blogs: Blog[]
   nextSection: Section
   prevSection: Section
+  thumbnail: string
 }
 
 export interface Blog {

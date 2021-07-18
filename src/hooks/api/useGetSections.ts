@@ -14,6 +14,7 @@ export interface SectionList {
   }
   intro: Intro
   sections: SectionItem[]
+  thumbnail: string
 }
 
 export interface Intro {

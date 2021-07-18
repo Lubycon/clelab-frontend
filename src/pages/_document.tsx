@@ -24,6 +24,9 @@ class MyDocument extends Document {
           />
           <link rel="icon" href="/favicon/favicon.ico" />
           <meta httpEquiv="Content-type" content="text/html; charset=utf-8" />
+          <meta property="og:title" content="clelab" />
+          <meta property="og:description" content="나를 발전시키는 시간" />
+          <meta property="og:image" content="/clelab_open_graph.png" />
         </Head>
         <body>
           <Main />
