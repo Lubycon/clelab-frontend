@@ -14,9 +14,11 @@ function SectionRow({ title, description }: SectionRowProps) {
         <Text as="h6">{title}</Text>
       </div>
       {description && (
-        <Text as="p" css={descriptionStyle}>
-          {description}
-        </Text>
+        <Text
+          as="p"
+          css={descriptionStyle}
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
       )}
     </div>
   )
