@@ -1,6 +1,8 @@
 import { css } from '@emotion/react'
 import media from 'lib/styles/media'
 
+import palette from '../../lib/styles/palette'
+
 export interface CompanyItemProps {
   company: CompanyId
   isActive: boolean
@@ -37,7 +39,7 @@ const companyStyle = (isActive: boolean) => css`
   font-weight: bold;
   font-size: 36px;
   line-height: 25px;
-  color: ${isActive ? '#3AC8E8' : '#D5D5DE'};
+  color: ${isActive ? palette.solid.deepSkyBlue : '#D5D5DE'};
   width: 100%;
   ${media.small} {
     font-size: 28px;

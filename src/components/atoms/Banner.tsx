@@ -2,6 +2,7 @@ import { css } from '@emotion/react'
 import LayoutResponsive from 'components/templates/LayoutResponsive'
 import media from 'lib/styles/media'
 
+import palette from '../../lib/styles/palette'
 import Text from './Text'
 import Timer from './Timer'
 
@@ -30,7 +31,7 @@ const style = css`
 `
 const containerStyle = css`
   display: flex;
-  color: #282828;
+  color: ${palette.solid.dark};
   ${media.medium} {
     flex-direction: column;
   }

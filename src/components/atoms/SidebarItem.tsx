@@ -3,6 +3,7 @@ import { SectionItem } from 'hooks/api/useGetSections'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 
+import palette from '../../lib/styles/palette'
 import Text from './Text'
 
 export type SidebarItemProps = {
@@ -42,7 +43,7 @@ const linkStyle = (active: boolean) => css`
   font-weight: bold;
   ${active &&
   css`
-    color: #3ac8e8;
+    color: ${palette.solid.deepSkyBlue};
   `}
 `
 

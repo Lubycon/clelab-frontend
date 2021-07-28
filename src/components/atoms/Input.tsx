@@ -65,7 +65,7 @@ const style = css`
   outline: none;
   font-size: inherit;
   &::placeholder {
-    color: #ffffff;
+    color: ${palette.white};
     opacity: 0.5;
   }
   &:disabled {

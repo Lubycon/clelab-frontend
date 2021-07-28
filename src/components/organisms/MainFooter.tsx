@@ -6,6 +6,7 @@ import { subscribeEmail } from '../../hooks/api/useSubscribe'
 import useInput from '../../hooks/useInput'
 import { useWindowSize } from '../../hooks/useWindow'
 import media, { mediaQuery } from '../../lib/styles/media'
+import palette from '../../lib/styles/palette'
 import Button from '../atoms/Button'
 import Icon from '../atoms/Icon'
 import Input from '../atoms/Input'
@@ -27,8 +28,6 @@ function MainFooter() {
   useEffect(() => {
     size.width >= 786 ? set(true) : set(false)
   }, [size.width])
-
-  console.log(mobile)
 
   const handleSubscribe = useCallback(
     async (email: string) => {
@@ -62,7 +61,7 @@ function MainFooter() {
 
             <Text
               style={{
-                color: '#ffffff',
+                color: palette.white,
                 marginTop: '8px',
                 opacity: 0.7,
               }}
@@ -173,7 +172,7 @@ const containerStyle = css`
 `
 
 const subscribeTitle = css`
-  color: white;
+  color: ${palette.white};
   font-size: 28px;
   line-height: 41px;
   ${media.small} {

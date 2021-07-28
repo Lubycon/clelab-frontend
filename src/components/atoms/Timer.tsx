@@ -3,6 +3,7 @@ import media from 'lib/styles/media'
 import { useEffect, useMemo, useState } from 'react'
 import { formatDatetime } from 'utils/dateTime'
 
+import palette from '../../lib/styles/palette'
 import Text from './Text'
 interface TimerProps {
   intervalTime: number
@@ -41,7 +42,7 @@ function Timer({ intervalTime }: TimerProps) {
         css={{
           marginLeft: 9,
           marginBottom: 2,
-          color: '#282828',
+          color: palette.solid.dark,
           opacity: '0.5',
         }}
       >

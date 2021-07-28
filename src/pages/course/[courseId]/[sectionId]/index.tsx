@@ -167,7 +167,7 @@ const SectionPage = () => {
                     right={<Icon name="arrow" />}
                     style={{
                       background: '#00BCE5',
-                      color: 'white',
+                      color: palette.white,
                       minWidth: '260px',
                     }}
                     onClick={handleNavigationClick(
@@ -245,15 +245,15 @@ const blogButtonStyle = css`
   }
   transition: 0.3s box-shadow ease-in, 0.3s transform ease-in;
   &:hover {
-    background: #ffffff;
-    border: 1px solid #3ac8e8;
+    background: ${palette.white};
+    border: 1px solid ${palette.solid.deepSkyBlue};
     transform: translateY(-2px);
     box-shadow: 2px 4px 20px rgba(58, 200, 232, 0.25),
       0px 2px 3px rgba(0, 0, 0, 0.04);
   }
   &:active {
-    background: #ebfafd;
-    border: 2px solid #3ac8e8;
+    background: ${palette.solid.lightBlue};
+    border: 2px solid ${palette.solid.deepSkyBlue};
   }
 `
 

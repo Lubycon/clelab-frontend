@@ -7,6 +7,8 @@ import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import { useEffect } from 'react'
 
+import palette from '../../lib/styles/palette'
+
 interface SidebarProps {
   isMobile?: boolean
   sectionList: SectionList
@@ -78,7 +80,7 @@ const sidebarStyle = (isMobile: boolean, active: boolean) => css`
   ${active &&
   css`
     a {
-      color: #3ac8e8;
+      color: ${palette.solid.deepSkyBlue};
     }
     font-weight: bold;
   `}
@@ -107,7 +109,7 @@ const curriculumNameStyle = css`
   font-family: Archivo;
   font-size: 20px;
   font-weight: bold;
-  color: #282828;
+  color: ${palette.solid.dark};
 `
 
 const introTitleStyle = (isMobile: boolean) => css`
