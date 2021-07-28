@@ -7,13 +7,6 @@ import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import { useEffect } from 'react'
 
-import { useToggle } from '../../hooks/useToggle'
-import palette from '../../lib/styles/palette'
-import Button from '../atoms/Button'
-import Modal from '../atoms/Modal'
-import Sticky from '../atoms/Sticky'
-import SubcribeForm from '../atoms/SubcribeForm'
-
 interface SidebarProps {
   isMobile?: boolean
   sectionList: SectionList
@@ -27,7 +20,6 @@ function Sidebar({
 }: SidebarProps) {
   const router = useRouter()
   const courseId = router.query.courseId
-  const [toggle, set] = useToggle(false)
 
   useEffect(() => {
     // 사이드바가 열렸을 때 상위영역 스크롤 방지
@@ -70,36 +62,7 @@ function Sidebar({
             />
           ))}
         </ul>
-        <Sticky isMobile={isMobile} bottom={isMobile ? 0 : 15}>
-          <Button
-            size={isMobile ? 'full' : 'medium'}
-            variant="primary"
-            onClick={set}
-            style={
-              isMobile
-                ? {
-                    textAlign: 'center',
-                    borderRadius: 0,
-                    background: '#6D3DF7',
-                  }
-                : { background: '#6D3DF7', width: '214px' }
-            }
-          >
-            <Text
-              as="h6"
-              style={{
-                fontSize: '16px',
-                color: palette.white,
-              }}
-            >
-              Clelab 소식 받아보기 👏
-            </Text>
-          </Button>
-        </Sticky>
       </div>
-      <Modal isOpen={toggle} style={{ backgroundColor: `${palette.solid}` }}>
-        <SubcribeForm onClose={set} />
-      </Modal>
     </>
   )
 }

@@ -33,7 +33,7 @@ function ImageSection({
 const imageBlockStyle = css`
   width: 100%;
   position: relative;
-  border-radius: 16px;
+  border-radius: 8px;
   overflow: hidden;
   img {
     position: absolute;

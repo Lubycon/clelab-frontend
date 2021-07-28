@@ -178,8 +178,9 @@ const SectionPage = () => {
                     <Text
                       as="p"
                       style={{
-                        color: palette.solid.secondary,
+                        color: palette.white,
                         alignSelf: 'flex-start',
+                        opacity: 0.7,
                       }}
                     >
                       Next
