@@ -5,6 +5,7 @@ import { SectionList } from 'hooks/api/useGetSections'
 import { useToggle } from 'hooks/useToggle'
 import media from 'lib/styles/media'
 
+import palette from '../../lib/styles/palette'
 import Sidebar from './Sidebar'
 
 export interface MobileHeaderProps {
@@ -56,7 +57,7 @@ const headerStyle = css`
   height: 84px;
   align-items: center;
   width: 100%;
-  background: white;
+  background: ${palette.white};
   z-index: 30;
   a {
     display: block;
@@ -71,7 +72,7 @@ const curriculumNameStyle = css`
   font-size: 20px;
   font-weight: bold;
   display: flex;
-  color: #282828;
+  color: ${palette.solid.dark};
   width: 200px;
 `
 

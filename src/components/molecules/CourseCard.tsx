@@ -5,6 +5,8 @@ import { Course } from 'hooks/api/useGetCoruse'
 import { mediaQuery } from 'lib/styles/media'
 import Link from 'next/link'
 
+import palette from '../../lib/styles/palette'
+
 export interface CourseCardProps {
   course: Course
   onClick?: (course: Course) => void
@@ -23,7 +25,10 @@ function CourseCard({ course, onClick }: CourseCardProps) {
       >
         <ImageSection src={thumbnail} widthRatio={2.5} heightRatio={1.2} />
         <div css={contentStyle}>
-          <Text as="h6" style={{ color: '#282828' }}>
+          <Text
+            as="h6"
+            style={{ color: palette.solid.dark, marginBottom: '14px' }}
+          >
             {title}
           </Text>
           <Text>{description}</Text>
@@ -35,7 +40,7 @@ function CourseCard({ course, onClick }: CourseCardProps) {
 
 const containerStyle = css`
   width: 320px;
-  margin: 12px;
+  margin: 22px 12px 22px 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -48,7 +53,7 @@ const containerStyle = css`
     width: calc(50% - 32px);
   }
   ${mediaQuery(767)} {
-    margin: 0;
+    margin: 22px 0;
     width: 100%;
     & + & {
       margin-top: 16px;
