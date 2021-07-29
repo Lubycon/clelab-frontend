@@ -12,31 +12,31 @@ import { useCallback, useEffect } from 'react'
 const coursePageLogger = logger.getPageLogger('course_page')
 
 const CoursePage = () => {
-  const courseId = useRouterQuery('courseId')
+  const courseName = useRouterQuery('courseName')
   const utmSource = useRouterQuery('utm_source')
 
-  const { data } = useSections(courseId)
+  const { data } = useSections(courseName)
 
   const handleSectionItemClick = useCallback(
     ({ id, title }: SectionItem) => {
       coursePageLogger.click('click_section_item_in_sidebar', {
-        courseId,
+        courseName,
         sectionId: id,
         sectionTitle: title,
       })
     },
-    [courseId],
+    [courseName],
   )
 
   useEffect(() => {
-    if (courseId == null) {
+    if (courseName == null) {
       return
     }
     coursePageLogger.view({
-      courseId,
+      courseName,
       utmSource,
     })
-  }, [courseId, utmSource])
+  }, [courseName, utmSource])
 
   if (!data) return null
 
@@ -71,7 +71,7 @@ const CoursePage = () => {
           <Layout.Main>
             <IntroSection
               intro={data.intro}
-              nextSectionId={data.sections[0].id}
+              nextSectionName={data.sections[0].urlSlug}
             />
           </Layout.Main>
         </Layout>

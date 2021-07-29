@@ -19,37 +19,37 @@ import { useCallback, useEffect } from 'react'
 
 const sectionPageLogger = logger.getPageLogger('section_page')
 
-const generateSectionLink = (courseId: string, sectionId: string) =>
-  `/course/${courseId}/${sectionId}`
+const generateSectionLink = (courseName: string, sectionName: string) =>
+  `/course/${courseName}/${sectionName}`
 
-const getSectionLink = (courseId: string, section?: Section) => {
+const getSectionLink = (courseName: string, section?: Section) => {
   return section != null
-    ? generateSectionLink(courseId, String(section.id))
+    ? generateSectionLink(courseName, section.urlSlug)
     : undefined
 }
 
 const SectionPage = () => {
-  const courseId = useRouterQuery('courseId')
-  const sectionId = useRouterQuery('sectionId')
+  const courseName = useRouterQuery('courseName')
+  const sectionName = useRouterQuery('sectionName')
 
-  const { data } = useGetSections(courseId)
-  const { data: sectionDetail } = useSectionDetail(courseId, sectionId)
+  const { data } = useGetSections(courseName)
+  const { data: sectionDetail } = useSectionDetail(courseName, sectionName)
 
   const prevSectionLink =
-    getSectionLink(courseId, sectionDetail?.prevSection) ??
-    generateSectionLink(courseId, '')
+    getSectionLink(courseName, sectionDetail?.prevSection) ??
+    generateSectionLink(courseName, '')
 
-  const nextSectionLink = getSectionLink(courseId, sectionDetail?.nextSection)
+  const nextSectionLink = getSectionLink(courseName, sectionDetail?.nextSection)
 
   const handleSectionItemClick = useCallback(
-    ({ id, title }: SectionItem) => {
+    ({ urlSlug, title }: SectionItem) => {
       sectionPageLogger.click('click_section_item_in_sidebar', {
-        courseId,
-        sectionId: id,
+        courseName,
+        sectionName: urlSlug,
         sectionTitle: title,
       })
     },
-    [courseId],
+    [courseName],
   )
 
   const handleBlogClick = useCallback(
@@ -57,36 +57,36 @@ const SectionPage = () => {
       sectionPageLogger.click('click_blog_link', {
         title,
         link,
-        courseId,
-        sectionId,
+        courseName,
+        sectionName,
       })
     },
-    [courseId, sectionId],
+    [courseName, sectionName],
   )
 
   const handleNavigationClick = useCallback(
     (clickedSection: Section, direction: 'next' | 'prev') => () => {
       sectionPageLogger.click('click_navigation_button', {
-        clickedSectionId: clickedSection?.id ?? '',
+        clickedsectionName: clickedSection?.id ?? '',
         clickedSectionTitle: clickedSection?.title,
         direction,
-        courseId,
-        sectionId,
+        courseName,
+        sectionName,
       })
     },
-    [courseId, sectionId],
+    [courseName, sectionName],
   )
 
   useEffect(() => {
-    if (courseId == null || sectionId == null) {
+    if (courseName == null || sectionName == null) {
       return
     }
 
     sectionPageLogger.view({
-      courseId,
-      sectionId,
+      courseName,
+      sectionName,
     })
-  }, [courseId, sectionId])
+  }, [courseName, sectionName])
 
   if (!sectionDetail || !data) return null
 

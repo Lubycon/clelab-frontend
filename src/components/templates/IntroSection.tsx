@@ -13,13 +13,13 @@ import { useRouter } from 'next/router'
 
 export type IntroSectionProps = {
   intro: Intro
-  nextSectionId: number
+  nextSectionName: string
 }
 
 const coursePageLogger = logger.getPageLogger('course_page')
-function IntroSection({ intro, nextSectionId }: IntroSectionProps) {
+function IntroSection({ intro, nextSectionName }: IntroSectionProps) {
   const router = useRouter()
-  const courseId = useRouterQuery('courseId')
+  const courseName = useRouterQuery('courseName')
 
   const { majorCompany, description, statistics, stackOverflowTrend } = intro
 
@@ -97,7 +97,7 @@ function IntroSection({ intro, nextSectionId }: IntroSectionProps) {
           }}
           onClick={() => {
             coursePageLogger.click('click_start_button')
-            router.push(`/course/${courseId}/${nextSectionId}`)
+            router.push(`/course/${courseName}/${nextSectionName}`)
           }}
         >
           <Text
