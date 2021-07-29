@@ -2,6 +2,8 @@ import { css } from '@emotion/react'
 import Text from 'components/atoms/Text'
 import { Statistic } from 'hooks/api/useGetSections'
 
+import palette from '../../lib/styles/palette'
+
 export interface StatisticsProps {
   statistics: Statistic[]
 }
@@ -42,7 +44,7 @@ const contentWrapper = css`
 `
 
 const statisticTitle = css`
-  color: #282828;
+  color: ${palette.solid.dark};
   font-weight: bold;
 `
 
@@ -56,7 +58,7 @@ const courseTopicStyle = (courseTopic: boolean) => css`
   display: flex;
   font-family: Archivo;
   font-weight: bold;
-  color: ${courseTopic ? '#3AC8E8' : '#282828'};
+  color: ${courseTopic ? palette.solid.deepSkyBlue : palette.solid.dark};
   margin-bottom: 8px;
 `
 

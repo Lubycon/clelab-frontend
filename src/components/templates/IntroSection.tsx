@@ -91,7 +91,7 @@ function IntroSection({ intro, nextSectionName }: IntroSectionProps) {
           variant="primary"
           style={{
             background: '#00BCE5',
-            color: 'white',
+            color: palette.white,
             justifyContent: 'center',
             textAlign: 'center',
           }}
@@ -133,7 +133,7 @@ const courseCardStyle = (isWhite?: boolean) => css`
   display: flex;
   align-items: center;
   min-height: 65px;
-  background: ${isWhite ? '#fff' : '#ebfafd'};
+  background: ${isWhite ? palette.white : palette.solid.lightBlue};
   border: 1px solid
     ${isWhite ? 'rgba(58, 200, 232, 0.5)' : 'rgba(58, 200, 232, 0.08)'};
   box-sizing: border-box;
@@ -192,7 +192,7 @@ const stackOverflowTrendStyle = css`
 `
 
 const stackOverflowTitleStyle = css`
-  color: #282828;
+  color: ${palette.solid.dark};
   font-weight: bold;
 `
 

@@ -65,7 +65,8 @@ const style = css`
   outline: none;
   font-size: inherit;
   &::placeholder {
-    color: #9696a4;
+    color: ${palette.white};
+    opacity: 0.5;
   }
   &:disabled {
     cursor: not-allowed;

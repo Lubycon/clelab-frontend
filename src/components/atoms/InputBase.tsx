@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import React, { forwardRef } from 'react'
 
+import palette from '../../lib/styles/palette'
 import Text from './Text'
 
 export type InputBaseProps = {
@@ -49,12 +50,12 @@ const container = css`
 `
 
 const wrapper = (disabled: boolean) => css`
-  background: white;
+  background: ${palette.white};
   display: flex;
   outline: none;
   width: 260px;
   height: 48px;
-  border: 1px solid #d9dae2;
+  border: 1px solid ${palette.solid.secondary};
   box-sizing: border-box;
   border-radius: 6px;
   font-size: 14px;
