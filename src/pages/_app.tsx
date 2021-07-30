@@ -1,4 +1,4 @@
-import { logger } from '@lubycon/utils'
+import { logger } from '@lubycon/logger'
 import * as Sentry from '@sentry/react'
 import { Integrations } from '@sentry/tracing'
 import { isProduction } from 'constants/env'

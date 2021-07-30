@@ -1,4 +1,4 @@
-import { logger } from '@lubycon/utils'
+import { logger } from '@lubycon/logger'
 import Banner from 'components/atoms/Banner'
 import Header from 'components/atoms/Header'
 import CourseList from 'components/organisms/CourseList'

@@ -1,4 +1,4 @@
-import { FirebaseConfig } from '@lubycon/utils'
+import { FirebaseConfig } from '@lubycon/logger'
 
 import { isProduction } from './env'
 

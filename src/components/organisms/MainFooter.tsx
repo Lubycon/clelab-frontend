@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { logger } from '@lubycon/utils'
+import { logger } from '@lubycon/logger'
 import React, { useCallback, useEffect, useState } from 'react'
 
 import { subscribeEmail } from '../../hooks/api/useSubscribe'

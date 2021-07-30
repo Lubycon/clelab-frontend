@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@lubycon/utils": "^1.2.10",
+    "@lubycon/logger": "^1.8.8",
     "@svgr/webpack": "^5.5.0",
     "axios": "^0.21.1",
     "framer-motion": "^4.1.17",
