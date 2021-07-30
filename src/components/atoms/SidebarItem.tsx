@@ -12,16 +12,16 @@ export type SidebarItemProps = {
 }
 
 function SidebarItem({ sectionItem, onClick }: SidebarItemProps) {
-  const { id, order, title } = sectionItem
+  const { order, title, urlSlug } = sectionItem
   const router = useRouter()
-  const courseId = router.query.courseId
+  const courseSlug = router.query.courseSlug
 
   return (
     <li
-      css={linkStyle(router.query.sectionId === String(id))}
+      css={linkStyle(router.query.sectionSlug === urlSlug)}
       onClick={() => onClick?.(sectionItem)}
     >
-      <Link href={`/course/${courseId}/${id}`}>
+      <Link href={`/course/${courseSlug}/${urlSlug}`}>
         <Text
           css={animationStyle}
           style={{ cursor: 'pointer', fontWeight: 'bold' }}

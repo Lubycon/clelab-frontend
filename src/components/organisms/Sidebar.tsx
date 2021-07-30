@@ -21,7 +21,7 @@ function Sidebar({
   onClickSectionItem,
 }: SidebarProps) {
   const router = useRouter()
-  const courseId = router.query.courseId
+  const courseSlug = router.query.courseSlug
 
   useEffect(() => {
     // 사이드바가 열렸을 때 상위영역 스크롤 방지
@@ -34,7 +34,7 @@ function Sidebar({
 
   return (
     <>
-      <div css={sidebarStyle(isMobile, !router.query.sectionId)}>
+      <div css={sidebarStyle(isMobile, !router.query.sectionSlug)}>
         {!isMobile && (
           <>
             <Text as="p" style={{ fontFamily: 'Archivo', color: '#9696a4' }}>
@@ -50,10 +50,11 @@ function Sidebar({
               id: -1,
               title: '왜 배워야할까',
               order: -1,
+              urlSlug: '',
             })
           }
         >
-          <Link href={`/course/${courseId}`}>왜 배워야 할까?🤔</Link>
+          <Link href={`/course/${courseSlug}`}>왜 배워야 할까?🤔</Link>
         </div>
         <ul css={sectionMenuStyle(isMobile)}>
           {sectionList?.sections.map((item: SectionItem) => (

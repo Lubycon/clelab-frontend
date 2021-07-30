@@ -13,10 +13,10 @@ export interface CourseCardProps {
 }
 
 function CourseCard({ course, onClick }: CourseCardProps) {
-  const { id, thumbnail, title, description } = course
+  const { thumbnail, title, description, urlSlug } = course
 
   return (
-    <Link href={`/course/${id}`}>
+    <Link href={`/course/${urlSlug}`}>
       <div
         css={containerStyle}
         onClick={() => onClick?.(course)}

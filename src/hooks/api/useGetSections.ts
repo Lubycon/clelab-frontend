@@ -1,10 +1,10 @@
 import { fetcher } from 'lib/api/fetch'
 import useSWR from 'swr'
 
-const key = (id: string) => `v2/curriculums/${id}/sections`
+const key = (name: string) => `v2/courses/${name}/sections`
 
-export default function useGetSections(id: string) {
-  return useSWR<SectionList>(id ? key(id) : null, fetcher)
+export default function useGetSections(name: string) {
+  return useSWR<SectionList>(name ? key(name) : null, fetcher)
 }
 
 export interface SectionList {
@@ -42,6 +42,7 @@ export interface SectionItem {
   id: number
   title: string
   order: number
+  urlSlug: string
 }
 
 export interface MajorCompany {

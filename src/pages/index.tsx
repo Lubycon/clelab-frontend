@@ -29,9 +29,9 @@ const IndexPage = () => {
           <Layout.Main>
             <CourseList
               course={data}
-              onClickItem={({ id, title }) =>
+              onClickItem={({ urlSlug, title }) =>
                 mainPageLogger.click('click_course', {
-                  id,
+                  urlSlug,
                   title,
                 })
               }
