@@ -1,12 +1,15 @@
 import { fetcher } from 'lib/api/fetch'
 import useSWR from 'swr'
 
-const key = (name: string, sectionId: string) =>
-  `v2/courses/${name}/sections/${sectionId}`
+const key = (courseSlug: string, sectionSlug: string) =>
+  `v2/courses/${courseSlug}/sections/${sectionSlug}`
 
-export default function useSectionDetail(name: string, sectionId: string) {
+export default function useSectionDetail(
+  courseSlug: string,
+  sectionSlug: string,
+) {
   return useSWR<SectionDetail>(
-    name && sectionId ? key(name, sectionId) : null,
+    courseSlug && sectionSlug ? key(courseSlug, sectionSlug) : null,
     fetcher,
   )
 }
