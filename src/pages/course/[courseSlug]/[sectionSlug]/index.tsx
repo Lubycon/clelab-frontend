@@ -14,42 +14,44 @@ import useGetSections, { SectionItem } from 'hooks/api/useGetSections'
 import { useRouterQuery } from 'hooks/useRouterQuery'
 import { mediaQuery } from 'lib/styles/media'
 import palette from 'lib/styles/palette'
+import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import { useCallback, useEffect } from 'react'
+import { courseRedirectUrl } from 'utils/redirectUrl'
 
 const sectionPageLogger = logger.getPageLogger('section_page')
 
-const generateSectionLink = (courseName: string, sectionName: string) =>
-  `/course/${courseName}/${sectionName}`
+const generateSectionLink = (courseSlug: string, sectionSlug: string) =>
+  `/course/${courseSlug}/${sectionSlug}`
 
-const getSectionLink = (courseName: string, section?: Section) => {
+const getSectionLink = (courseSlug: string, section?: Section) => {
   return section != null
-    ? generateSectionLink(courseName, section.urlSlug)
+    ? generateSectionLink(courseSlug, section.urlSlug)
     : undefined
 }
 
 const SectionPage = () => {
-  const courseName = useRouterQuery('courseName')
-  const sectionName = useRouterQuery('sectionName')
+  const courseSlug = useRouterQuery('courseSlug')
+  const sectionSlug = useRouterQuery('sectionSlug')
 
-  const { data } = useGetSections(courseName)
-  const { data: sectionDetail } = useSectionDetail(courseName, sectionName)
+  const { data } = useGetSections(courseSlug)
+  const { data: sectionDetail } = useSectionDetail(courseSlug, sectionSlug)
 
   const prevSectionLink =
-    getSectionLink(courseName, sectionDetail?.prevSection) ??
-    generateSectionLink(courseName, '')
+    getSectionLink(courseSlug, sectionDetail?.prevSection) ??
+    generateSectionLink(courseSlug, '')
 
-  const nextSectionLink = getSectionLink(courseName, sectionDetail?.nextSection)
+  const nextSectionLink = getSectionLink(courseSlug, sectionDetail?.nextSection)
 
   const handleSectionItemClick = useCallback(
     ({ urlSlug, title }: SectionItem) => {
       sectionPageLogger.click('click_section_item_in_sidebar', {
-        courseName,
-        sectionName: urlSlug,
+        courseSlug,
+        sectionSlug: urlSlug,
         sectionTitle: title,
       })
     },
-    [courseName],
+    [courseSlug],
   )
 
   const handleBlogClick = useCallback(
@@ -57,36 +59,36 @@ const SectionPage = () => {
       sectionPageLogger.click('click_blog_link', {
         title,
         link,
-        courseName,
-        sectionName,
+        courseSlug,
+        sectionSlug,
       })
     },
-    [courseName, sectionName],
+    [courseSlug, sectionSlug],
   )
 
   const handleNavigationClick = useCallback(
     (clickedSection: Section, direction: 'next' | 'prev') => () => {
       sectionPageLogger.click('click_navigation_button', {
-        clickedsectionName: clickedSection?.id ?? '',
+        clickedsectionSlug: clickedSection?.id ?? '',
         clickedSectionTitle: clickedSection?.title,
         direction,
-        courseName,
-        sectionName,
+        courseSlug,
+        sectionSlug,
       })
     },
-    [courseName, sectionName],
+    [courseSlug, sectionSlug],
   )
 
   useEffect(() => {
-    if (courseName == null || sectionName == null) {
+    if (courseSlug == null || sectionSlug == null) {
       return
     }
 
     sectionPageLogger.view({
-      courseName,
-      sectionName,
+      courseSlug,
+      sectionSlug,
     })
-  }, [courseName, sectionName])
+  }, [courseSlug, sectionSlug])
 
   if (!sectionDetail || !data) return null
 
@@ -203,6 +205,10 @@ const SectionPage = () => {
       </LayoutResponsive>
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  return courseRedirectUrl(context)
 }
 
 const containerStyle = css`
