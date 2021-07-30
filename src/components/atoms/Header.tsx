@@ -1,6 +1,8 @@
 import { css } from '@emotion/react'
 import LayoutResponsive from 'components/templates/LayoutResponsive'
 
+import palette from '../../lib/styles/palette'
+
 export interface HeaderProps {
   title: string
 }
@@ -20,7 +22,7 @@ const headerStyle = css`
   font-family: Archivo;
   margin-bottom: 32px;
   height: 48px;
-  color: #282828;
+  color: ${palette.solid.dark};
   font-weight: bold;
   font-size: 20px;
   border-bottom: 1px solid #e0e0e6;

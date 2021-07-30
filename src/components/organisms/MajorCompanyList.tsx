@@ -5,6 +5,8 @@ import Text from 'components/atoms/Text'
 import { MajorCompany } from 'hooks/api/useGetSections'
 import media from 'lib/styles/media'
 
+import palette from '../../lib/styles/palette'
+
 interface MajorCompanyProps {
   majorCompany: MajorCompany
 }
@@ -55,7 +57,7 @@ const wrapper = css`
 `
 
 const titleStyle = css`
-  color: #282828;
+  color: ${palette.solid.dark};
   font-weight: bold;
 `
 
@@ -77,7 +79,7 @@ const activeSkillWrapper = css`
 `
 
 const activeSkillStyle = (isActive?: boolean) => css`
-  color: ${isActive ? '#3ac8e8' : '#9696A4'};
+  color: ${isActive ? palette.solid.deepSkyBlue : '#9696A4'};
   margin-right: 16px;
   svg {
     margin-right: 8px;

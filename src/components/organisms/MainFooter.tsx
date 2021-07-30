@@ -6,6 +6,7 @@ import { subscribeEmail } from '../../hooks/api/useSubscribe'
 import useInput from '../../hooks/useInput'
 import { useWindowSize } from '../../hooks/useWindow'
 import media, { mediaQuery } from '../../lib/styles/media'
+import palette from '../../lib/styles/palette'
 import Button from '../atoms/Button'
 import Icon from '../atoms/Icon'
 import Input from '../atoms/Input'
@@ -25,7 +26,7 @@ function MainFooter() {
   const size = useWindowSize()
   const [mobile, set] = React.useState<boolean>(false)
   useEffect(() => {
-    size.width >= 768 ? set(true) : set(false)
+    size.width >= 786 ? set(true) : set(false)
   }, [size.width])
 
   const handleSubscribe = useCallback(
@@ -48,8 +49,8 @@ function MainFooter() {
       <div css={containerStyle}>
         <div css={style}>
           <div css={contentStyle}>
-            <Text as="h5" style={{ color: 'white' }}>
-              Clelab 소식 받기{' '}
+            <Text as="h5" css={subscribeTitle}>
+              Clelab 소식 받기
               <Icon
                 style={{
                   marginLeft: '12px',
@@ -60,8 +61,8 @@ function MainFooter() {
 
             <Text
               style={{
-                color: '#ffffff',
-                marginTop: '16px',
+                color: palette.white,
+                marginTop: '8px',
                 opacity: 0.7,
               }}
             >
@@ -119,10 +120,23 @@ function MainFooter() {
           </div>
         </div>
         <div css={copyright}>
-          <Text as="span">
-            Copyright 2021. Clelab Co. Ltd. all rights reserved.
+          <Text
+            as="span"
+            style={{
+              borderBottom: `${!mobile ? '1px solid #424242' : 0}`,
+              paddingBottom: `${!mobile ? '12px' : 0}`,
+            }}
+          >
+            Copyright 2021. Clelab Co. Ltd. all rights reserved
           </Text>
-          <Text as="span">admin@clelab.io</Text>
+          <Text
+            as="span"
+            style={{
+              paddingTop: `${!mobile ? '12px' : 0}`,
+            }}
+          >
+            admin@clelab.io
+          </Text>
         </div>
       </div>
     </footer>
@@ -131,8 +145,8 @@ function MainFooter() {
 
 const footerStyle = css`
   background: #2d2f33;
-  padding: 20px 0 51px 0;
-  margin-top: 64px;
+  padding: 42px 0 51px 0;
+  margin-top: 42px;
   ${media.medium} {
     padding-bottom: 38px;
     padding: 0;
@@ -156,14 +170,26 @@ const containerStyle = css`
     width: 100%;
   }
 `
+
+const subscribeTitle = css`
+  color: ${palette.white};
+  font-size: 28px;
+  line-height: 41px;
+  ${media.small} {
+    font-size: 24px;
+    line-height: 36px;
+  }
+`
+
 const style = css`
   background: #6634f8;
+  background-image: url('/images/subscribe_background.png');
   justify-content: center;
-  ${mediaQuery(767)} {
+  ${media.small} {
     width: 100%;
   }
 
-  padding-left: 20px;
+  padding-left: 56px;
   padding-bottom: 24px;
   border-radius: 12px;
   ${media.small} {
@@ -174,12 +200,12 @@ const style = css`
 `
 
 const contentStyle = css`
-  width: 320px;
   padding-top: 34px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  ${media.small} {
+  ${media.medium} {
+    width: 320px;
     padding-left: 24px;
     padding-top: 24px;
   }
@@ -193,8 +219,10 @@ const formStyle = css`
 
   margin-left: auto;
   margin-right: auto;
+  ${media.medium} {
+    margin-left: 1rem;
+  }
   ${media.small} {
-    width: 320px;
     justify-content: space-evenly;
   }
 `
@@ -210,15 +238,19 @@ const svgIconStyle = css`
 
 const copyright = css`
   display: flex;
-  margin-top: 34px;
+  margin-top: 38px;
   padding-bottom: 12px;
   margin-right: 20px;
   margin-left: 20px;
   justify-content: space-between;
-  color: #c8c8c8;
-  font-size: 12px;
+  font-family: Archivo;
   border-bottom: 1px solid #424242;
-  ${mediaQuery(767)} {
+  font-size: 12px;
+  line-height: 13px;
+  letter-spacing: 0.03em;
+  color: #c8c8c8;
+  opacity: 0.7;
+  ${media.large} {
     padding-bottom: 34px;
     flex-direction: column;
   }

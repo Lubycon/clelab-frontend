@@ -13,13 +13,13 @@ import { useRouter } from 'next/router'
 
 export type IntroSectionProps = {
   intro: Intro
-  nextSectionId: number
+  nextSectionSlug: string
 }
 
 const coursePageLogger = logger.getPageLogger('course_page')
-function IntroSection({ intro, nextSectionId }: IntroSectionProps) {
+function IntroSection({ intro, nextSectionSlug }: IntroSectionProps) {
   const router = useRouter()
-  const courseId = useRouterQuery('courseId')
+  const courseSlug = useRouterQuery('courseSlug')
 
   const { majorCompany, description, statistics, stackOverflowTrend } = intro
 
@@ -91,13 +91,13 @@ function IntroSection({ intro, nextSectionId }: IntroSectionProps) {
           variant="primary"
           style={{
             background: '#00BCE5',
-            color: 'white',
+            color: palette.white,
             justifyContent: 'center',
             textAlign: 'center',
           }}
           onClick={() => {
             coursePageLogger.click('click_start_button')
-            router.push(`/course/${courseId}/${nextSectionId}`)
+            router.push(`/course/${courseSlug}/${nextSectionSlug}`)
           }}
         >
           <Text
@@ -133,7 +133,7 @@ const courseCardStyle = (isWhite?: boolean) => css`
   display: flex;
   align-items: center;
   min-height: 65px;
-  background: ${isWhite ? '#fff' : '#ebfafd'};
+  background: ${isWhite ? palette.white : palette.solid.lightBlue};
   border: 1px solid
     ${isWhite ? 'rgba(58, 200, 232, 0.5)' : 'rgba(58, 200, 232, 0.08)'};
   box-sizing: border-box;
@@ -192,7 +192,7 @@ const stackOverflowTrendStyle = css`
 `
 
 const stackOverflowTitleStyle = css`
-  color: #282828;
+  color: ${palette.solid.dark};
   font-weight: bold;
 `
 

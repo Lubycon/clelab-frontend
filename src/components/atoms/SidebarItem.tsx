@@ -3,6 +3,7 @@ import { SectionItem } from 'hooks/api/useGetSections'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 
+import palette from '../../lib/styles/palette'
 import Text from './Text'
 
 export type SidebarItemProps = {
@@ -11,16 +12,16 @@ export type SidebarItemProps = {
 }
 
 function SidebarItem({ sectionItem, onClick }: SidebarItemProps) {
-  const { id, order, title } = sectionItem
+  const { order, title, urlSlug } = sectionItem
   const router = useRouter()
-  const courseId = router.query.courseId
+  const courseSlug = router.query.courseSlug
 
   return (
     <li
-      css={linkStyle(router.query.sectionId === String(id))}
+      css={linkStyle(router.query.sectionSlug === urlSlug)}
       onClick={() => onClick?.(sectionItem)}
     >
-      <Link href={`/course/${courseId}/${id}`}>
+      <Link href={`/course/${courseSlug}/${urlSlug}`}>
         <Text
           css={animationStyle}
           style={{ cursor: 'pointer', fontWeight: 'bold' }}
@@ -42,7 +43,7 @@ const linkStyle = (active: boolean) => css`
   font-weight: bold;
   ${active &&
   css`
-    color: #3ac8e8;
+    color: ${palette.solid.deepSkyBlue};
   `}
 `
 

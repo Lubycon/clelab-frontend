@@ -2,6 +2,7 @@ import { css } from '@emotion/react'
 import LayoutResponsive from 'components/templates/LayoutResponsive'
 import media from 'lib/styles/media'
 
+import palette from '../../lib/styles/palette'
 import Text from './Text'
 import Timer from './Timer'
 
@@ -23,14 +24,14 @@ function Banner() {
 
 const style = css`
   background: #e6e7ec;
-  padding: 20px 0 51px 0;
+  padding: 51px 0 54px 0;
   ${media.medium} {
     padding-bottom: 38px;
   }
 `
 const containerStyle = css`
   display: flex;
-  color: #282828;
+  color: ${palette.solid.dark};
   ${media.medium} {
     flex-direction: column;
   }
@@ -55,7 +56,8 @@ const contentStyle = css`
 `
 
 const contentDescriptionStyle = css`
-  font-size: 18px;
+  font-size: 24px;
+  line-height: 26px;
   margin-top: 9px;
   margin-left: 50px;
   ${media.medium} {

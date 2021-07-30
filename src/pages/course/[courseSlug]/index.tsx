@@ -6,37 +6,39 @@ import Layout from 'components/templates/Layout'
 import LayoutResponsive from 'components/templates/LayoutResponsive'
 import useSections, { SectionItem } from 'hooks/api/useGetSections'
 import { useRouterQuery } from 'hooks/useRouterQuery'
+import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import { useCallback, useEffect } from 'react'
+import { courseRedirectUrl } from 'utils/redirectUrl'
 
 const coursePageLogger = logger.getPageLogger('course_page')
 
 const CoursePage = () => {
-  const courseId = useRouterQuery('courseId')
+  const courseSlug = useRouterQuery('courseSlug')
   const utmSource = useRouterQuery('utm_source')
 
-  const { data } = useSections(courseId)
+  const { data } = useSections(courseSlug)
 
   const handleSectionItemClick = useCallback(
     ({ id, title }: SectionItem) => {
       coursePageLogger.click('click_section_item_in_sidebar', {
-        courseId,
+        courseSlug,
         sectionId: id,
         sectionTitle: title,
       })
     },
-    [courseId],
+    [courseSlug],
   )
 
   useEffect(() => {
-    if (courseId == null) {
+    if (courseSlug == null) {
       return
     }
     coursePageLogger.view({
-      courseId,
+      courseSlug,
       utmSource,
     })
-  }, [courseId, utmSource])
+  }, [courseSlug, utmSource])
 
   if (!data) return null
 
@@ -71,13 +73,17 @@ const CoursePage = () => {
           <Layout.Main>
             <IntroSection
               intro={data.intro}
-              nextSectionId={data.sections[0].id}
+              nextSectionSlug={data.sections[0].urlSlug}
             />
           </Layout.Main>
         </Layout>
       </LayoutResponsive>
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  return courseRedirectUrl(context)
 }
 
 export default CoursePage

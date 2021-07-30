@@ -14,42 +14,44 @@ import useGetSections, { SectionItem } from 'hooks/api/useGetSections'
 import { useRouterQuery } from 'hooks/useRouterQuery'
 import { mediaQuery } from 'lib/styles/media'
 import palette from 'lib/styles/palette'
+import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import { useCallback, useEffect } from 'react'
+import { courseRedirectUrl } from 'utils/redirectUrl'
 
 const sectionPageLogger = logger.getPageLogger('section_page')
 
-const generateSectionLink = (courseId: string, sectionId: string) =>
-  `/course/${courseId}/${sectionId}`
+const generateSectionLink = (courseSlug: string, sectionSlug: string) =>
+  `/course/${courseSlug}/${sectionSlug}`
 
-const getSectionLink = (courseId: string, section?: Section) => {
+const getSectionLink = (courseSlug: string, section?: Section) => {
   return section != null
-    ? generateSectionLink(courseId, String(section.id))
+    ? generateSectionLink(courseSlug, section.urlSlug)
     : undefined
 }
 
 const SectionPage = () => {
-  const courseId = useRouterQuery('courseId')
-  const sectionId = useRouterQuery('sectionId')
+  const courseSlug = useRouterQuery('courseSlug')
+  const sectionSlug = useRouterQuery('sectionSlug')
 
-  const { data } = useGetSections(courseId)
-  const { data: sectionDetail } = useSectionDetail(courseId, sectionId)
+  const { data } = useGetSections(courseSlug)
+  const { data: sectionDetail } = useSectionDetail(courseSlug, sectionSlug)
 
   const prevSectionLink =
-    getSectionLink(courseId, sectionDetail?.prevSection) ??
-    generateSectionLink(courseId, '')
+    getSectionLink(courseSlug, sectionDetail?.prevSection) ??
+    generateSectionLink(courseSlug, '')
 
-  const nextSectionLink = getSectionLink(courseId, sectionDetail?.nextSection)
+  const nextSectionLink = getSectionLink(courseSlug, sectionDetail?.nextSection)
 
   const handleSectionItemClick = useCallback(
-    ({ id, title }: SectionItem) => {
+    ({ urlSlug, title }: SectionItem) => {
       sectionPageLogger.click('click_section_item_in_sidebar', {
-        courseId,
-        sectionId: id,
+        courseSlug,
+        sectionSlug: urlSlug,
         sectionTitle: title,
       })
     },
-    [courseId],
+    [courseSlug],
   )
 
   const handleBlogClick = useCallback(
@@ -57,36 +59,36 @@ const SectionPage = () => {
       sectionPageLogger.click('click_blog_link', {
         title,
         link,
-        courseId,
-        sectionId,
+        courseSlug,
+        sectionSlug,
       })
     },
-    [courseId, sectionId],
+    [courseSlug, sectionSlug],
   )
 
   const handleNavigationClick = useCallback(
     (clickedSection: Section, direction: 'next' | 'prev') => () => {
       sectionPageLogger.click('click_navigation_button', {
-        clickedSectionId: clickedSection?.id ?? '',
+        clickedsectionSlug: clickedSection?.id ?? '',
         clickedSectionTitle: clickedSection?.title,
         direction,
-        courseId,
-        sectionId,
+        courseSlug,
+        sectionSlug,
       })
     },
-    [courseId, sectionId],
+    [courseSlug, sectionSlug],
   )
 
   useEffect(() => {
-    if (courseId == null || sectionId == null) {
+    if (courseSlug == null || sectionSlug == null) {
       return
     }
 
     sectionPageLogger.view({
-      courseId,
-      sectionId,
+      courseSlug,
+      sectionSlug,
     })
-  }, [courseId, sectionId])
+  }, [courseSlug, sectionSlug])
 
   if (!sectionDetail || !data) return null
 
@@ -167,7 +169,7 @@ const SectionPage = () => {
                     right={<Icon name="arrow" />}
                     style={{
                       background: '#00BCE5',
-                      color: 'white',
+                      color: palette.white,
                       minWidth: '260px',
                     }}
                     onClick={handleNavigationClick(
@@ -178,8 +180,9 @@ const SectionPage = () => {
                     <Text
                       as="p"
                       style={{
-                        color: palette.solid.secondary,
+                        color: palette.white,
                         alignSelf: 'flex-start',
+                        opacity: 0.7,
                       }}
                     >
                       Next
@@ -202,6 +205,10 @@ const SectionPage = () => {
       </LayoutResponsive>
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  return courseRedirectUrl(context)
 }
 
 const containerStyle = css`
@@ -244,15 +251,15 @@ const blogButtonStyle = css`
   }
   transition: 0.3s box-shadow ease-in, 0.3s transform ease-in;
   &:hover {
-    background: #ffffff;
-    border: 1px solid #3ac8e8;
+    background: ${palette.white};
+    border: 1px solid ${palette.solid.deepSkyBlue};
     transform: translateY(-2px);
     box-shadow: 2px 4px 20px rgba(58, 200, 232, 0.25),
       0px 2px 3px rgba(0, 0, 0, 0.04);
   }
   &:active {
-    background: #ebfafd;
-    border: 2px solid #3ac8e8;
+    background: ${palette.solid.lightBlue};
+    border: 2px solid ${palette.solid.deepSkyBlue};
   }
 `
 
