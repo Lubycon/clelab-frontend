@@ -1,4 +1,4 @@
-import { logger } from '@lubycon/utils'
+import { logger } from '@lubycon/logger'
 import MobileSectionHeader from 'components/organisms/MobileSectionHeader'
 import Sidebar from 'components/organisms/Sidebar'
 import IntroSection from 'components/templates/IntroSection'

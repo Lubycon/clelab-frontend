@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { logger } from '@lubycon/utils'
+import { logger } from '@lubycon/logger'
 import Button from 'components/atoms/Button'
 import Text from 'components/atoms/Text'
 import StickyButton from 'components/molecules/StickyButton'
