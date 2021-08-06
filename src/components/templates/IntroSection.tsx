@@ -117,7 +117,7 @@ function IntroSection({ intro, nextSectionSlug }: IntroSectionProps) {
 
 const containerStyle = css`
   padding-left: 78px;
-  padding-top: 105px;
+  padding-top: 120px;
   box-sizing: border-box;
   padding-bottom: 100px;
   ${mediaQuery(767)} {
