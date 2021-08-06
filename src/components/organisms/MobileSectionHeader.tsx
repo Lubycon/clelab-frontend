@@ -3,7 +3,6 @@ import Icon from 'components/atoms/Icon'
 import Text from 'components/atoms/Text'
 import { SectionList } from 'hooks/api/useGetSections'
 import { useToggle } from 'hooks/useToggle'
-import media from 'lib/styles/media'
 
 import palette from '../../lib/styles/palette'
 import MainLogo from '../atoms/MainLogo'
@@ -41,7 +40,7 @@ function MobileSectionHeader({ courseName, sectionList }: MobileHeaderProps) {
           <Sidebar sectionList={sectionList} isMobile />
         </header>
       ) : (
-        <header css={[common(!showOption), headerStyle]}>
+        <header css={[common(showOption), headerStyle]}>
           <MainLogo isMobile />
           <div css={toggleBorderBox} onClick={toggleOptions}>
             <Icon name="menu" />
@@ -53,18 +52,16 @@ function MobileSectionHeader({ courseName, sectionList }: MobileHeaderProps) {
 }
 
 const common = (isLogo?: boolean) => css`
-  display: none;
   margin-left: auto;
   margin-right: auto;
-  ${media.small} {
-    ${!isLogo &&
-    css`
-      background-color: #f8f8f9;
-    `}
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  background-color: #f8f8f9;
+  ${!isLogo &&
+  css`
+    background-color: ${palette.white};
+  `}
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `
 
 const headerStyle = css`
@@ -72,7 +69,6 @@ const headerStyle = css`
   min-height: 84px;
   align-items: center;
   width: 100%;
-  background: ${palette.white};
   z-index: 30;
   a {
     display: block;

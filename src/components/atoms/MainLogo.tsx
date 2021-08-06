@@ -10,7 +10,9 @@ interface Props {
 function MainLogo({ isMobile = false }: Props) {
   return (
     <Link href="/">
-      <Icon css={logoStyle(isMobile)} name="logo" />
+      <div css={logoStyle(isMobile)}>
+        <Icon name="logo" />
+      </div>
     </Link>
   )
 }
