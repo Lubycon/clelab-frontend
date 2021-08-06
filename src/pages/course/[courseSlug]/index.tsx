@@ -8,8 +8,10 @@ import useSections, { SectionItem } from 'hooks/api/useGetSections'
 import { useRouterQuery } from 'hooks/useRouterQuery'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
-import { useCallback, useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { courseRedirectUrl } from 'utils/redirectUrl'
+
+import { useWindowSize } from '../../../hooks/useWindow'
 
 const coursePageLogger = logger.getPageLogger('course_page')
 
@@ -18,6 +20,22 @@ const CoursePage = () => {
   const utmSource = useRouterQuery('utm_source')
 
   const { data } = useSections(courseSlug)
+  const size = useWindowSize()
+
+  const [mobile, set] = useState<boolean>(false)
+  useEffect(() => {
+    size.width <= 786 ? set(true) : set(false)
+  }, [size.width])
+
+  useEffect(() => {
+    if (courseSlug == null) {
+      return
+    }
+    coursePageLogger.view({
+      courseSlug,
+      utmSource,
+    })
+  }, [courseSlug, utmSource])
 
   const handleSectionItemClick = useCallback(
     ({ id, title }: SectionItem) => {
@@ -29,16 +47,6 @@ const CoursePage = () => {
     },
     [courseSlug],
   )
-
-  useEffect(() => {
-    if (courseSlug == null) {
-      return
-    }
-    coursePageLogger.view({
-      courseSlug,
-      utmSource,
-    })
-  }, [courseSlug, utmSource])
 
   if (!data) return null
 
@@ -58,10 +66,12 @@ const CoursePage = () => {
         <meta name="keywords" content={data.curriculum.title} />
         <meta name="description" content={data.intro.description.summary} />
       </Head>
-      <MobileSectionHeader
-        sectionList={data}
-        courseName={data.curriculum.title}
-      />
+      {mobile && (
+        <MobileSectionHeader
+          sectionList={data}
+          courseName={data.curriculum.title}
+        />
+      )}
       <LayoutResponsive>
         <Layout>
           <Layout.Side>
