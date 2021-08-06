@@ -1,11 +1,11 @@
 import { css } from '@emotion/react'
 import Icon from 'components/atoms/Icon'
+import MainLogo from 'components/atoms/MainLogo'
 import Text from 'components/atoms/Text'
 import { SectionList } from 'hooks/api/useGetSections'
 import { useToggle } from 'hooks/useToggle'
+import palette from 'lib/styles/palette'
 
-import palette from '../../lib/styles/palette'
-import MainLogo from '../atoms/MainLogo'
 import Sidebar from './Sidebar'
 
 export interface MobileHeaderProps {

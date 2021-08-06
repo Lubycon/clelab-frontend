@@ -2,12 +2,11 @@ import { logger } from '@lubycon/logger'
 import Banner from 'components/atoms/Banner'
 import Header from 'components/atoms/Header'
 import CourseList from 'components/organisms/CourseList'
+import MainFooter from 'components/organisms/MainFooter'
 import Layout from 'components/templates/Layout'
 import LayoutResponsive from 'components/templates/LayoutResponsive'
 import useGetCoruse from 'hooks/api/useGetCoruse'
 import { useEffect } from 'react'
-
-import MainFooter from '../components/organisms/MainFooter'
 
 const mainPageLogger = logger.getPageLogger('main_page')
 

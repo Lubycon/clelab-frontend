@@ -1,9 +1,9 @@
 import { css } from '@emotion/react'
 import media from 'lib/styles/media'
+import palette from 'lib/styles/palette'
 import { useEffect, useMemo, useState } from 'react'
 import { formatDatetime } from 'utils/dateTime'
 
-import palette from '../../lib/styles/palette'
 import Text from './Text'
 interface TimerProps {
   intervalTime: number

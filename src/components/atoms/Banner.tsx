@@ -1,8 +1,8 @@
 import { css } from '@emotion/react'
 import LayoutResponsive from 'components/templates/LayoutResponsive'
 import media from 'lib/styles/media'
+import palette from 'lib/styles/palette'
 
-import palette from '../../lib/styles/palette'
 import Text from './Text'
 import Timer from './Timer'
 

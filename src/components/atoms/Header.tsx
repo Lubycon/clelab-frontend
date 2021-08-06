@@ -1,7 +1,6 @@
 import { css } from '@emotion/react'
 import LayoutResponsive from 'components/templates/LayoutResponsive'
-
-import palette from '../../lib/styles/palette'
+import palette from 'lib/styles/palette'
 
 export interface HeaderProps {
   title: string
