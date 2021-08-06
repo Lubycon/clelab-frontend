@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { useEffect } from 'react'
 
 import palette from '../../lib/styles/palette'
+import MainLogo from '../atoms/MainLogo'
 
 interface SidebarProps {
   isMobile?: boolean
@@ -24,7 +25,6 @@ function Sidebar({
   const courseSlug = router.query.courseSlug
 
   useEffect(() => {
-    // 사이드바가 열렸을 때 상위영역 스크롤 방지
     if (isMobile) {
       document.body.style.overflow = 'hidden'
     }
@@ -37,6 +37,7 @@ function Sidebar({
       <div css={sidebarStyle(isMobile, !router.query.sectionSlug)}>
         {!isMobile && (
           <>
+            <MainLogo />
             <Text as="p" style={{ fontFamily: 'Archivo', color: '#9696a4' }}>
               COURSE
             </Text>
@@ -110,6 +111,7 @@ const curriculumNameStyle = css`
   font-family: Archivo;
   font-size: 20px;
   font-weight: bold;
+  margin-top: 8px;
   color: ${palette.solid.dark};
 `
 

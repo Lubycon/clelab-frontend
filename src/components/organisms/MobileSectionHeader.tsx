@@ -3,9 +3,9 @@ import Icon from 'components/atoms/Icon'
 import Text from 'components/atoms/Text'
 import { SectionList } from 'hooks/api/useGetSections'
 import { useToggle } from 'hooks/useToggle'
-import media from 'lib/styles/media'
 
 import palette from '../../lib/styles/palette'
+import MainLogo from '../atoms/MainLogo'
 import Sidebar from './Sidebar'
 
 export interface MobileHeaderProps {
@@ -18,46 +18,57 @@ function MobileSectionHeader({ courseName, sectionList }: MobileHeaderProps) {
 
   return (
     <>
-      <header css={[common, headerStyle]}>
-        <div css={headerTitleStyle}>
-          <Text as="p" style={{ fontFamily: 'Archivo', color: '#9696a4' }}>
-            COURSE
-          </Text>
-          <div css={curriculumNameStyle}>{courseName}</div>
-        </div>
-        <div css={headerRightWrapper}>
-          <div css={headerRight} onClick={toggleOptions}>
-            <Text as="p" style={{ color: '#9696a4' }}>
-              교육과정 보기
+      {showOption ? (
+        <header css={[common(showOption), headerStyle]}>
+          <div css={headerTitleStyle}>
+            <Text
+              as="p"
+              style={{
+                fontFamily: 'Archivo',
+                color: '#9696a4',
+                paddingTop: '1.25rem',
+                letterSpacing: '0.1em',
+              }}
+            >
+              COURSE
             </Text>
-            <Icon name="down" />
+            <div css={curriculumNameStyle}>{courseName}</div>
           </div>
-        </div>
-      </header>
-      {showOption && <Sidebar sectionList={sectionList} isMobile />}
+          <div css={toggleBorderBox} onClick={toggleOptions}>
+            <Icon name="closeBold" />
+          </div>
+          <Sidebar sectionList={sectionList} isMobile />
+        </header>
+      ) : (
+        <header css={[common(showOption), headerStyle]}>
+          <MainLogo isMobile />
+          <div css={toggleBorderBox} onClick={toggleOptions}>
+            <Icon name="menu" />
+          </div>
+        </header>
+      )}
     </>
   )
 }
 
-const common = css`
-  display: none;
+const common = (isLogo?: boolean) => css`
   margin-left: auto;
   margin-right: auto;
-
-  ${media.small} {
-    background-color: #f8f8f9;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  background-color: #f8f8f9;
+  ${!isLogo &&
+  css`
+    background-color: ${palette.white};
+  `}
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `
 
 const headerStyle = css`
   position: fixed;
-  height: 84px;
+  min-height: 84px;
   align-items: center;
   width: 100%;
-  background: ${palette.white};
   z-index: 30;
   a {
     display: block;
@@ -72,21 +83,21 @@ const curriculumNameStyle = css`
   font-size: 20px;
   font-weight: bold;
   display: flex;
+  margin-top: 4px;
   color: ${palette.solid.dark};
   width: 200px;
 `
 
-const headerRightWrapper = css`
-  position: absolute;
-  top: 0;
-  right: 0;
-`
-
-const headerRight = css`
+const toggleBorderBox = css`
+  margin-right: 1.25rem;
+  width: 36px;
+  height: 36px;
+  background: rgba(0, 133, 255, 0.1);
   display: flex;
   align-items: center;
-  height: 64px;
-  padding-right: 16px;
+  align-content: center;
+  justify-content: center;
+  border: 1px solid #0085ff;
 `
 
 export default MobileSectionHeader
