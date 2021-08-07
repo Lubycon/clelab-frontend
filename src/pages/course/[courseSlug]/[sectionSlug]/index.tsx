@@ -16,8 +16,10 @@ import { mediaQuery } from 'lib/styles/media'
 import palette from 'lib/styles/palette'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
-import { useCallback, useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { courseRedirectUrl } from 'utils/redirectUrl'
+
+import { useWindowSize } from '../../../../hooks/useWindow'
 
 const sectionPageLogger = logger.getPageLogger('section_page')
 
@@ -36,12 +38,18 @@ const SectionPage = () => {
 
   const { data } = useGetSections(courseSlug)
   const { data: sectionDetail } = useSectionDetail(courseSlug, sectionSlug)
+  const size = useWindowSize()
 
   const prevSectionLink =
     getSectionLink(courseSlug, sectionDetail?.prevSection) ??
     generateSectionLink(courseSlug, '')
 
   const nextSectionLink = getSectionLink(courseSlug, sectionDetail?.nextSection)
+
+  const [mobile, set] = useState<boolean>(false)
+  useEffect(() => {
+    size.width <= 786 ? set(true) : set(false)
+  }, [size.width])
 
   const handleSectionItemClick = useCallback(
     ({ urlSlug, title }: SectionItem) => {
@@ -111,10 +119,12 @@ const SectionPage = () => {
         />
         <meta name="description" content={sectionDetail.description} />
       </Head>
-      <MobileSectionHeader
-        sectionList={data}
-        courseName={data.curriculum.title}
-      />
+      {mobile && (
+        <MobileSectionHeader
+          sectionList={data}
+          courseName={data.curriculum.title}
+        />
+      )}
       <LayoutResponsive>
         <Layout>
           <Layout.Side>
