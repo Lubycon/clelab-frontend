@@ -31,10 +31,6 @@ const App = ({ Component, pageProps }: AppProps) => {
       <Head>
         <title>나를 발전시키는 시간 - Clelab</title>
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <meta
-          name="google-site-verification"
-          content="ZlOPMIW-1Hrn-6yUnr5OX76e2M3cvrrd2C4vLaq-Qko"
-        />
       </Head>
       <GlobalStyle />
       <Component {...pageProps} />

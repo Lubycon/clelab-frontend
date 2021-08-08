@@ -17,6 +17,10 @@ class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
+          <meta
+            name="google-site-verification"
+            content="ZlOPMIW-1Hrn-6yUnr5OX76e2M3cvrrd2C4vLaq-Qko"
+          />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
             href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap"
