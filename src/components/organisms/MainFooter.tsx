@@ -219,9 +219,6 @@ const formStyle = css`
 
   margin-left: auto;
   margin-right: auto;
-  ${media.medium} {
-    margin-left: 1rem;
-  }
   ${media.small} {
     justify-content: space-evenly;
   }
