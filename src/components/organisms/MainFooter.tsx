@@ -1,16 +1,15 @@
 import { css } from '@emotion/react'
 import { logger } from '@lubycon/logger'
+import Button from 'components/atoms/Button'
+import Icon from 'components/atoms/Icon'
+import Input from 'components/atoms/Input'
+import Text from 'components/atoms/Text'
+import { subscribeEmail } from 'hooks/api/useSubscribe'
+import useInput from 'hooks/useInput'
+import { useWindowSize } from 'hooks/useWindow'
+import media, { mediaQuery } from 'lib/styles/media'
+import palette from 'lib/styles/palette'
 import React, { useCallback, useEffect, useState } from 'react'
-
-import { subscribeEmail } from '../../hooks/api/useSubscribe'
-import useInput from '../../hooks/useInput'
-import { useWindowSize } from '../../hooks/useWindow'
-import media, { mediaQuery } from '../../lib/styles/media'
-import palette from '../../lib/styles/palette'
-import Button from '../atoms/Button'
-import Icon from '../atoms/Icon'
-import Input from '../atoms/Input'
-import Text from '../atoms/Text'
 
 function MainFooter() {
   const [email, onChangeEmail] = useInput('')

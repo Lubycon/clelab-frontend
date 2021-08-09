@@ -1,8 +1,7 @@
 import { css } from '@emotion/react'
 import { AnimatePresence, motion } from 'framer-motion'
+import palette from 'lib/styles/palette'
 import * as React from 'react'
-
-import palette from '../../lib/styles/palette'
 
 const overlayStyle = css`
   z-index: 999;

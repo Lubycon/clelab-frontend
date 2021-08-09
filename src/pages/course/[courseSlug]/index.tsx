@@ -6,12 +6,11 @@ import Layout from 'components/templates/Layout'
 import LayoutResponsive from 'components/templates/LayoutResponsive'
 import useSections, { SectionItem } from 'hooks/api/useGetSections'
 import { useRouterQuery } from 'hooks/useRouterQuery'
+import { useWindowSize } from 'hooks/useWindow'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import { useCallback, useEffect, useState } from 'react'
 import { courseRedirectUrl } from 'utils/redirectUrl'
-
-import { useWindowSize } from '../../../hooks/useWindow'
 
 const coursePageLogger = logger.getPageLogger('course_page')
 

@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
+import palette from 'lib/styles/palette'
 import React, { useCallback, useRef, useState } from 'react'
 
-import palette from '../../lib/styles/palette'
 import InputBase from './InputBase'
 
 export type InputProps = {

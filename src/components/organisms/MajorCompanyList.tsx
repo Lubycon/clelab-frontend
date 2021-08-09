@@ -4,8 +4,7 @@ import Icon from 'components/atoms/Icon'
 import Text from 'components/atoms/Text'
 import { MajorCompany } from 'hooks/api/useGetSections'
 import media from 'lib/styles/media'
-
-import palette from '../../lib/styles/palette'
+import palette from 'lib/styles/palette'
 
 interface MajorCompanyProps {
   majorCompany: MajorCompany

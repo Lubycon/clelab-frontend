@@ -3,9 +3,8 @@ import ImageSection from 'components/atoms/ImageSection'
 import Text from 'components/atoms/Text'
 import { Course } from 'hooks/api/useGetCoruse'
 import { mediaQuery } from 'lib/styles/media'
+import palette from 'lib/styles/palette'
 import Link from 'next/link'
-
-import palette from '../../lib/styles/palette'
 
 export interface CourseCardProps {
   course: Course

@@ -1,4 +1,4 @@
-import { post } from '../../lib/api/client'
+import { post } from 'lib/api/client'
 
 export async function subscribeEmail(email: string) {
   const response = await post<EmailSubscribeResult>('/subscribe', {
