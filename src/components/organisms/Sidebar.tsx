@@ -1,14 +1,13 @@
 import { css } from '@emotion/react'
+import MainLogo from 'components/atoms/MainLogo'
 import SidebarItem from 'components/atoms/SidebarItem'
 import Text from 'components/atoms/Text'
 import { SectionItem, SectionList } from 'hooks/api/useGetSections'
 import media from 'lib/styles/media'
+import palette from 'lib/styles/palette'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import { useEffect } from 'react'
-
-import palette from '../../lib/styles/palette'
-import MainLogo from '../atoms/MainLogo'
 
 interface SidebarProps {
   isMobile?: boolean

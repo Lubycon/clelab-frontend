@@ -148,8 +148,6 @@ const titleWrapperStyle = css`
   }
 `
 const descriptionStyle = css`
-  display: flex;
-  flex: 1;
   font-size: 15px;
   font-family: 'Noto Sans KR';
   line-height: 24px;

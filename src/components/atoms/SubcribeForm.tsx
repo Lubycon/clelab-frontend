@@ -1,10 +1,10 @@
 import { css } from '@emotion/react'
 import { logger } from '@lubycon/logger'
+import { subscribeEmail } from 'hooks/api/useSubscribe'
+import useInput from 'hooks/useInput'
+import media from 'lib/styles/media'
 import { useCallback, useState } from 'react'
 
-import { subscribeEmail } from '../../hooks/api/useSubscribe'
-import useInput from '../../hooks/useInput'
-import media from '../../lib/styles/media'
 import Button from './Button'
 import Icon from './Icon'
 import Input from './Input'

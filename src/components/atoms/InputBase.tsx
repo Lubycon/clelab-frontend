@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
+import palette from 'lib/styles/palette'
 import React, { forwardRef } from 'react'
 
-import palette from '../../lib/styles/palette'
 import Text from './Text'
 
 export type InputBaseProps = {
