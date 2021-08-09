@@ -1,7 +1,7 @@
 import { fetcher } from 'lib/api/fetch'
 import useSWR from 'swr'
 
-const key = (courseSlug: string) => `v2/courses/${courseSlug}/sections`
+const key = (courseSlug: string) => `courses/${courseSlug}/sections`
 
 export default function useGetSections(courseSlug: string) {
   return useSWR<SectionList>(courseSlug ? key(courseSlug) : null, fetcher)

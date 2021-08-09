@@ -2,7 +2,7 @@ import { fetcher } from 'lib/api/fetch'
 import useSWR from 'swr'
 
 const key = (courseSlug: string, sectionSlug: string) =>
-  `v2/courses/${courseSlug}/sections/${sectionSlug}`
+  `courses/${courseSlug}/sections/${sectionSlug}`
 
 export default function useSectionDetail(
   courseSlug: string,
