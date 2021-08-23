@@ -92,12 +92,10 @@ const toggleBorderBox = css`
   margin-right: 1.25rem;
   width: 36px;
   height: 36px;
-  background: rgba(0, 133, 255, 0.1);
   display: flex;
   align-items: center;
   align-content: center;
   justify-content: center;
-  border: 1px solid #0085ff;
 `
 
 export default MobileSectionHeader
