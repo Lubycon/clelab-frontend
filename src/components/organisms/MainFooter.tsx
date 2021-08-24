@@ -1,18 +1,19 @@
 import { css } from '@emotion/react'
 import { logger } from '@lubycon/logger'
+import { useBindInput, useWindowSize } from '@lubycon/react'
 import Button from 'components/atoms/Button'
 import Icon from 'components/atoms/Icon'
 import Input from 'components/atoms/Input'
 import Text from 'components/atoms/Text'
 import { subscribeEmail } from 'hooks/api/useSubscribe'
-import useInput from 'hooks/useInput'
-import { useWindowSize } from 'hooks/useWindow'
 import media, { mediaQuery } from 'lib/styles/media'
 import palette from 'lib/styles/palette'
 import React, { useCallback, useEffect, useState } from 'react'
 
 function MainFooter() {
-  const [email, onChangeEmail] = useInput('')
+  const {
+    bind: { value: email, onChange: onChangeEmail },
+  } = useBindInput({ initialValue: '' })
   const [sendMail, setSendMail] = useState(false)
   const [errorMsg, setErrorMsg] = useState<string>('')
 
