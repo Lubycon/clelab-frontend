@@ -3,7 +3,6 @@ import Icon from 'components/atoms/Icon'
 import Text from 'components/atoms/Text'
 import { Course } from 'hooks/api/useGetCoruse'
 import palette from 'lib/styles/palette'
-import Link from 'next/link'
 export interface ArticleCardProps {
   course: Course
   onClick?: (course: Course) => void
