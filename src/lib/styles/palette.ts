@@ -6,6 +6,7 @@ export const solid = {
   lightBlue: '#ebfafd',
   deepSkyBlue: '#3AC8E8',
   secondary: '#D9DAE2',
+  grey: '#DEDEE2',
   dark: '#282828',
   error: '#FF4038',
 }

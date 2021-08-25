@@ -3,6 +3,7 @@ import { logger } from '@lubycon/logger'
 import { useWindowSize } from '@lubycon/react'
 import Icon from 'components/atoms/Icon'
 import Text from 'components/atoms/Text'
+import ArticleCard from 'components/molecules/ArticleCard'
 import IconButton from 'components/molecules/IconButton'
 import SectionRow from 'components/molecules/SectionRow'
 import StickyButton from 'components/molecules/StickyButton'
@@ -13,6 +14,7 @@ import LayoutResponsive from 'components/templates/LayoutResponsive'
 import useSectionDetail, { Blog, Section } from 'hooks/api/useGetSectionDetail'
 import useGetSections, { SectionItem } from 'hooks/api/useGetSections'
 import { useRouterQuery } from 'hooks/useRouterQuery'
+import { useWindowSize } from 'hooks/useWindow'
 import { mediaQuery } from 'lib/styles/media'
 import palette from 'lib/styles/palette'
 import { GetServerSideProps } from 'next'
@@ -155,6 +157,7 @@ const SectionPage = () => {
                     </IconButton>
                   ))}
                 </div>
+                <ArticleCard />
               </div>
               <StickyButton>
                 <IconButton
