@@ -141,7 +141,7 @@ const SectionPage = () => {
                   title={sectionDetail.title}
                   description={sectionDetail.description}
                 />
-                <div css={blogListStyle}>
+                {/* <div css={blogListStyle}>
                   {sectionDetail.blogs.map((item) => (
                     <IconButton
                       css={blogButtonStyle}
@@ -156,8 +156,12 @@ const SectionPage = () => {
                       {item.title}
                     </IconButton>
                   ))}
+                </div> */}
+                <div css={blogListStyle}>
+                  {sectionDetail.blogs.map((item) => (
+                    <ArticleCard item={item} />
+                  ))}
                 </div>
-                <ArticleCard />
               </div>
               <StickyButton>
                 <IconButton
@@ -224,7 +228,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 const containerStyle = css`
-  padding-left: 78px;
+  padding-left: 40px;
   margin-top: 105px;
   box-sizing: border-box;
   padding-bottom: 30px;
@@ -246,13 +250,16 @@ const nextButtonTextStyle = css`
 `
 
 const blogListStyle = css`
-  display: flex;
-  margin: -12px;
-  margin-top: 36px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 24px;
+
+  ${mediaQuery(1024)} {
+    grid-template-columns: 1fr 1fr;
+  }
   ${mediaQuery(767)} {
     margin: 0;
-    justify-content: center;
+    grid-template-columns: 1fr;
   }
 `
 

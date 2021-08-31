@@ -4,12 +4,14 @@ import Text from 'components/atoms/Text'
 import { Course } from 'hooks/api/useGetCoruse'
 import palette from 'lib/styles/palette'
 
-import { parseUrl } from '../../utils/favicon'
+import { getPaviconUrl } from '../../utils/favicon'
 export interface ArticleCardProps {
   course: Course
   onClick?: (course: Course) => void
 }
-function ArticleCard() {
+function ArticleCard({ item }: any) {
+  console.log(item)
+
   return (
     <div css={ArticleCardStyle}>
       <Text as="h6" css={ArticleTitleStyle}>
@@ -19,17 +21,9 @@ function ArticleCard() {
       <div css={ArticleFooterStyle}>
         <div css={BlogInfo}>
           <img
-            src={
-              parseUrl('https://d2.naver.com/helloworld/6532276') +
-              '/favicon.ico'
-            }
+            src={getPaviconUrl('https://d2.naver.com/helloworld/6532276')}
             alt="favicon"
           />
-          {/* <link
-            rel="icon"
-            // href="https://clelab.io/favicon.ico"
-            type="image/x-icon"
-          /> */}
           <Text style={{ fontSize: '13px', marginLeft: '10px' }}>이름</Text>
         </div>
         <Icon name="applaud_off" />
