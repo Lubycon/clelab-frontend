@@ -141,7 +141,7 @@ const SectionPage = () => {
                   title={sectionDetail.title}
                   description={sectionDetail.description}
                 />
-                {/* <div css={blogListStyle}>
+                <div css={blogListStyle}>
                   {sectionDetail.blogs.map((item) => (
                     <IconButton
                       css={blogButtonStyle}
@@ -156,7 +156,7 @@ const SectionPage = () => {
                       {item.title}
                     </IconButton>
                   ))}
-                </div> */}
+                </div>
                 <div css={blogListStyle}>
                   {sectionDetail.blogs.map((item) => (
                     <ArticleCard item={item} />
