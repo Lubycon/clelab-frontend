@@ -164,4 +164,52 @@
         <loc>https://clelab.io/course/culture-interview/retrospective</loc>
         <lastmod>2021-08-02</lastmod>
     </url>
+    <url>
+        <loc>https://clelab.io/course/react-state-management</loc>
+        <lastmod>2021-09-01</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/react-state-management/getting-started</loc>
+        <lastmod>2021-09-01</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/react-state-management/recoil</loc>
+        <lastmod>2021-09-01</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/react-state-management/redux</loc>
+        <lastmod>2021-09-01</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/react-state-management/context-api</loc>
+        <lastmod>2021-09-01</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/react-state-management/mobx</loc>
+        <lastmod>2021-09-01</lastmod>
+    </url>
+     <url>
+        <loc>https://clelab.io/course/redux</loc>
+        <lastmod>2021-09-01</lastmod>
+    </url>
+     <url>
+        <loc>https://clelab.io/course/redux/getting-started</loc>
+        <lastmod>2021-09-01</lastmod>
+    </url>
+     <url>
+        <loc>https://clelab.io/course/redux/redux-toolkit</loc>
+        <lastmod>2021-09-01</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/redux/redux-middleware</loc>
+        <lastmod>2021-09-01</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/redux/react-query</loc>
+        <lastmod>2021-09-01</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/redux/swr</loc>
+        <lastmod>2021-09-01</lastmod>
+    </url>
 </urlset>
