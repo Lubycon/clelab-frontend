@@ -141,7 +141,7 @@ const SectionPage = () => {
                   title={sectionDetail.title}
                   description={sectionDetail.description}
                 />
-                <div css={blogListStyle}>
+                {/* <div css={blogListStyle}>
                   {sectionDetail.blogs.map((item) => (
                     <IconButton
                       css={blogButtonStyle}
@@ -156,10 +156,16 @@ const SectionPage = () => {
                       {item.title}
                     </IconButton>
                   ))}
-                </div>
+                </div>  */}
                 <div css={blogListStyle}>
-                  {sectionDetail.blogs.map((item) => (
-                    <ArticleCard item={item} />
+                  {sectionDetail.blogs.map((blog) => (
+                    <ArticleCard
+                      key={blog.link}
+                      link={blog.link}
+                      title={blog.title}
+                      writer={blog.writer}
+                      onClick={() => handleBlogClick(blog)}
+                    />
                   ))}
                 </div>
               </div>
@@ -228,10 +234,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 const containerStyle = css`
-  padding-left: 40px;
   margin-top: 105px;
   box-sizing: border-box;
   padding-bottom: 30px;
+  padding-left: 42px;
+  ${mediaQuery(1024)} {
+    padding-left: 0;
+  }
   ${mediaQuery(767)} {
     padding: 0;
     margin-top: 94px;
@@ -250,16 +259,14 @@ const nextButtonTextStyle = css`
 `
 
 const blogListStyle = css`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 24px;
-
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
   ${mediaQuery(1024)} {
-    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
   }
   ${mediaQuery(767)} {
     margin: 0;
-    grid-template-columns: 1fr;
   }
 `
 

@@ -1,32 +1,40 @@
 import { css } from '@emotion/react'
 import Icon from 'components/atoms/Icon'
 import Text from 'components/atoms/Text'
-import { Course } from 'hooks/api/useGetCoruse'
+import { mediaQuery } from 'lib/styles/media'
 import palette from 'lib/styles/palette'
+import { SyntheticEvent, useCallback } from 'react'
+import { getPaviconUrl } from 'utils/favicon'
 
-import { getPaviconUrl } from '../../utils/favicon'
 export interface ArticleCardProps {
-  course: Course
-  onClick?: (course: Course) => void
+  title: string
+  link: string
+  writer?: string
+  onClick: () => void
 }
-function ArticleCard({ item }: any) {
-  console.log(item)
+function ArticleCard({ title, link, onClick, writer }: ArticleCardProps) {
+  const handleClick = useCallback(() => {
+    onClick()
+    window.open(link)
+  }, [link, onClick])
 
   return (
-    <div css={ArticleCardStyle}>
+    <div css={ArticleCardStyle} onClick={handleClick}>
       <Text as="h6" css={ArticleTitleStyle}>
-        타입스크립트와 함께 컴포넌트를 단계 별로 추상화해보자 타입스크립트와
-        함께 알아보자
+        {title}
       </Text>
       <div css={ArticleFooterStyle}>
         <div css={BlogInfo}>
           <img
-            src={getPaviconUrl('https://d2.naver.com/helloworld/6532276')}
-            alt="favicon"
+            src={getPaviconUrl(link)}
+            onError={(e: SyntheticEvent<HTMLImageElement, Event>) =>
+              (e.currentTarget.src = '/images/default_profile.png')
+            }
+            alt=""
           />
-          <Text style={{ fontSize: '13px', marginLeft: '10px' }}>이름</Text>
+          <Text style={{ fontSize: '13px', marginLeft: '10px' }}>{writer}</Text>
         </div>
-        <Icon name="applaud_off" />
+        {/* <Icon name="applaud_off" /> */}
       </div>
     </div>
   )
@@ -39,6 +47,18 @@ const ArticleCardStyle = css`
   border-radius: 8px;
   box-sizing: border-box;
   padding: 24px 20px;
+  margin: 12px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05), 2px 4px 24px rgba(0, 0, 0, 0.1);
+  :hover {
+    cursor: pointer;
+  }
+  ${mediaQuery(1440)} {
+    width: calc(50% - 32px);
+  }
+
+  ${mediaQuery(767)} {
+    width: 100%;
+  }
 `
 
 const ArticleTitleStyle = css`
@@ -53,6 +73,10 @@ const ArticleTitleStyle = css`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   margin-bottom: 30px;
+
+  ${mediaQuery(1024)} {
+    width: 100%;
+  }
 `
 
 const ArticleFooterStyle = css`
@@ -71,4 +95,5 @@ const BlogInfo = css`
     border-radius: 50%;
   }
 `
+
 export default ArticleCard

@@ -17,6 +17,7 @@
     "axios": "^0.21.1",
     "framer-motion": "^4.1.17",
     "next": "latest",
+    "next-images": "^1.8.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
