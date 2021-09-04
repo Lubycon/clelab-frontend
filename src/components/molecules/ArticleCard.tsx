@@ -1,5 +1,4 @@
 import { css } from '@emotion/react'
-import Icon from 'components/atoms/Icon'
 import Text from 'components/atoms/Text'
 import { mediaQuery } from 'lib/styles/media'
 import palette from 'lib/styles/palette'

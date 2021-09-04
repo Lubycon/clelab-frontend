@@ -270,23 +270,4 @@ const blogListStyle = css`
   }
 `
 
-const blogButtonStyle = css`
-  margin: 12px;
-  ${mediaQuery(767)} {
-    margin: 6px 0;
-  }
-  transition: 0.3s box-shadow ease-in, 0.3s transform ease-in;
-  &:hover {
-    background: ${palette.white};
-    border: 1px solid ${palette.solid.deepSkyBlue};
-    transform: translateY(-2px);
-    box-shadow: 2px 4px 20px rgba(58, 200, 232, 0.25),
-      0px 2px 3px rgba(0, 0, 0, 0.04);
-  }
-  &:active {
-    background: ${palette.solid.lightBlue};
-    border: 2px solid ${palette.solid.deepSkyBlue};
-  }
-`
-
 export default SectionPage
