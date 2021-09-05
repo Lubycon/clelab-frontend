@@ -3,11 +3,7 @@ import media from 'lib/styles/media'
 import { buttonColorMap } from 'lib/styles/palette'
 import React, { ReactNode } from 'react'
 
-export type ButtonVariant =
-  | 'primary'
-  | 'deepSkyBlue'
-  | 'lightBlue'
-  | 'secondary'
+export type ButtonVariant = 'primary' | 'brandColor' | 'secondary'
 
 /** BASIC BUTTON */
 export interface ButtonProps

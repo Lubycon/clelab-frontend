@@ -141,22 +141,6 @@ const SectionPage = () => {
                   title={sectionDetail.title}
                   description={sectionDetail.description}
                 />
-                {/* <div css={blogListStyle}>
-                  {sectionDetail.blogs.map((item) => (
-                    <IconButton
-                      css={blogButtonStyle}
-                      buttonLinkType="external"
-                      key={item.link}
-                      to={item.link}
-                      size="full"
-                      variant="lightBlue"
-                      right={<Icon name="arrow" />}
-                      onClick={() => handleBlogClick(item)}
-                    >
-                      {item.title}
-                    </IconButton>
-                  ))}
-                </div>  */}
                 <div css={blogListStyle}>
                   {sectionDetail.blogs.map((blog) => (
                     <ArticleCard
@@ -190,7 +174,7 @@ const SectionPage = () => {
                     to={nextSectionLink}
                     right={<Icon name="arrow" />}
                     style={{
-                      background: '#00BCE5',
+                      background: palette.brandColor,
                       color: palette.white,
                       minWidth: '260px',
                     }}

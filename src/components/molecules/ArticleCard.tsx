@@ -45,11 +45,15 @@ const ArticleCardStyle = css`
   border: 1px solid ${palette.solid.grey};
   border-radius: 8px;
   box-sizing: border-box;
-  padding: 24px 20px;
+  padding: 20px 24px;
   margin: 12px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05), 2px 4px 24px rgba(0, 0, 0, 0.1);
   :hover {
     cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05), 2px 4px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  :active {
+    border: 1px solid ${palette.brandColor};
   }
   ${mediaQuery(1440)} {
     width: calc(50% - 32px);

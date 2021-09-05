@@ -1,11 +1,13 @@
 export const black = '#000000'
 export const bg = '#F8F8F8'
 export const white = '#FFFFFF'
+export const brandColor = '#6D3DF6'
 export const solid = {
   primary: '#00B1D8',
   lightBlue: '#ebfafd',
   deepSkyBlue: '#3AC8E8',
-  secondary: '#D9DAE2',
+  secondary: '#EFECF8',
+  storke: '#C9B8F8',
   grey: '#DEDEE2',
   dark: '#282828',
   error: '#FF4038',
@@ -40,4 +42,4 @@ export const buttonColorMap: {
   },
 }
 
-export default { black, white, bg, solid }
+export default { black, white, bg, solid, brandColor }

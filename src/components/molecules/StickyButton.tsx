@@ -14,7 +14,7 @@ const stickyStyle = css`
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0) 0%,
-    #ffffff 14.29%
+    #f7f7f9 14.29%
   );
   position: relative;
   justify-content: flex-end;
