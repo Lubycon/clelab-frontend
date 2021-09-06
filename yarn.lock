@@ -1548,7 +1548,7 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.1.1.tgz#9daf5745156fd84b8e9889a2dc721f0c58e894aa"
   integrity sha512-CAEbWH7OIur6jEOzaai83jq3FmKmv4PmX1JYfs9IrYcGEVI/lyL1EXJGCj7eFVJ0bg5QR8LMxBlEtA+xKiLpFw==
 
-"@lubycon/logger@^1.8.16":
+"@lubycon/logger@1.8.16", "@lubycon/logger@^1.8.16":
   version "1.8.16"
   resolved "https://registry.yarnpkg.com/@lubycon/logger/-/logger-1.8.16.tgz#a3b002b58d8cf2cd6876b23531120ae80e354053"
   integrity sha512-C54z41jw6OuDcBN0FXOQr4xbtZIJymGv5X5Z94JobKoB5Cioa3AyIMxKkarHqYh3YHHVwhQpCVUGB1cxxfqRWg==
@@ -1564,7 +1564,7 @@
     "@lubycon/logger" "1.8.16"
     "@lubycon/utils" "1.10.2"
 
-"@lubycon/utils@^1.10.2":
+"@lubycon/utils@1.10.2":
   version "1.10.2"
   resolved "https://registry.yarnpkg.com/@lubycon/utils/-/utils-1.10.2.tgz#39b439b313eece9cdbffca66d1d3a6bc3cf48b2d"
   integrity sha512-+iB12RPWKBAzwayWSQetqw3Iopis/9oVw9pPFfSjJDy0l0gws7UoUShw1g8mRhykMhy6tjXcaAiyZma/turTjA==
