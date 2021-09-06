@@ -21,6 +21,11 @@ class MyDocument extends Document {
             name="google-site-verification"
             content="ZlOPMIW-1Hrn-6yUnr5OX76e2M3cvrrd2C4vLaq-Qko"
           />
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+          />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
             href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap"

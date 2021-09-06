@@ -27,6 +27,11 @@ function SectionRow({ title, description }: SectionRowProps) {
 const rowStyle = css`
   padding-top: 16px;
   padding-bottom: 16px;
+  margin: 0 12px;
+
+  ${media.small} {
+    margin: 12px 0;
+  }
 `
 
 const titleWrapperStyle = css`

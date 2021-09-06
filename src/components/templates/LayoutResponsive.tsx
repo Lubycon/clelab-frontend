@@ -18,7 +18,7 @@ function LayoutResponsive({
 }
 
 const layoutStyle = css`
-  width: 1352px;
+  width: 1364px;
   margin: 0 auto;
   ${mediaQuery(1440)} {
     width: 1280px;

@@ -3,6 +3,7 @@ import { logger } from '@lubycon/logger'
 import { useWindowSize } from '@lubycon/react'
 import Icon from 'components/atoms/Icon'
 import Text from 'components/atoms/Text'
+import ArticleCard from 'components/molecules/ArticleCard'
 import IconButton from 'components/molecules/IconButton'
 import SectionRow from 'components/molecules/SectionRow'
 import StickyButton from 'components/molecules/StickyButton'
@@ -140,19 +141,14 @@ const SectionPage = () => {
                   description={sectionDetail.description}
                 />
                 <div css={blogListStyle}>
-                  {sectionDetail.blogs.map((item) => (
-                    <IconButton
-                      css={blogButtonStyle}
-                      buttonLinkType="external"
-                      key={item.link}
-                      to={item.link}
-                      size="full"
-                      variant="lightBlue"
-                      right={<Icon name="arrow" />}
-                      onClick={() => handleBlogClick(item)}
-                    >
-                      {item.title}
-                    </IconButton>
+                  {sectionDetail.blogs.map((blog) => (
+                    <ArticleCard
+                      key={blog.link}
+                      link={blog.link}
+                      title={blog.title}
+                      writer={blog.writer}
+                      onClick={() => handleBlogClick(blog)}
+                    />
                   ))}
                 </div>
               </div>
@@ -177,7 +173,7 @@ const SectionPage = () => {
                     to={nextSectionLink}
                     right={<Icon name="arrow" />}
                     style={{
-                      background: '#00BCE5',
+                      background: palette.brandColor,
                       color: palette.white,
                       minWidth: '260px',
                     }}
@@ -221,10 +217,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 const containerStyle = css`
-  padding-left: 78px;
   margin-top: 105px;
   box-sizing: border-box;
   padding-bottom: 30px;
+  padding-left: 42px;
+  ${mediaQuery(1024)} {
+    padding-left: 0;
+  }
   ${mediaQuery(767)} {
     padding: 0;
     margin-top: 94px;
@@ -244,31 +243,13 @@ const nextButtonTextStyle = css`
 
 const blogListStyle = css`
   display: flex;
-  margin: -12px;
-  margin-top: 36px;
   flex-wrap: wrap;
+  margin-top: 50px;
+  ${mediaQuery(1024)} {
+    justify-content: space-between;
+  }
   ${mediaQuery(767)} {
     margin: 0;
-    justify-content: center;
-  }
-`
-
-const blogButtonStyle = css`
-  margin: 12px;
-  ${mediaQuery(767)} {
-    margin: 6px 0;
-  }
-  transition: 0.3s box-shadow ease-in, 0.3s transform ease-in;
-  &:hover {
-    background: ${palette.white};
-    border: 1px solid ${palette.solid.deepSkyBlue};
-    transform: translateY(-2px);
-    box-shadow: 2px 4px 20px rgba(58, 200, 232, 0.25),
-      0px 2px 3px rgba(0, 0, 0, 0.04);
-  }
-  &:active {
-    background: ${palette.solid.lightBlue};
-    border: 2px solid ${palette.solid.deepSkyBlue};
   }
 `
 

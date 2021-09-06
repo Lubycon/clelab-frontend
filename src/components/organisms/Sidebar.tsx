@@ -81,7 +81,7 @@ const sidebarStyle = (isMobile: boolean, active: boolean) => css`
   ${active &&
   css`
     a {
-      color: ${palette.solid.deepSkyBlue};
+      color: ${palette.brandColor};
     }
     font-weight: bold;
   `}
@@ -116,7 +116,6 @@ const curriculumNameStyle = css`
 
 const introTitleStyle = (isMobile: boolean) => css`
   margin-top: 24px;
-  font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: bold;
   font-size: 18px;

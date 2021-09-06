@@ -26,7 +26,7 @@ const mainStyle = css`
   }
 `
 const sidebarStyle = css`
-  width: 315px;
+  width: 290px;
   height: 100%;
   display: flex;
   padding-top: 38px;

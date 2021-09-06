@@ -9,13 +9,13 @@ export const GlobalStyle = () => (
           box-sizing: inherit;
         }
         body {
-          background-color: #ffffff;
+          background-color: #f7f7f8;
           margin: 0;
           padding: 0;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           font-family: ${getFontFamilyWithFallbackFont([
-            'Noto Sans KR',
+            'Pretendard',
             'Archivo',
           ])};
           -ms-user-select: none;
