@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import { logger } from '@lubycon/logger'
+import { useWindowSize } from '@lubycon/react'
 import Icon from 'components/atoms/Icon'
 import Text from 'components/atoms/Text'
 import IconButton from 'components/molecules/IconButton'
@@ -18,8 +19,6 @@ import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import { useCallback, useEffect, useState } from 'react'
 import { courseRedirectUrl } from 'utils/redirectUrl'
-
-import { useWindowSize } from '../../../../hooks/useWindow'
 
 const sectionPageLogger = logger.getPageLogger('section_page')
 
