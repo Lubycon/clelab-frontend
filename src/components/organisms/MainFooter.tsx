@@ -156,7 +156,7 @@ const footerStyle = css`
 const containerStyle = css`
   margin-left: auto;
   margin-right: auto;
-  width: 1352px;
+  width: 1364px;
   ${mediaQuery(1440)} {
     width: 1280px;
   }

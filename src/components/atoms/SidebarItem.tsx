@@ -43,7 +43,7 @@ const linkStyle = (active: boolean) => css`
   font-weight: bold;
   ${active &&
   css`
-    color: ${palette.solid.deepSkyBlue};
+    color: ${palette.brandColor};
   `}
 `
 

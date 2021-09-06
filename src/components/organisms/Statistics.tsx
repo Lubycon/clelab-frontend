@@ -58,7 +58,7 @@ const courseTopicStyle = (courseTopic: boolean) => css`
   display: flex;
   font-family: Archivo;
   font-weight: bold;
-  color: ${courseTopic ? palette.solid.deepSkyBlue : palette.solid.dark};
+  color: ${courseTopic ? palette.brandColor : palette.solid.dark};
   margin-bottom: 8px;
 `
 

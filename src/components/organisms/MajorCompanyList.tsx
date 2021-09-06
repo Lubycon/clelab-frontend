@@ -78,7 +78,7 @@ const activeSkillWrapper = css`
 `
 
 const activeSkillStyle = (isActive?: boolean) => css`
-  color: ${isActive ? palette.solid.deepSkyBlue : '#9696A4'};
+  color: ${isActive ? palette.brandColor : '#9696A4'};
   margin-right: 16px;
   svg {
     margin-right: 8px;

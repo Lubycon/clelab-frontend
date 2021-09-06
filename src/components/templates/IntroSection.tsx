@@ -29,12 +29,12 @@ function IntroSection({ intro, nextSectionSlug }: IntroSectionProps) {
         <div css={titleWrapperStyle}>
           <Text as="h5">왜 배워야 할까?🤔</Text>
         </div>
-        <div css={courseCardStyle()}>
+        <div css={courseCardStyle}>
           <Text
             as="h6"
             style={{
               fontSize: '16px',
-              color: palette.solid.primary,
+              color: palette.brandColor,
             }}
           >
             {description.summary}
@@ -49,12 +49,12 @@ function IntroSection({ intro, nextSectionSlug }: IntroSectionProps) {
           />
         </div>
         {description.subSummary && (
-          <div css={courseCardStyle(true)}>
+          <div css={courseCardStyle}>
             <Text
               as="h6"
               style={{
                 fontSize: '16px',
-                color: palette.solid.deepSkyBlue,
+                color: palette.brandColor,
               }}
             >
               {description.subSummary}
@@ -90,7 +90,7 @@ function IntroSection({ intro, nextSectionSlug }: IntroSectionProps) {
           size="large"
           variant="primary"
           style={{
-            background: '#00BCE5',
+            background: palette.brandColor,
             color: palette.white,
             justifyContent: 'center',
             textAlign: 'center',
@@ -128,14 +128,13 @@ const containerStyle = css`
     justify-content: center;
   }
 `
-const courseCardStyle = (isWhite?: boolean) => css`
+const courseCardStyle = css`
   padding: 1rem;
   display: flex;
   align-items: center;
   min-height: 65px;
-  background: ${isWhite ? palette.white : palette.solid.lightBlue};
-  border: 1px solid
-    ${isWhite ? 'rgba(58, 200, 232, 0.5)' : 'rgba(58, 200, 232, 0.08)'};
+  background: ${palette.solid.secondary};
+  border: 1px solid ${palette.solid.storke};
   box-sizing: border-box;
   border-radius: 8px;
   margin: 24px 0;
