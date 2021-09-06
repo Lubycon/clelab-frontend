@@ -116,7 +116,6 @@ const curriculumNameStyle = css`
 
 const introTitleStyle = (isMobile: boolean) => css`
   margin-top: 24px;
-  font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
