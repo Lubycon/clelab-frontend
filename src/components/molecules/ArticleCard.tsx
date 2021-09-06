@@ -61,6 +61,7 @@ const ArticleCardStyle = css`
 
   ${mediaQuery(767)} {
     width: 100%;
+    margin: 12px 0;
   }
 `
 

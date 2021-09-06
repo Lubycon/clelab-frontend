@@ -148,7 +148,6 @@ const titleWrapperStyle = css`
 `
 const descriptionStyle = css`
   font-size: 15px;
-  font-family: 'Noto Sans KR';
   line-height: 24px;
   text-align: left;
   color: #545454;
