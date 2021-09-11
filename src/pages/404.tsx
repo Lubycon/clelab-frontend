@@ -16,34 +16,34 @@ export default function Clelab404() {
         <Text as="h6" style={{ marginBottom: '120px' }}>
           해당 페이지를 찾을 수 없습니다.
         </Text>
-        <Text style={{ color: '#545454' }}>문의 : admin@clelab.io</Text>
-        <div>
-          <Button
-            variant="primary"
+        <Text style={{ color: '#545454', display: 'block' }}>
+          문의 : admin@clelab.io
+        </Text>
+        <Button
+          variant="primary"
+          style={{
+            background: palette.brandColor,
+            color: palette.white,
+            justifyContent: 'center',
+            textAlign: 'center',
+            marginTop: '44px',
+            width: '203px',
+          }}
+          onClick={() => {
+            router.push('/')
+          }}
+        >
+          <Text
+            as="h6"
             style={{
-              background: palette.brandColor,
-              color: palette.white,
-              justifyContent: 'center',
-              textAlign: 'center',
-              marginTop: '44px',
-              width: '203px',
-            }}
-            onClick={() => {
-              router.push('/')
+              fontSize: '14px',
+              cursor: 'pointer',
+              lineHeight: '20px',
             }}
           >
-            <Text
-              as="h6"
-              style={{
-                fontSize: '14px',
-                cursor: 'pointer',
-                lineHeight: '20px',
-              }}
-            >
-              클랩 메인 페이지로 가기
-            </Text>
-          </Button>
-        </div>
+            클랩 메인 페이지로 가기
+          </Text>
+        </Button>
       </div>
     </div>
   )
