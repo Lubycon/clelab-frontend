@@ -42,7 +42,7 @@ const buttonCss = (size: string) => css`
   padding-right: 16px;
   font-weight: bold;
   min-height: 56px;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 14px;
   cursor: pointer;
   outline: none;
