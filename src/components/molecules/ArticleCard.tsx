@@ -2,22 +2,23 @@ import { css } from '@emotion/react'
 import Text from 'components/atoms/Text'
 import { mediaQuery } from 'lib/styles/media'
 import palette from 'lib/styles/palette'
-import { SyntheticEvent, useCallback } from 'react'
-import { getPaviconUrl } from 'utils/favicon'
+import { ReactNode, SyntheticEvent, useCallback } from 'react'
+import { getFaviconUrl } from 'utils/favicon'
 
 export interface ArticleCardProps {
   title: string
   link: string
   writer?: string
-  clelabPick: boolean
+  badge?: ReactNode
   onClick: () => void
 }
+
 function ArticleCard({
   title,
   link,
   onClick,
   writer,
-  clelabPick,
+  badge,
 }: ArticleCardProps) {
   const handleClick = useCallback(() => {
     onClick()
@@ -25,19 +26,15 @@ function ArticleCard({
   }, [link, onClick])
 
   return (
-    <div css={ArticleCardStyle} onClick={handleClick}>
-      {clelabPick && (
-        <div css={ClelabPick}>
-          <Text>Clelab Pick 📌</Text>
-        </div>
-      )}
-      <Text as="h6" css={ArticleTitleStyle}>
+    <div css={articleCardStyle} onClick={handleClick}>
+      {badge}
+      <Text as="h6" css={articleTitleStyle}>
         {title}
       </Text>
-      <div css={ArticleFooterStyle}>
-        <div css={BlogInfo}>
+      <div css={articleFooterStyle}>
+        <div css={blogInfo}>
           <img
-            src={getPaviconUrl(link)}
+            src={getFaviconUrl(link)}
             onError={(e: SyntheticEvent<HTMLImageElement, Event>) =>
               (e.currentTarget.src = '/images/default_profile.png')
             }
@@ -51,7 +48,7 @@ function ArticleCard({
   )
 }
 
-const ArticleCardStyle = css`
+const articleCardStyle = css`
   width: 320px;
   height: 174px;
   background-color: ${palette.white};
@@ -81,7 +78,7 @@ const ArticleCardStyle = css`
   }
 `
 
-const ArticleTitleStyle = css`
+const articleTitleStyle = css`
   display: -webkit-box;
   width: 276px;
   height: 52px;
@@ -99,13 +96,13 @@ const ArticleTitleStyle = css`
   }
 `
 
-const ArticleFooterStyle = css`
+const articleFooterStyle = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `
 
-const BlogInfo = css`
+const blogInfo = css`
   display: flex;
   align-items: center;
 
@@ -116,17 +113,4 @@ const BlogInfo = css`
   }
 `
 
-const ClelabPick = css`
-  margin-bottom: 12px;
-
-  span {
-    font-weight: 600;
-    font-size: 13px;
-    color: ${palette.brandColor};
-    background-color: ${palette.solid.secondary};
-    border-radius: 12px;
-    padding: 4px 12px 4px 14px;
-    line-height: 14px;
-  }
-`
 export default ArticleCard
