@@ -147,6 +147,7 @@ const SectionPage = () => {
                       link={blog.link}
                       title={blog.title}
                       writer={blog.writer}
+                      clelabPick={blog.clelabPick}
                       onClick={() => handleBlogClick(blog)}
                     />
                   ))}

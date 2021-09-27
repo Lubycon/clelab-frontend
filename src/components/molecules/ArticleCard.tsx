@@ -9,9 +9,16 @@ export interface ArticleCardProps {
   title: string
   link: string
   writer?: string
+  clelabPick: boolean
   onClick: () => void
 }
-function ArticleCard({ title, link, onClick, writer }: ArticleCardProps) {
+function ArticleCard({
+  title,
+  link,
+  onClick,
+  writer,
+  clelabPick,
+}: ArticleCardProps) {
   const handleClick = useCallback(() => {
     onClick()
     window.open(link)
@@ -19,6 +26,11 @@ function ArticleCard({ title, link, onClick, writer }: ArticleCardProps) {
 
   return (
     <div css={ArticleCardStyle} onClick={handleClick}>
+      {clelabPick && (
+        <div css={ClelabPick}>
+          <Text>Clelab Pick 📌</Text>
+        </div>
+      )}
       <Text as="h6" css={ArticleTitleStyle}>
         {title}
       </Text>
@@ -41,12 +53,16 @@ function ArticleCard({ title, link, onClick, writer }: ArticleCardProps) {
 
 const ArticleCardStyle = css`
   width: 320px;
+  height: 174px;
   background-color: ${palette.white};
   border: 1px solid ${palette.solid.grey};
   border-radius: 8px;
   box-sizing: border-box;
   padding: 20px 24px;
   margin: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   :hover {
     cursor: pointer;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05), 2px 4px 24px rgba(0, 0, 0, 0.1);
@@ -100,4 +116,17 @@ const BlogInfo = css`
   }
 `
 
+const ClelabPick = css`
+  margin-bottom: 12px;
+
+  span {
+    font-weight: 600;
+    font-size: 13px;
+    color: ${palette.brandColor};
+    background-color: ${palette.solid.secondary};
+    border-radius: 12px;
+    padding: 4px 12px 4px 14px;
+    line-height: 14px;
+  }
+`
 export default ArticleCard
