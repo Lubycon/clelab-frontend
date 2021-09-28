@@ -102,9 +102,28 @@ const SectionPage = () => {
 
   const schemaData = {
     '@context': 'https://schema.org/',
-    '@type': 'webPage',
+    '@type': ['Course', 'ItemList'],
     name: sectionDetail.title,
     description: sectionDetail.description,
+    provider: {
+      '@type': 'Organization',
+      name: 'Clelab',
+      sameAs: `https://clelab.io/course/${courseSlug}/${sectionSlug}`,
+    },
+    itemListElement: [
+      sectionDetail.blogs.map((blog, index) => {
+        return {
+          '@type': 'ListItem',
+          position: index,
+          item: {
+            type: 'article',
+            url: blog.link,
+            name: blog.title,
+            author: blog.writer,
+          },
+        }
+      }),
+    ],
     brand: 'clelab.io',
   }
 
