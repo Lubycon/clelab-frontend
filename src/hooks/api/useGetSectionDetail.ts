@@ -28,7 +28,7 @@ export interface Blog {
   title: string
   link: string
   writer?: string
-  clelabPick?: boolean
+  clelabPick: boolean
 }
 
 export interface Section {

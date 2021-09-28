@@ -2,30 +2,39 @@ import { css } from '@emotion/react'
 import Text from 'components/atoms/Text'
 import { mediaQuery } from 'lib/styles/media'
 import palette from 'lib/styles/palette'
-import { SyntheticEvent, useCallback } from 'react'
-import { getPaviconUrl } from 'utils/favicon'
+import { ReactNode, SyntheticEvent, useCallback } from 'react'
+import { getFaviconUrl } from 'utils/favicon'
 
 export interface ArticleCardProps {
   title: string
   link: string
   writer?: string
+  badge?: ReactNode
   onClick: () => void
 }
-function ArticleCard({ title, link, onClick, writer }: ArticleCardProps) {
+
+function ArticleCard({
+  title,
+  link,
+  onClick,
+  writer,
+  badge,
+}: ArticleCardProps) {
   const handleClick = useCallback(() => {
     onClick()
     window.open(link)
   }, [link, onClick])
 
   return (
-    <div css={ArticleCardStyle} onClick={handleClick}>
-      <Text as="h6" css={ArticleTitleStyle}>
+    <div css={articleCardStyle} onClick={handleClick}>
+      {badge}
+      <Text as="h6" css={articleTitleStyle}>
         {title}
       </Text>
-      <div css={ArticleFooterStyle}>
-        <div css={BlogInfo}>
+      <div css={articleFooterStyle}>
+        <div css={blogInfo}>
           <img
-            src={getPaviconUrl(link)}
+            src={getFaviconUrl(link)}
             onError={(e: SyntheticEvent<HTMLImageElement, Event>) =>
               (e.currentTarget.src = '/images/default_profile.png')
             }
@@ -39,14 +48,18 @@ function ArticleCard({ title, link, onClick, writer }: ArticleCardProps) {
   )
 }
 
-const ArticleCardStyle = css`
+const articleCardStyle = css`
   width: 320px;
+  height: 174px;
   background-color: ${palette.white};
   border: 1px solid ${palette.solid.grey};
   border-radius: 8px;
   box-sizing: border-box;
   padding: 20px 24px;
   margin: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   :hover {
     cursor: pointer;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05), 2px 4px 24px rgba(0, 0, 0, 0.1);
@@ -65,7 +78,7 @@ const ArticleCardStyle = css`
   }
 `
 
-const ArticleTitleStyle = css`
+const articleTitleStyle = css`
   display: -webkit-box;
   width: 276px;
   height: 52px;
@@ -83,13 +96,13 @@ const ArticleTitleStyle = css`
   }
 `
 
-const ArticleFooterStyle = css`
+const articleFooterStyle = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `
 
-const BlogInfo = css`
+const blogInfo = css`
   display: flex;
   align-items: center;
 
