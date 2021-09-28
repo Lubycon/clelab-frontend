@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import { logger } from '@lubycon/logger'
 import { useWindowSize } from '@lubycon/react'
+import Badge from 'components/atoms/Badge'
 import Icon from 'components/atoms/Icon'
 import Text from 'components/atoms/Text'
 import ArticleCard from 'components/molecules/ArticleCard'
@@ -147,6 +148,15 @@ const SectionPage = () => {
                       link={blog.link}
                       title={blog.title}
                       writer={blog.writer}
+                      badge={
+                        blog.clelabPick ? (
+                          <Badge
+                            color={palette.brandColor}
+                            bgColor={palette.solid.secondary}
+                            text="Clelab Pick 📌"
+                          />
+                        ) : null
+                      }
                       onClick={() => handleBlogClick(blog)}
                     />
                   ))}
