@@ -51,9 +51,14 @@ const CoursePage = () => {
 
   const schemaData = {
     '@context': 'https://schema.org/',
-    '@type': 'webPage',
+    '@type': 'Course',
     name: data.curriculum.title,
     description: data.intro.description.summary,
+    provider: {
+      '@type': 'Organization',
+      name: 'Clelab',
+      sameAs: `https://clelab.io/course/${courseSlug}`,
+    },
     brand: 'clelab.io',
   }
 
