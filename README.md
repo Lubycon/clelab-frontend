@@ -1,7 +1,9 @@
-# TOM
+<p align="center">
+  <img width="400" src="https://clelab.io/clelab_open_graph.png" alt="Clelab thumbnail">
+</p>
 
-**Headless** Lubycon 3team 2nd
+<h1 align="center">Clelab</h1>
 
-![GitHub Action Status](https://github.com/ffm-team/design-system/workflows/CI/badge.svg) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+## About
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+나를 발전시키는 시간 | 클랩, 클랩은 **구글에 널리 퍼져있는 블로그 글을 수집하여 프론트엔드 코스를 만들어주는 서비스**입니다. [서비스 보러가기](https://clelab.io/)

@@ -1,5 +1,5 @@
 {
-  "name": "tom-front",
+  "name": "clelab-front",
   "version": "0.0.1",
   "scripts": {
     "dev": "next",
