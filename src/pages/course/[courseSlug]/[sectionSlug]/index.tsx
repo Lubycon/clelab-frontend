@@ -139,10 +139,7 @@ const SectionPage = () => {
         />
         <meta name="description" content={sectionDetail.description} />
         <meta property="og:title" content={`clelab - ${sectionDetail.title}`} />
-        <meta
-          property="og:description"
-          content={sectionDetail.description}
-        />
+        <meta property="og:description" content={sectionDetail.description} />
         <meta property="og:image" content={sectionDetail.thumbnail} />
       </Head>
       {mobile && (
