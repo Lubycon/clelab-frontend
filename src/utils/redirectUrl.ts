@@ -137,12 +137,14 @@ const redirectMap: RedirectMap = {
     '/course/typescript-usage/typescript-react-redux-사용하기',
 }
 
-const isValidCourseUrl = (url: string) => /\/course\/(\d+)/.test(url)
-
 export const courseRedirectUrl = (context: GetServerSidePropsContext) => {
-  if (isValidCourseUrl(context.resolvedUrl)) {
+  const valid = Object.keys(redirectMap).includes(context.resolvedUrl)
+
+  if (valid) {
     const { res } = context
-    res.writeHead(301, { location: redirectMap[context.resolvedUrl] ?? '/' })
+    res.writeHead(301, {
+      location: encodeURI(redirectMap[context.resolvedUrl]) ?? '/',
+    })
     res.end()
   }
 
