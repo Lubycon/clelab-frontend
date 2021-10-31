@@ -284,5 +284,25 @@
         <loc>https://clelab.io/course/typescript-usage/typescript-react-redux-사용하기</loc>
         <lastmod>2021-10-17</lastmod>
     </url>
+    <url>
+        <loc>https://clelab.io/course/performance-optimization</loc>
+        <lastmod>2021-10-31</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/performance-optimization/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%EC%B5%9C%EC%A0%81%ED%99%94</loc>
+        <lastmod>2021-10-31</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/performance-optimization/%EC%9B%B9-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A1%9C%EB%94%A9-%EC%B5%9C%EC%A0%81%ED%99%94</loc>
+        <lastmod>2021-10-31</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/performance-optimization/%EC%9B%B9-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%B5%9C%EC%A0%81%ED%99%94</loc>
+        <lastmod>2021-10-31</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/performance-optimization/react-%EC%B5%9C%EC%A0%81%ED%99%94</loc>
+        <lastmod>2021-10-31</lastmod>
+    </url>
 
 </urlset>

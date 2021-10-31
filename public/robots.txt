@@ -1,3 +1,2 @@
 User-agent: *
 Allow: /
-Sitemap: https://clelab.io/robots.txt
