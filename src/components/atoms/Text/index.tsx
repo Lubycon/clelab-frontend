@@ -81,6 +81,12 @@ const typoStyles: { [key: string]: SerializedStyles } = {
   span: css`
     font-size: 15px;
   `,
+  header: css`
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin: 0;
+  `,
 }
 
 export default forwardRef(Text) as typeof Text
