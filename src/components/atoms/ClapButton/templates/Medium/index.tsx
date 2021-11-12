@@ -12,7 +12,6 @@ export const Medium: FC<ClapButtonTemplateComponentProps> = ({
   handlePress,
   isCounterVisible = true,
 }) => {
-  console.log(isLoading, isCounterVisible)
   const [animationActive, setAnimationActive] = useState<boolean>(false)
 
   const triangles = []

@@ -68,14 +68,13 @@ const articleCardStyle = css`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* :hover {
+  :hover {
     cursor: pointer;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05), 2px 4px 24px rgba(0, 0, 0, 0.1);
   }
-
   :active {
     border: 1px solid ${palette.brandColor};
-  } */
+  }
   ${mediaQuery(1440)} {
     width: calc(50% - 32px);
   }
