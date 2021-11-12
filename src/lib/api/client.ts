@@ -18,6 +18,8 @@ const interceptorsResponseFulfilled = (res: AxiosResponse) => {
     return res.data
   }
 
+  console.log(res)
+
   return Promise.reject(res.data)
 }
 
@@ -25,6 +27,8 @@ const interceptorsResponseRejected = (error: AxiosError) => {
   if (error.response?.data?.message != null) {
     return { message: error.response?.data?.message }
   }
+
+  console.log(error)
 
   return Promise.reject(new Error(error.response?.data?.message ?? error))
 }
