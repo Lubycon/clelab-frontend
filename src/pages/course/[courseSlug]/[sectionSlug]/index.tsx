@@ -158,12 +158,12 @@ const SectionPage = () => {
           </Layout.Side>
           <Layout.Main>
             <>
-              <div css={containerStyle}>
+              <section css={containerStyle}>
                 <SectionRow
                   title={sectionDetail.title}
                   description={sectionDetail.description}
                 />
-                <div css={blogListStyle}>
+                <article css={blogListStyle}>
                   {sectionDetail.blogs.map((blog) => (
                     <ArticleCard
                       key={blog.link}
@@ -182,8 +182,8 @@ const SectionPage = () => {
                       onClick={() => handleBlogClick(blog)}
                     />
                   ))}
-                </div>
-              </div>
+                </article>
+              </section>
               <StickyButton>
                 <IconButton
                   buttonLinkType="internal"
