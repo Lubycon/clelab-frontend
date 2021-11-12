@@ -1,14 +1,8 @@
 import { css } from '@emotion/react'
-import Lottie from 'lottie-web'
-import { useEffect, useRef } from 'react'
 
 import { ClapButton } from './ClapButton'
 
 interface Props {
-  animation: any
-  assetPath?: string
-  count: number
-  width?: string
   blogId: number
 }
 
@@ -26,17 +20,7 @@ const container = css`
   }
 `
 
-function LottieContainer({ animation, assetPath, blogId }: Props) {
-  const ref = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    if (!ref.current) return
-    Lottie.loadAnimation({
-      container: ref.current,
-      animationData: animation,
-      assetsPath: assetPath,
-    })
-  }, [animation, assetPath])
-
+function AnimationItem({ blogId }: Props) {
   return (
     <div css={container}>
       <ClapButton
@@ -48,4 +32,4 @@ function LottieContainer({ animation, assetPath, blogId }: Props) {
   )
 }
 
-export default LottieContainer
+export default AnimationItem

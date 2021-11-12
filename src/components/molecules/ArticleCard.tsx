@@ -5,8 +5,8 @@ import palette from 'lib/styles/palette'
 import { ReactNode, SyntheticEvent, useCallback } from 'react'
 import { getFaviconUrl } from 'utils/favicon'
 
-import animation from '../../lottie/pop.json'
-import LottieContainer from '../atoms/LottieItem'
+import AnimationItem from '../atoms/AnimationItem'
+
 export interface ArticleCardProps {
   title: string
   link: string
@@ -21,7 +21,6 @@ function ArticleCard({
   title,
   link,
   blogId,
-  count,
   onClick,
   writer,
   badge,
@@ -51,12 +50,7 @@ function ArticleCard({
               {writer}
             </Text>
           </div>
-          <LottieContainer
-            blogId={blogId}
-            count={count}
-            animation={animation}
-            width="65%"
-          />
+          <AnimationItem blogId={blogId} />
         </div>
       </div>
     </>

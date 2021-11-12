@@ -3,7 +3,6 @@ import { FC, useCallback, useRef, useState } from 'react'
 
 import { ClapButtonTemplateComponentProps } from '../..'
 import { ClapEmpty } from './icons/ClapEmpty'
-import { ClapFull } from './icons/ClapFull'
 import { style } from './style'
 
 export const Medium: FC<ClapButtonTemplateComponentProps> = ({
@@ -65,7 +64,7 @@ export const Medium: FC<ClapButtonTemplateComponentProps> = ({
   )
 
   /** TODO 추후 더이상 clab 방지 */
-  const Icon = userClaps && userClaps > 0 ? ClapEmpty : ClapFull
+  const Icon = ClapEmpty //userClaps && userClaps > 0 ? ClapEmpty : ClapFull
 
   return (
     <div css={style.root}>
