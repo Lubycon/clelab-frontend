@@ -11,8 +11,8 @@ export interface StatisticsProps {
 function Statistics({ statistics }: StatisticsProps) {
   return (
     <div css={wrapper}>
-      {statistics.map((item) => (
-        <div css={contentWrapper}>
+      {statistics.map((item, index) => (
+        <div key={`${item.title}-${index}`} css={contentWrapper}>
           <Text css={statisticTitle}>{item.title}</Text>
           <Text as="p" css={statisticDescription}>
             {item.description}

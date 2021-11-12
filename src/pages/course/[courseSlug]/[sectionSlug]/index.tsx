@@ -167,8 +167,10 @@ const SectionPage = () => {
                   {sectionDetail.blogs.map((blog) => (
                     <ArticleCard
                       key={blog.link}
+                      blogId={blog.id}
                       link={blog.link}
                       title={blog.title}
+                      count={blog.clapCount}
                       writer={blog.writer}
                       badge={
                         blog.clelabPick ? (

@@ -28,7 +28,9 @@ export interface Blog {
   title: string
   link: string
   writer?: string
+  clapCount: number
   clelabPick: boolean
+  id: number
 }
 
 export interface Section {
