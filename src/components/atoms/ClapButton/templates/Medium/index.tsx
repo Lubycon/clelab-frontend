@@ -1,8 +1,8 @@
 import { css, keyframes } from '@emotion/react'
+import Icon from 'components/atoms/Icon'
 import { FC, useCallback, useRef, useState } from 'react'
 
 import { ClapButtonTemplateComponentProps } from '../..'
-import { ClapEmpty } from './icons/ClapEmpty'
 import { style } from './style'
 
 export const Medium: FC<ClapButtonTemplateComponentProps> = ({
@@ -63,7 +63,7 @@ export const Medium: FC<ClapButtonTemplateComponentProps> = ({
   )
 
   /** TODO 추후 더이상 clab 방지 */
-  const Icon = ClapEmpty //userClaps && userClaps > 0 ? ClapEmpty : ClapFull
+  //userClaps && userClaps > 0 ? ClapEmpty : ClapFull
 
   return (
     <div css={style.root}>
@@ -79,7 +79,7 @@ export const Medium: FC<ClapButtonTemplateComponentProps> = ({
         <button onClick={handleClick} css={style.button} disabled={!isLoading}>
           <div css={style.centeredContainer}>{triangles}</div>
           <div css={style.centeredContainer}>{circles}</div>
-          <Icon css={iconStyle} />
+          <Icon css={iconStyle} name="applaud_off" />
         </button>
       </div>
 
@@ -90,7 +90,7 @@ export const Medium: FC<ClapButtonTemplateComponentProps> = ({
 
 const baloonFade = keyframes`
   0% {
-    opacity: 0.5;
+    opacity: 1;
     transform: translateY(-2.6em);
   }
   72% {
@@ -131,8 +131,9 @@ const iconScale = keyframes`
 `
 
 const iconStyle = css`
-  height: 2em;
   fill: black;
+  outline: none;
+  border: none;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   &:active {
     animation: ${iconScale} ${500}ms ease forwards;
@@ -146,9 +147,9 @@ const baloonStyle = (animationActive: boolean) => css`
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #6634f8;
+  border-radius: 8px;
   color: white;
-  background-color: #292929;
-  border-radius: 100%;
   font-size: 0.7em;
   height: 2.4em;
   width: 2.4em;
