@@ -284,5 +284,44 @@
         <loc>https://clelab.io/course/typescript-usage/typescript-react-redux-사용하기</loc>
         <lastmod>2021-10-17</lastmod>
     </url>
-
+    <url>
+        <loc>https://clelab.io/course/performance-optimization</loc>
+        <lastmod>2021-11-11</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/performance-optimization/프론트엔드-최적화</loc>
+        <lastmod>2021-11-11</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/performance-optimization/웹-페이지-로딩-최적화</loc>
+        <lastmod>2021-11-11</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/performance-optimization/웹-페이지-렌더링-최적화</loc>
+        <lastmod>2021-11-11</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/performance-optimization/react-최적화</loc>
+        <lastmod>2021-11-11</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/next-js-basic</loc>
+        <lastmod>2021-11-11</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/next-js-basic/spa-ssr-csr-차이점</loc>
+        <lastmod>2021-11-11</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/next-js-basic/next-js-란</loc>
+        <lastmod>2021-11-11</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/next-js-basic/data-fetching</loc>
+        <lastmod>2021-11-11</lastmod>
+    </url>
+    <url>
+        <loc>https://clelab.io/course/next-js-basic/nextjs-api</loc>
+        <lastmod>2021-11-11</lastmod>
+    </url>
 </urlset>

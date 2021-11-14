@@ -22,10 +22,7 @@ function SidebarItem({ sectionItem, onClick }: SidebarItemProps) {
       onClick={() => onClick?.(sectionItem)}
     >
       <Link href={`/course/${courseSlug}/${urlSlug}`}>
-        <Text
-          css={animationStyle}
-          style={{ cursor: 'pointer', fontWeight: 'bold' }}
-        >
+        <Text style={{ cursor: 'pointer', fontWeight: 'bold' }}>
           {order}. {title}
         </Text>
       </Link>
@@ -46,11 +43,4 @@ const linkStyle = (active: boolean) => css`
     color: ${palette.brandColor};
   `}
 `
-
-const animationStyle = css`
-  &:hover {
-    transform: scale(1.05);
-  }
-`
-
 export default SidebarItem
