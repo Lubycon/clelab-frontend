@@ -1,16 +1,16 @@
 import { css } from '@emotion/react'
 import { logger } from '@lubycon/logger'
 import { useBindInput, useWindowSize } from '@lubycon/react'
-import Button from 'components/atoms/Button'
-import Icon from 'components/atoms/Icon'
-import Input from 'components/atoms/Input'
-import Text from 'components/atoms/Text'
+import Button from 'components/common/Button'
+import Icon from 'components/common/Icon'
+import Input from 'components/common/Input'
+import Text from 'components/common/Text'
 import { subscribeEmail } from 'hooks/api/useSubscribe'
 import media, { mediaQuery } from 'lib/styles/media'
 import palette from 'lib/styles/palette'
 import React, { useCallback, useEffect, useState } from 'react'
 
-function MainFooter() {
+function Footer() {
   const {
     bind: { value: email, onChange: onChangeEmail },
   } = useBindInput({ initialValue: '' })
@@ -252,4 +252,4 @@ const copyright = css`
     flex-direction: column;
   }
 `
-export default MainFooter
+export default Footer

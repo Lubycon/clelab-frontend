@@ -1,7 +1,8 @@
 import { css } from '@emotion/react'
-import CourseCard from 'components/molecules/CourseCard'
 import { Course } from 'hooks/api/useGetCoruse'
 import { mediaQuery } from 'lib/styles/media'
+
+import CourseCard from './'
 
 export interface CourseListProps {
   course: Course[]

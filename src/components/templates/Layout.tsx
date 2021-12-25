@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import Header from 'components/atoms/Header'
+import Header from 'components/common/Header'
 import media from 'lib/styles/media'
 import { PropsWithChildren } from 'react'
 

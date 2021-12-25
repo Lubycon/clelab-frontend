@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import Button, { ButtonProps } from 'components/atoms/Button'
+import Button, { ButtonProps } from 'components/common/Button'
 import { useRouter } from 'next/dist/client/router'
 import { MouseEvent, ReactNode, useCallback } from 'react'
 export type ButtonVariant = 'primary'
