@@ -1,12 +1,12 @@
 import { css } from '@emotion/react'
-import Icon from 'components/atoms/Icon'
-import MainLogo from 'components/atoms/MainLogo'
-import Text from 'components/atoms/Text'
+import Icon from 'components/common/Icon'
+import MainLogo from 'components/common/MainLogo'
+import Text from 'components/common/Text'
 import { SectionList } from 'hooks/api/useGetSections'
 import { useToggle } from 'hooks/useToggle'
 import palette from 'lib/styles/palette'
 
-import Sidebar from './Sidebar'
+import Sidebar from '../Sidebar'
 
 export interface MobileHeaderProps {
   courseName: string

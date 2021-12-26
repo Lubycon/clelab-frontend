@@ -1,16 +1,17 @@
 import { css } from '@emotion/react'
-import CompanyItem from 'components/atoms/CompanyItem'
-import Icon from 'components/atoms/Icon'
-import Text from 'components/atoms/Text'
+import Icon from 'components/common/Icon'
+import Text from 'components/common/Text'
 import { MajorCompany } from 'hooks/api/useGetSections'
 import media from 'lib/styles/media'
 import palette from 'lib/styles/palette'
 
-interface MajorCompanyProps {
+import CompanyItem from './CompanyItem'
+
+interface MajorCompanysProps {
   majorCompany: MajorCompany
 }
 
-function MajorCompanyList({ majorCompany }: MajorCompanyProps) {
+function MajorCompanys({ majorCompany }: MajorCompanysProps) {
   const { title, companies } = majorCompany
 
   return (
@@ -84,4 +85,4 @@ const activeSkillStyle = (isActive?: boolean) => css`
     margin-right: 8px;
   }
 `
-export default MajorCompanyList
+export default MajorCompanys

@@ -1,11 +1,11 @@
 import { css } from '@emotion/react'
-import Text from 'components/atoms/Text'
+import Text from 'components/common/Text'
 import { mediaQuery } from 'lib/styles/media'
 import palette from 'lib/styles/palette'
 import { ReactNode, SyntheticEvent, useCallback } from 'react'
 import { getFaviconUrl } from 'utils/favicon'
 
-import AnimationItem from '../atoms/AnimationItem'
+import AnimationItem from '../common/AnimationItem'
 
 export interface ArticleCardProps {
   title: string

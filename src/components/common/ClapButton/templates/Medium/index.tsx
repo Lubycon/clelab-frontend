@@ -1,5 +1,5 @@
 import { css, keyframes } from '@emotion/react'
-import Icon from 'components/atoms/Icon'
+import Icon from 'components/common/Icon'
 import { FC, useCallback, useRef, useState } from 'react'
 
 import { ClapButtonTemplateComponentProps } from '../..'

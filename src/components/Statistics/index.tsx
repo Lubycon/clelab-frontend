@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import Text from 'components/atoms/Text'
+import Text from 'components/common/Text'
 import { Statistic } from 'hooks/api/useGetSections'
 
 import palette from '../../lib/styles/palette'
