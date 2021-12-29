@@ -1,5 +1,6 @@
 import { logger } from '@lubycon/logger'
 import { useWindowSize } from '@lubycon/react'
+import MetaSeo from 'components/MetaSeo'
 import MobileSectionHeader from 'components/MobileSectionHeader'
 import Sidebar from 'components/Sidebar'
 import IntroSection from 'components/templates/IntroSection'
@@ -62,6 +63,12 @@ const CoursePage = () => {
     brand: 'clelab.io',
   }
 
+  const openGraph = {
+    title: data.curriculum.title,
+    description: data.intro.description.summary,
+    image: data.thumbnail,
+  }
+
   return (
     <>
       <Head>
@@ -69,7 +76,7 @@ const CoursePage = () => {
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <meta name="keywords" content={data.curriculum.title} />
         <meta name="description" content={data.intro.description.summary} />
-        <meta
+        {/* <meta
           property="og:title"
           content={`clelab - ${data.curriculum.title}`}
         />
@@ -77,7 +84,8 @@ const CoursePage = () => {
           property="og:description"
           content={data.intro.description.summary}
         />
-        <meta property="og:image" content={data.thumbnail} />
+        <meta property="og:image" content={data.thumbnail} /> */}
+        <MetaSeo openGraph={openGraph} />
       </Head>
       {mobile && (
         <MobileSectionHeader
@@ -108,5 +116,4 @@ const CoursePage = () => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   return courseRedirectUrl(context)
 }
-
 export default CoursePage

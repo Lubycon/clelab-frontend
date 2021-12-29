@@ -1,6 +1,7 @@
 import { logger } from '@lubycon/logger'
 import * as Sentry from '@sentry/react'
 import { Integrations } from '@sentry/tracing'
+import NextSeo from 'components/MetaSeo'
 import { isProduction } from 'constants/env'
 import { firebaseConfig } from 'constants/firebase'
 import { GlobalStyle } from 'GlobalStyles'
@@ -9,13 +10,11 @@ import Head from 'next/head'
 import { useEffect } from 'react'
 import { SWRConfig } from 'swr'
 import swrConfig from 'utils/swrConfig'
-
 const App = ({ Component, pageProps }: AppProps) => {
   Sentry.init({
     dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
     integrations: [new Integrations.BrowserTracing()],
   })
-
   useEffect(() => {
     logger.init({
       services: {
@@ -37,5 +36,4 @@ const App = ({ Component, pageProps }: AppProps) => {
     </SWRConfig>
   )
 }
-
 export default App

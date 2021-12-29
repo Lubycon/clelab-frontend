@@ -1,3 +1,4 @@
+import MetaSeo from 'components/MetaSeo'
 import Document, {
   DocumentContext,
   Head,
@@ -5,7 +6,6 @@ import Document, {
   Main,
   NextScript,
 } from 'next/document'
-
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx)
@@ -33,12 +33,14 @@ class MyDocument extends Document {
           />
           <link rel="icon" href="/favicon/favicon.ico" />
           <meta httpEquiv="Content-type" content="text/html; charset=utf-8" />
-          <meta property="og:title" content="clelab - 나를 발전시키는 시간 " />
-          <meta
-            property="og:description"
-            content="저희는 구글에 널리 퍼져있는 블로그 글을 수집하여 프론트엔드 코스를 만들어주는 서비스를 운영하고 있는 클랩팀👏이라고 합니다!"
+          <MetaSeo
+            openGraph={{
+              title: 'clelab - 나를 발전시키는 시간',
+              description:
+                '저희는 구글에 널리 퍼져있는 블로그 글을 수집하여 프론트엔드 코스를 만들어주는 서비스를 운영하고 있는 클랩팀👏이라고 합니다!',
+              image: '/clelab_open_graph.png',
+            }}
           />
-          <meta property="og:image" content="/clelab_open_graph.png" />
         </Head>
         <body>
           <Main />

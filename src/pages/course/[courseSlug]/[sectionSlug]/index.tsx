@@ -7,6 +7,7 @@ import Icon from 'components/common/Icon'
 import StickyButton from 'components/common/StickyButton'
 import Text from 'components/common/Text'
 import IconButton from 'components/IconButton'
+import MetaSeo from 'components/MetaSeo'
 import MobileSectionHeader from 'components/MobileSectionHeader'
 import SectionRow from 'components/SectionRow'
 import Sidebar from 'components/Sidebar'
@@ -127,6 +128,11 @@ const SectionPage = () => {
     ],
     brand: 'clelab.io',
   }
+  const openGraph = {
+    title: sectionDetail.title,
+    description: sectionDetail.description,
+    image: sectionDetail.thumbnail,
+  }
 
   return (
     <>
@@ -138,9 +144,7 @@ const SectionPage = () => {
           content={sectionDetail.blogs.map((e) => e.title).join(', ')}
         />
         <meta name="description" content={sectionDetail.description} />
-        <meta property="og:title" content={`clelab - ${sectionDetail.title}`} />
-        <meta property="og:description" content={sectionDetail.description} />
-        <meta property="og:image" content={sectionDetail.thumbnail} />
+        <MetaSeo openGraph={openGraph} />
       </Head>
       {mobile && (
         <MobileSectionHeader
