@@ -1,7 +1,6 @@
 import { logger } from '@lubycon/logger'
 import * as Sentry from '@sentry/react'
 import { Integrations } from '@sentry/tracing'
-import NextSeo from 'components/MetaSeo'
 import { isProduction } from 'constants/env'
 import { firebaseConfig } from 'constants/firebase'
 import { GlobalStyle } from 'GlobalStyles'
