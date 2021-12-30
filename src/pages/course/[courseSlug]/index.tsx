@@ -70,14 +70,16 @@ const CoursePage = () => {
         <meta name="keywords" content={data.curriculum.title} />
         <meta name="description" content={data.intro.description.summary} />
         <meta
+          key="og:title"
           property="og:title"
           content={`clelab - ${data.curriculum.title}`}
         />
         <meta
+          key="og:description"
           property="og:description"
           content={data.intro.description.summary}
         />
-        <meta property="og:image" content={data.thumbnail} />
+        <meta key="og:image" property="og:image" content={data.thumbnail} />
       </Head>
       {mobile && (
         <MobileSectionHeader

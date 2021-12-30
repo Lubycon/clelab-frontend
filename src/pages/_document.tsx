@@ -33,12 +33,21 @@ class MyDocument extends Document {
           />
           <link rel="icon" href="/favicon/favicon.ico" />
           <meta httpEquiv="Content-type" content="text/html; charset=utf-8" />
-          <meta property="og:title" content="clelab - 나를 발전시키는 시간 " />
           <meta
+            key="og:title"
+            property="og:title"
+            content="clelab - 나를 발전시키는 시간 "
+          />
+          <meta
+            key="og:description"
             property="og:description"
             content="저희는 구글에 널리 퍼져있는 블로그 글을 수집하여 프론트엔드 코스를 만들어주는 서비스를 운영하고 있는 클랩팀👏이라고 합니다!"
           />
-          <meta property="og:image" content="/clelab_open_graph.png" />
+          <meta
+            key="og:image"
+            property="og:image"
+            content="/clelab_open_graph.png"
+          />
         </Head>
         <body>
           <Main />
