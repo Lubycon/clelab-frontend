@@ -35,17 +35,17 @@ class MyDocument extends Document {
           <meta httpEquiv="Content-type" content="text/html; charset=utf-8" />
           <meta
             key="og:title"
-            property="og:title"
+            name="og:title"
             content="clelab - 나를 발전시키는 시간 "
           />
           <meta
             key="og:description"
-            property="og:description"
+            name="og:description"
             content="저희는 구글에 널리 퍼져있는 블로그 글을 수집하여 프론트엔드 코스를 만들어주는 서비스를 운영하고 있는 클랩팀👏이라고 합니다!"
           />
           <meta
             key="og:image"
-            property="og:image"
+            name="og:image"
             content="/clelab_open_graph.png"
           />
         </Head>

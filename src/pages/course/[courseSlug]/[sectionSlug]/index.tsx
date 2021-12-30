@@ -140,17 +140,17 @@ const SectionPage = () => {
         <meta name="description" content={sectionDetail.description} />
         <meta
           key="og:title"
-          property="og:title"
+          name="og:title"
           content={`clelab - ${sectionDetail.title}`}
         />
         <meta
           key="og:description"
-          property="og:description"
+          name="og:description"
           content={sectionDetail.description}
         />
         <meta
           key="og:image"
-          property="og:image"
+          name="og:image"
           content={sectionDetail.thumbnail}
         />
       </Head>
