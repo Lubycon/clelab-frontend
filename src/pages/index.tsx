@@ -31,7 +31,7 @@ const IndexPage = () => {
             <ErrorBoundary fallback={<div>...error</div>}>
               <Suspense fallback={<div>...fallback index</div>}>
                 <DynamicCourseList
-                  course={data}
+                  course={data ? data : []}
                   onClickItem={({ urlSlug, title }) =>
                     mainPageLogger.click('click_course', {
                       urlSlug,
