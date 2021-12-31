@@ -6,7 +6,7 @@ import MainFooter from 'components/Footer'
 import Layout from 'components/templates/Layout'
 import LayoutResponsive from 'components/templates/LayoutResponsive'
 import useGetCoruse from 'hooks/api/useGetCoruse'
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 
 const mainPageLogger = logger.getPageLogger('main_page')
 
@@ -20,7 +20,7 @@ const IndexPage = () => {
   if (!data) return null
 
   return (
-    <>
+    <Suspense fallback={<div>...fallback index</div>}>
       <Banner />
       <Header title="Front-end" />
       <LayoutResponsive>
@@ -39,7 +39,7 @@ const IndexPage = () => {
         </Layout>
       </LayoutResponsive>
       <MainFooter />
-    </>
+    </Suspense>
   )
 }
 

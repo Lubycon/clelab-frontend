@@ -6,7 +6,7 @@ import { firebaseConfig } from 'constants/firebase'
 import { GlobalStyle } from 'GlobalStyles'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import { SWRConfig } from 'swr'
 import swrConfig from 'utils/swrConfig'
 
@@ -33,7 +33,9 @@ const App = ({ Component, pageProps }: AppProps) => {
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
       </Head>
       <GlobalStyle />
-      <Component {...pageProps} />
+      <Suspense fallback={<div>...loading _app</div>}>
+        <Component {...pageProps} />
+      </Suspense>
     </SWRConfig>
   )
 }
