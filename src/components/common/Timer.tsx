@@ -26,7 +26,7 @@ function Timer({ intervalTime }: TimerProps) {
 
   return (
     <div css={style}>
-      <Text as="h4" css={{ lineHeight: '33px' }}>
+      <Text as="h4" css={{ lineHeight: '34px' }}>
         <span>{formattedTime[0]}</span>
         <span
           css={{
@@ -57,7 +57,9 @@ const style = css`
   align-items: flex-end;
   color: #6d3df6;
   font-family: Archivo;
+  box-sizing: border-box;
   ${media.medium} {
+    justify-content: flex-end;
     margin-right: 0;
   }
 `
