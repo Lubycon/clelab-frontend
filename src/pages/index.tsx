@@ -29,10 +29,7 @@ const IndexPage = () => {
       <LayoutResponsive>
         <Layout>
           <Layout.Main>
-            <AsyncBoundary
-              suspenseFallback={<div>...loading</div>}
-              errorFallback={<div>...error</div>}
-            >
+            <AsyncBoundary suspenseFallback={<div />} errorFallback={<div />}>
               <DynamicCourseList
                 course={data}
                 onClickItem={({ urlSlug, title }) =>
