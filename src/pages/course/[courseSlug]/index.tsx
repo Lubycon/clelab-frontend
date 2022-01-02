@@ -46,6 +46,11 @@ const CoursePage = () => {
     },
     [courseSlug],
   )
+  const openGraph = {
+    title: data?.curriculum.title,
+    description: data?.intro.description.summary,
+    image: data?.thumbnail,
+  }
 
   if (!data) return null
 

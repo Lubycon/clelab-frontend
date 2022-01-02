@@ -5,14 +5,14 @@ import { mediaQuery } from 'lib/styles/media'
 import CourseCard from './'
 
 export interface CourseListProps {
-  course: Course[]
+  course?: Course[]
   onClickItem?: (course: Course) => void
 }
 
 function CourseList({ course, onClickItem }: CourseListProps) {
   return (
     <div css={blockStyle}>
-      {course.map((item) => (
+      {course?.map((item) => (
         <CourseCard course={item} key={item.id} onClick={onClickItem} />
       ))}
     </div>

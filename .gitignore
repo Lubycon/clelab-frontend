@@ -44,3 +44,6 @@ yarn-error.log*
 
 #robots
 robots.txt
+
+#typescript
+tsconfig.tsbuildinfo
