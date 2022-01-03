@@ -51,7 +51,6 @@ const redirectMap: RedirectMap = {
   '/course/react/make-my-own-component': '/course/react/react-컴포넌트',
   '/course/react/class-component-and-functional-component':
     '/course/react/클래스-컴포넌트-vs-함수형-컴포넌트',
-  '/course/react/javascript-ui': '/course/react/javascript-ui',
   '/course/react/conditional-rendering': '/course/react/react-조건부-렌더링',
   '/course/react/list-and-keys': '/course/react/react-컴포넌트-반복-렌더링',
   '/course/react/handling-events': '/course/react/react-이벤트-핸들링',
