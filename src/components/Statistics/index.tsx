@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import Text from 'components/atoms/Text'
+import Text from 'components/common/Text'
 import { Statistic } from 'hooks/api/useGetSections'
 
 import palette from '../../lib/styles/palette'
@@ -11,8 +11,8 @@ export interface StatisticsProps {
 function Statistics({ statistics }: StatisticsProps) {
   return (
     <div css={wrapper}>
-      {statistics.map((item) => (
-        <div css={contentWrapper}>
+      {statistics.map((item, index) => (
+        <div key={`${item.title}-${index}`} css={contentWrapper}>
           <Text css={statisticTitle}>{item.title}</Text>
           <Text as="p" css={statisticDescription}>
             {item.description}

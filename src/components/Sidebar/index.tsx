@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
-import MainLogo from 'components/atoms/MainLogo'
-import SidebarItem from 'components/atoms/SidebarItem'
-import Text from 'components/atoms/Text'
+import MainLogo from 'components/common/MainLogo'
+import SidebarItem from 'components/common/SidebarItem'
+import Text from 'components/common/Text'
 import { SectionItem, SectionList } from 'hooks/api/useGetSections'
 import media from 'lib/styles/media'
 import palette from 'lib/styles/palette'
@@ -33,14 +33,16 @@ function Sidebar({
 
   return (
     <>
-      <div css={sidebarStyle(isMobile, !router.query.sectionSlug)}>
+      <nav css={sidebarStyle(isMobile, !router.query.sectionSlug)}>
         {!isMobile && (
           <>
             <MainLogo />
             <Text as="p" style={{ fontFamily: 'Archivo', color: '#9696a4' }}>
               COURSE
             </Text>
-            <div css={curriculumNameStyle}>{sectionList.curriculum.title}</div>
+            <Text as="header" css={curriculumNameStyle}>
+              {sectionList.curriculum.title}
+            </Text>
           </>
         )}
         <div
@@ -65,7 +67,7 @@ function Sidebar({
             />
           ))}
         </ul>
-      </div>
+      </nav>
     </>
   )
 }

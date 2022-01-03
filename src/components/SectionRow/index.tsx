@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
-import Text from 'components/atoms/Text'
+import Text from 'components/common/Text'
 import media from 'lib/styles/media'
+import palette from 'lib/styles/palette'
 
 export type SectionRowProps = {
   title: string
@@ -9,10 +10,10 @@ export type SectionRowProps = {
 
 function SectionRow({ title, description }: SectionRowProps) {
   return (
-    <div css={rowStyle}>
-      <div css={titleWrapperStyle}>
-        <Text as="h6">{title}</Text>
-      </div>
+    <article css={rowStyle}>
+      <Text as="header" css={titleWrapperStyle}>
+        {title}
+      </Text>
       {description && (
         <Text
           as="p"
@@ -20,7 +21,7 @@ function SectionRow({ title, description }: SectionRowProps) {
           dangerouslySetInnerHTML={{ __html: description }}
         />
       )}
-    </div>
+    </article>
   )
 }
 
@@ -49,6 +50,11 @@ const descriptionStyle = css`
   text-align: left;
   color: #545454;
   white-space: pre-line;
+
+  a {
+    color: ${palette.brandColor};
+    text-decoration: underline;
+  }
 `
 
 export default SectionRow

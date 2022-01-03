@@ -1,15 +1,15 @@
 import { css } from '@emotion/react'
 import { logger } from '@lubycon/logger'
 import { useWindowSize } from '@lubycon/react'
-import Badge from 'components/atoms/Badge'
-import Icon from 'components/atoms/Icon'
-import Text from 'components/atoms/Text'
-import ArticleCard from 'components/molecules/ArticleCard'
-import IconButton from 'components/molecules/IconButton'
-import SectionRow from 'components/molecules/SectionRow'
-import StickyButton from 'components/molecules/StickyButton'
-import MobileSectionHeader from 'components/organisms/MobileSectionHeader'
-import Sidebar from 'components/organisms/Sidebar'
+import ArticleCard from 'components/ArticleCard'
+import Badge from 'components/common/Badge'
+import Icon from 'components/common/Icon'
+import StickyButton from 'components/common/StickyButton'
+import Text from 'components/common/Text'
+import IconButton from 'components/IconButton'
+import MobileSectionHeader from 'components/MobileSectionHeader'
+import SectionRow from 'components/SectionRow'
+import Sidebar from 'components/Sidebar'
 import Layout from 'components/templates/Layout'
 import LayoutResponsive from 'components/templates/LayoutResponsive'
 import useSectionDetail, { Blog, Section } from 'hooks/api/useGetSectionDetail'
@@ -138,6 +138,9 @@ const SectionPage = () => {
           content={sectionDetail.blogs.map((e) => e.title).join(', ')}
         />
         <meta name="description" content={sectionDetail.description} />
+        <meta property="og:title" content={`clelab - ${sectionDetail.title}`} />
+        <meta property="og:description" content={sectionDetail.description} />
+        <meta property="og:image" content={sectionDetail.thumbnail} />
       </Head>
       {mobile && (
         <MobileSectionHeader
@@ -155,17 +158,19 @@ const SectionPage = () => {
           </Layout.Side>
           <Layout.Main>
             <>
-              <div css={containerStyle}>
+              <section css={containerStyle}>
                 <SectionRow
                   title={sectionDetail.title}
                   description={sectionDetail.description}
                 />
-                <div css={blogListStyle}>
+                <article css={blogListStyle}>
                   {sectionDetail.blogs.map((blog) => (
                     <ArticleCard
                       key={blog.link}
+                      blogId={blog.id}
                       link={blog.link}
                       title={blog.title}
+                      count={blog.clapCount}
                       writer={blog.writer}
                       badge={
                         blog.clelabPick ? (
@@ -179,8 +184,8 @@ const SectionPage = () => {
                       onClick={() => handleBlogClick(blog)}
                     />
                   ))}
-                </div>
-              </div>
+                </article>
+              </section>
               <StickyButton>
                 <IconButton
                   buttonLinkType="internal"

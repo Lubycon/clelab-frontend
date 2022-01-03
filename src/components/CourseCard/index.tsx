@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
-import ImageSection from 'components/atoms/ImageSection'
-import Text from 'components/atoms/Text'
+import ImageSection from 'components/common/ImageSection'
+import Text from 'components/common/Text'
 import { Course } from 'hooks/api/useGetCoruse'
 import { mediaQuery } from 'lib/styles/media'
 import palette from 'lib/styles/palette'

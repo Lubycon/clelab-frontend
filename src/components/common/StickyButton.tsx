@@ -23,6 +23,7 @@ const stickyStyle = css`
     position: fixed;
     padding: 24px;
     box-sizing: border-box;
+    z-index: 999;
   }
   right: 0;
   left: 0;

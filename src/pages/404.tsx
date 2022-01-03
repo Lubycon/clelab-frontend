@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
-import Button from 'components/atoms/Button'
-import Text from 'components/atoms/Text'
+import Button from 'components/common/Button'
+import Text from 'components/common/Text'
 import palette from 'lib/styles/palette'
 import { useRouter } from 'next/router'
 

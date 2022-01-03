@@ -11,7 +11,9 @@ function Banner() {
     <div css={style}>
       <LayoutResponsive>
         <div css={containerStyle}>
-          <div css={logoStyle}>Clelab</div>
+          <div css={logoStyle}>
+            <img src="/images/logo.svg" alt="" />
+          </div>
           <div css={contentStyle}>
             <Timer intervalTime={500} />
             <Text css={contentDescriptionStyle}>나를 발전시키는 시간</Text>
@@ -24,9 +26,9 @@ function Banner() {
 
 const style = css`
   background: #e6e7ec;
-  padding: 51px 0 54px 0;
+  padding: 16px 0 54px 0;
   ${media.medium} {
-    padding-bottom: 38px;
+    padding-bottom: 26px;
   }
 `
 const containerStyle = css`
@@ -39,7 +41,7 @@ const containerStyle = css`
 
 const logoStyle = css`
   flex: 1;
-  opacity: 0.7;
+  height: 34px;
 `
 
 const contentStyle = css`
@@ -49,8 +51,9 @@ const contentStyle = css`
   display: flex;
   align-items: center;
   ${media.medium} {
-    padding-top: 1rem;
-    justify-content: center;
+    padding-top: 0px;
+    display: grid;
+    justify-content: flex-end;
     flex-direction: column;
   }
 `
@@ -58,9 +61,9 @@ const contentStyle = css`
 const contentDescriptionStyle = css`
   font-size: 24px;
   line-height: 26px;
-  margin-top: 9px;
   margin-left: 50px;
   ${media.medium} {
+    justify-content: center;
     margin-left: 0;
   }
 `

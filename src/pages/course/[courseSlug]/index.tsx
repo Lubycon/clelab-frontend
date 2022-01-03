@@ -1,7 +1,7 @@
 import { logger } from '@lubycon/logger'
 import { useWindowSize } from '@lubycon/react'
-import MobileSectionHeader from 'components/organisms/MobileSectionHeader'
-import Sidebar from 'components/organisms/Sidebar'
+import MobileSectionHeader from 'components/MobileSectionHeader'
+import Sidebar from 'components/Sidebar'
 import IntroSection from 'components/templates/IntroSection'
 import Layout from 'components/templates/Layout'
 import LayoutResponsive from 'components/templates/LayoutResponsive'
@@ -69,6 +69,15 @@ const CoursePage = () => {
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <meta name="keywords" content={data.curriculum.title} />
         <meta name="description" content={data.intro.description.summary} />
+        <meta
+          property="og:title"
+          content={`clelab - ${data.curriculum.title}`}
+        />
+        <meta
+          property="og:description"
+          content={data.intro.description.summary}
+        />
+        <meta property="og:image" content={data.thumbnail} />
       </Head>
       {mobile && (
         <MobileSectionHeader
