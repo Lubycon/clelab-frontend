@@ -9,12 +9,12 @@ import dynamic from 'next/dynamic'
 import { useEffect } from 'react'
 
 const DynamicCourseList = dynamic(
-  () => import('components/CourseCard/CourseList'), {suspense: true}
+  () => import('components/CourseCard/CourseList'),
+  { suspense: true },
 )
 const mainPageLogger = logger.getPageLogger('main_page')
 
 const IndexPage = () => {
-
   useEffect(() => {
     mainPageLogger.view()
   }, [])

@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import useGetCourse, { Course } from 'hooks/api/useGetCoruse'
-import { fetcher } from 'lib/api/fetch';
+import { fetcher } from 'lib/api/fetch'
 import { mediaQuery } from 'lib/styles/media'
 
 import CourseCard from './'
@@ -9,9 +9,8 @@ export interface CourseListProps {
   onClickItem?: (course: Course) => void
 }
 
-function CourseList({onClickItem}: CourseListProps) {
-  const { data } = useGetCourse();
-
+function CourseList({ onClickItem }: CourseListProps) {
+  const { data } = useGetCourse()
 
   return (
     <div css={blockStyle}>
@@ -44,4 +43,3 @@ export async function getServerSidProps() {
 }
 
 export default CourseList
-
