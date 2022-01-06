@@ -5,18 +5,15 @@ import Header from 'components/common/Header'
 import MainFooter from 'components/Footer'
 import Layout from 'components/templates/Layout'
 import LayoutResponsive from 'components/templates/LayoutResponsive'
-import useGetCoruse from 'hooks/api/useGetCoruse'
-import { fetcher } from 'lib/api/fetch'
 import dynamic from 'next/dynamic'
 import { useEffect } from 'react'
 
 const DynamicCourseList = dynamic(
-  () => import('components/CourseCard/CourseList'),
+  () => import('components/CourseCard/CourseList'), {suspense: true}
 )
 const mainPageLogger = logger.getPageLogger('main_page')
 
 const IndexPage = () => {
-  const { data } = useGetCoruse()
 
   useEffect(() => {
     mainPageLogger.view()
@@ -31,7 +28,6 @@ const IndexPage = () => {
           <Layout.Main>
             <AsyncBoundary suspenseFallback={<div />} errorFallback={<div />}>
               <DynamicCourseList
-                course={data}
                 onClickItem={({ urlSlug, title }) =>
                   mainPageLogger.click('click_course', {
                     urlSlug,
@@ -48,15 +44,4 @@ const IndexPage = () => {
   )
 }
 
-export async function getServerSidProps() {
-  const data = await fetcher('curriculums')
-
-  return {
-    props: {
-      fallback: {
-        '/curriculums': data,
-      },
-    },
-  }
-}
 export default IndexPage

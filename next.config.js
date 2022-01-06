@@ -10,7 +10,6 @@ module.exports = {
     return config
   },
   experimental: {
-    // concurrentFeatures: true,
-    reactMode: 'concurrent',
+    concurrentFeatures: true,
   },
 }
