@@ -40,6 +40,11 @@ export const buttonColorMap: {
     color: solid.dark,
     hoverBackground: solid.secondary,
   },
+  brandColor: {
+    background: brandColor,
+    color: 'white',
+    hoverBackground: solid.storke,
+  },
 }
 
 export default { black, white, bg, solid, brandColor }

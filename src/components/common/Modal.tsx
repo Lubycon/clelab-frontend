@@ -24,7 +24,7 @@ const modalContainer = css`
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 12px;
-  padding: 32px 24px;
+  padding: 24px 24px;
 `
 
 const modalVariant = {
