@@ -13,20 +13,17 @@ export function flex({
 }: FlexOptions = {}) {
   return css`
     display: flex;
-    ${justifyContent != null
-      ? css`
-          justify-content: ${justifyContent};
-        `
-      : undefined}
-    ${alignItems != null
-      ? css`
-          align-items: ${alignItems};
-        `
-      : undefined}
-   ${flexDirection != null
-      ? css`
-          flex-direction: ${flexDirection};
-        `
-      : undefined}
+    ${justifyContent &&
+    css`
+      justify-content: ${justifyContent};
+    `}
+    ${alignItems &&
+    css`
+      align-items: ${alignItems};
+    `}
+   ${flexDirection &&
+    css`
+      flex-direction: ${flexDirection};
+    `}
   `
 }
