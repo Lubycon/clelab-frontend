@@ -29,6 +29,11 @@ function QRModal({ isOpen, onClose }: Props) {
     })
   }, [setQrcode, url])
 
+  const handleMobileToss = () => {
+    window.open(url)
+    onClose()
+  }
+
   return (
     <Modal isOpen={isOpen}>
       <div
@@ -49,7 +54,7 @@ function QRModal({ isOpen, onClose }: Props) {
             <Button
               size="large"
               variant="brandColor"
-              onClick={onClose}
+              onClick={handleMobileToss}
               style={{ width: '210px' }}
             >
               토스로 후원하기👏
