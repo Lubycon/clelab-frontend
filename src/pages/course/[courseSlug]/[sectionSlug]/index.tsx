@@ -138,9 +138,21 @@ const SectionPage = () => {
           content={sectionDetail.blogs.map((e) => e.title).join(', ')}
         />
         <meta name="description" content={sectionDetail.description} />
-        <meta property="og:title" content={`clelab - ${sectionDetail.title}`} />
-        <meta property="og:description" content={sectionDetail.description} />
-        <meta property="og:image" content={sectionDetail.thumbnail} />
+        <meta
+          key="og:title"
+          name="og:title"
+          content={`clelab - ${sectionDetail.title}`}
+        />
+        <meta
+          key="og:description"
+          name="og:description"
+          content={sectionDetail.description}
+        />
+        <meta
+          key="og:image"
+          name="og:image"
+          content={sectionDetail.thumbnail}
+        />
       </Head>
       {mobile && (
         <MobileSectionHeader
