@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import { logger } from '@lubycon/logger'
 import { useBindInput, useWindowSize } from '@lubycon/react'
+import { setLocalStorageItem } from 'browser-toolkit'
 import Button from 'components/common/Button'
 import Icon from 'components/common/Icon'
 import Input from 'components/common/Input'
@@ -9,7 +10,6 @@ import { subscribeEmail } from 'hooks/api/useSubscribe'
 import media, { mediaQuery } from 'lib/styles/media'
 import palette from 'lib/styles/palette'
 import React, { useCallback, useEffect, useState } from 'react'
-
 function Footer() {
   const {
     bind: { value: email, onChange: onChangeEmail },
@@ -32,10 +32,10 @@ function Footer() {
   const handleSubscribe = useCallback(
     async (email: string) => {
       const data = await subscribeEmail(email)
-
       if (data.email) {
         setSendMail(true)
         handleSubscribeSuccess()
+        setLocalStorageItem('email', email)
       }
       if (data?.message) {
         setErrorMsg(data.message)

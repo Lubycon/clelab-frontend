@@ -1548,13 +1548,23 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.1.1.tgz#9daf5745156fd84b8e9889a2dc721f0c58e894aa"
   integrity sha512-CAEbWH7OIur6jEOzaai83jq3FmKmv4PmX1JYfs9IrYcGEVI/lyL1EXJGCj7eFVJ0bg5QR8LMxBlEtA+xKiLpFw==
 
-"@lubycon/logger@1.8.16", "@lubycon/logger@^1.8.16":
+"@lubycon/logger@1.8.16":
   version "1.8.16"
   resolved "https://registry.yarnpkg.com/@lubycon/logger/-/logger-1.8.16.tgz#a3b002b58d8cf2cd6876b23531120ae80e354053"
   integrity sha512-C54z41jw6OuDcBN0FXOQr4xbtZIJymGv5X5Z94JobKoB5Cioa3AyIMxKkarHqYh3YHHVwhQpCVUGB1cxxfqRWg==
   dependencies:
     amplitude-js "^8.3.1"
     firebase "^8.8.1"
+
+"@lubycon/logger@^1.11.0":
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/@lubycon/logger/-/logger-1.11.0.tgz#633e1625a2c2411b1a461d3380e9ed149790e920"
+  integrity sha512-7yCq+jcAb/Sb8T9czJJvg3LDv0NfMZ9YqODqNay60pYM8cPJEqlrq+gJGIzw9KtGubzDDqAwV5aCTN0fF0vF1Q==
+  dependencies:
+    amplitude-js "^8.3.1"
+    browser-toolkit "1.0.17"
+    firebase "^8.8.1"
+    temen "1.28.0"
 
 "@lubycon/react@^1.16.3":
   version "1.16.3"
@@ -2403,6 +2413,15 @@ brorand@^1.0.1, brorand@^1.1.0:
   resolved "https://registry.yarnpkg.com/brorand/-/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"
   integrity sha1-EsJe/kCkXjwyPrhnWgoM5XsiNx8=
 
+browser-toolkit@^1.0.17:
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/browser-toolkit/-/browser-toolkit-1.0.17.tgz#7655bd287894a05567fbe7968aeda8331b1bafca"
+  integrity sha512-vS4czT5zTu4n3JfWTB8kPgxKid6zcA/svlGayKmjTTTIKnRINNNPSAbnsVmF6of7n49f6daGHFoGqk6xFNRijw==
+  dependencies:
+    cross-fetch "^3.1.4"
+    date-fns "^2.22.1"
+    temen "1.28.0"
+
 browserify-aes@^1.0.0, browserify-aes@^1.0.4:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/browserify-aes/-/browserify-aes-1.2.0.tgz#326734642f403dabc3003209853bb70ad428ef48"
@@ -2864,6 +2883,13 @@ create-hmac@^1.1.0, create-hmac@^1.1.4, create-hmac@^1.1.7:
     ripemd160 "^2.0.0"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
+
+cross-fetch@^3.1.4:
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.1.4.tgz#9723f3a3a247bf8b89039f3a380a9244e8fa2f39"
+  integrity sha512-1eAtFWdIubi6T4XPy6ei9iUFoKpUkIF971QLN8lIvvvwueI65+Nw5haMNKUwfJxabqlIIDODJKGrQ66gxC0PbQ==
+  dependencies:
+    node-fetch "2.6.1"
 
 cross-spawn@^7.0.2:
   version "7.0.3"
@@ -6399,6 +6425,14 @@ table@^6.0.4:
     lodash.truncate "^4.4.2"
     slice-ansi "^4.0.0"
     string-width "^4.2.0"
+
+temen@1.28.0, temen@^1.28.0:
+  version "1.28.0"
+  resolved "https://registry.yarnpkg.com/temen/-/temen-1.28.0.tgz#ddc718166ec3556d308e097fb8b927c4137a8efd"
+  integrity sha512-1IVAX988mbTLML7h23ONdw5CxE4u/LD9yYPuGxCoQRIFFwFFP1jdG5y6lpkF8OWTgZRiW4G9vE9OkBqc4+krDQ==
+  dependencies:
+    cross-fetch "^3.1.4"
+    date-fns "^2.22.1"
 
 text-table@^0.2.0:
   version "0.2.0"

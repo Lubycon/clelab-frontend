@@ -1,26 +1,40 @@
 import { logger } from '@lubycon/logger'
 import * as Sentry from '@sentry/react'
 import { Integrations } from '@sentry/tracing'
+import { getLocalStorageItem, setLocalStorageItem } from 'browser-toolkit'
 import { isProduction } from 'constants/env'
 import { firebaseConfig } from 'constants/firebase'
 import { GlobalStyle } from 'GlobalStyles'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { SWRConfig } from 'swr'
+import { isNil } from 'temen'
 import swrConfig from 'utils/swrConfig'
 
 const App = ({ Component, pageProps }: AppProps) => {
+  const router = useRouter()
   Sentry.init({
     dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
     integrations: [new Integrations.BrowserTracing()],
   })
 
   useEffect(() => {
+    const email = router.asPath.match(new RegExp(`[&?]${'email'}=(.*?)(&|$)`))
+
+    if (!isNil(email)) {
+      setLocalStorageItem('email', email[1])
+    }
+
+    const amplitudeConfig = {
+      apiKey: process.env.NEXT_PUBLIC_AMPLITUDE_KEY ?? '',
+      userId: getLocalStorageItem('email') ?? 'unknown',
+    }
     logger.init({
       services: {
         firebase: firebaseConfig,
-        amplitude: process.env.NEXT_PUBLIC_AMPLITUDE_KEY ?? '',
+        amplitude: amplitudeConfig,
       },
       mode: isProduction ? 'production' : 'development',
     })
@@ -37,5 +51,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     </SWRConfig>
   )
 }
-
+export async function getStaticProps(context: any) {
+  console.log(context)
+}
 export default App
