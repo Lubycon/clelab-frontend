@@ -13,6 +13,10 @@ import { SWRConfig } from 'swr'
 import { isNil } from 'temen'
 import swrConfig from 'utils/swrConfig'
 
+interface IAmplitudeConfig {
+  apiKey: string
+  userId: string
+}
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
   Sentry.init({
@@ -30,7 +34,8 @@ const App = ({ Component, pageProps }: AppProps) => {
     const amplitudeConfig = {
       apiKey: process.env.NEXT_PUBLIC_AMPLITUDE_KEY ?? '',
       userId: getLocalStorageItem('email') ?? 'unknown',
-    }
+    } as IAmplitudeConfig
+
     logger.init({
       services: {
         firebase: firebaseConfig,
@@ -38,7 +43,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       },
       mode: isProduction ? 'production' : 'development',
     })
-  }, [])
+  }, [router.asPath])
 
   return (
     <SWRConfig value={swrConfig}>

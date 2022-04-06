@@ -1556,15 +1556,15 @@
     amplitude-js "^8.3.1"
     firebase "^8.8.1"
 
-"@lubycon/logger@^1.11.0":
-  version "1.11.0"
-  resolved "https://registry.yarnpkg.com/@lubycon/logger/-/logger-1.11.0.tgz#633e1625a2c2411b1a461d3380e9ed149790e920"
-  integrity sha512-7yCq+jcAb/Sb8T9czJJvg3LDv0NfMZ9YqODqNay60pYM8cPJEqlrq+gJGIzw9KtGubzDDqAwV5aCTN0fF0vF1Q==
+"@lubycon/logger@^1.11.9":
+  version "1.11.9"
+  resolved "https://registry.yarnpkg.com/@lubycon/logger/-/logger-1.11.9.tgz#eab0177299c273ec61a78090f4cb258afb83f31c"
+  integrity sha512-uyz74NbgQU/3Pa8A3KxjIUmYzN3C2OmtyiDzFVblu23qxbaXV9t96G3n3zC2FJS516oENYk8Y5AgftjHm0kstQ==
   dependencies:
     amplitude-js "^8.3.1"
-    browser-toolkit "1.0.17"
+    browser-toolkit "1.2.6"
     firebase "^8.8.1"
-    temen "1.28.0"
+    temen "1.32.0"
 
 "@lubycon/react@^1.16.3":
   version "1.16.3"
@@ -2421,6 +2421,15 @@ browser-toolkit@^1.0.17:
     cross-fetch "^3.1.4"
     date-fns "^2.22.1"
     temen "1.28.0"
+
+browser-toolkit@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/browser-toolkit/-/browser-toolkit-1.2.6.tgz#50977bc8c0d8810eaf7303299f9131ab9ace5a25"
+  integrity sha512-jl1KoukMb5XucBLRdGM1tO/KWwwvXi5Abx57GFvXO/8zzRzVCaNLoiyOukjDde+xkBskDpWqqsNVsB3IWe9pWQ==
+  dependencies:
+    cross-fetch "^3.1.4"
+    date-fns "^2.22.1"
+    temen "1.32.0"
 
 browserify-aes@^1.0.0, browserify-aes@^1.0.4:
   version "1.2.0"
@@ -6430,6 +6439,14 @@ temen@1.28.0, temen@^1.28.0:
   version "1.28.0"
   resolved "https://registry.yarnpkg.com/temen/-/temen-1.28.0.tgz#ddc718166ec3556d308e097fb8b927c4137a8efd"
   integrity sha512-1IVAX988mbTLML7h23ONdw5CxE4u/LD9yYPuGxCoQRIFFwFFP1jdG5y6lpkF8OWTgZRiW4G9vE9OkBqc4+krDQ==
+  dependencies:
+    cross-fetch "^3.1.4"
+    date-fns "^2.22.1"
+
+temen@^1.32.0:
+  version "1.32.0"
+  resolved "https://registry.yarnpkg.com/temen/-/temen-1.32.0.tgz#26211a4a62250a342f0c6dd9599cfc9aacc3ed8b"
+  integrity sha512-B4X63IeajpnbgQ0JWc9xSi1xVvCwHXuPz0XQOqdOUafxLBLf5eQbnqy9oQ3u1OAOolq7Ls6XX7SMWnK8ZiSdSg==
   dependencies:
     cross-fetch "^3.1.4"
     date-fns "^2.22.1"
